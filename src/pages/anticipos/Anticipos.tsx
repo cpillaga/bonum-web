@@ -24,7 +24,7 @@ const solicitudesData = [
         idSolicitud: "#124",
         nombre: "Alexander Gray",
         sueldo: 550,
-        antiguedad: "20 Dec 2020",
+        antiguedad: "20/Dic/2020",
         montoSolicitado: 200.0,
         plazo: "6 meses",
         estado: true,
@@ -33,7 +33,7 @@ const solicitudesData = [
         idSolicitud: "#125",
         nombre: "James Taylor",
         sueldo: 650,
-        antiguedad: "27 Dec 2020",
+        antiguedad: "27/Dic/2020",
         montoSolicitado: 200.0,
         plazo: "1 mes",
         estado: false,
@@ -42,7 +42,7 @@ const solicitudesData = [
         idSolicitud: "#126",
         nombre: "Grace Roberts",
         sueldo: 750,
-        antiguedad: "31 Dec 2020",
+        antiguedad: "31/Dic/2020",
         montoSolicitado: 100.0,
         plazo: "3 meses",
         estado: true,
@@ -51,7 +51,7 @@ const solicitudesData = [
         idSolicitud: "#127",
         nombre: "Donna Rogers",
         sueldo: 450,
-        antiguedad: "03 Jan 2021",
+        antiguedad: "03/Ene/2021",
         montoSolicitado: 150.0,
         plazo: "6 meses",
         estado: true,
@@ -60,7 +60,7 @@ const solicitudesData = [
         idSolicitud: "#128",
         nombre: "Amy Diaz",
         sueldo: 450,
-        antiguedad: "14 Jan 2020",
+        antiguedad: "14/Jan/2020",
         montoSolicitado: 100.0,
         plazo: "2 meses",
         estado: true,
@@ -69,7 +69,7 @@ const solicitudesData = [
         idSolicitud: "#129",
         nombre: "Nia Hillyer",
         sueldo: 650,
-        antiguedad: "20 Jan 2021",
+        antiguedad: "20/Jan/2021",
         montoSolicitado: 100.0,
         plazo: "1 mes",
         estado: false,
@@ -78,7 +78,7 @@ const solicitudesData = [
         idSolicitud: "#130",
         nombre: "Mary McDonald",
         sueldo: 900,
-        antiguedad: "25 Jan 2021",
+        antiguedad: "25/Jan/2021",
         montoSolicitado: 500.0,
         plazo: "1 mes",
         estado: false,
@@ -242,6 +242,7 @@ const Anticipos = () => {
                                 fontStyle: 'normal',
                                 fontWeight: 600,
                                 lineHeight: 'normal',
+                                fontFamily: 'Maven Pro'
                             }}
                         >
                             <p> Todos </p>
@@ -266,11 +267,12 @@ const Anticipos = () => {
                                 fontSize: 14,
                                 fontStyle: 'normal',
                                 fontWeight: 600,
-                                lineHeight: 'normal'
+                                lineHeight: 'normal',
+                                fontFamily: 'Maven Pro'
                             }}
                         >
                             <p>
-                                Aceptadas
+                                Activos
                             </p>
                         </button>
 
@@ -293,7 +295,8 @@ const Anticipos = () => {
                                 fontSize: 14,
                                 fontStyle: 'normal',
                                 fontWeight: 600,
-                                lineHeight: 'normal'
+                                lineHeight: 'normal',
+                                fontFamily: 'Maven Pro'
                             }}
                         >
                             <p
@@ -301,9 +304,42 @@ const Anticipos = () => {
                                     color: 'black'
                                 }}
                             >
-                                Rechazadas
+                                Cerrados
                             </p>
                         </button>
+
+                        <button
+                            style={{
+                                width: '101px',
+                                height: window.screen.height * 0.05,
+                                backgroundColor: 'white',
+                                borderRadius: 5,
+                                border: 'none',
+                                outline: 'none',
+                                color: 'black',
+                                display: 'flex',
+                                flexDirection: 'row',
+                                justifyContent: 'center',
+                                justifyItems: 'center',
+                                alignContent: 'center',
+                                alignItems: 'center',
+                                gap: '0.5vw',
+                                fontSize: 14,
+                                fontStyle: 'normal',
+                                fontWeight: 600,
+                                lineHeight: 'normal',
+                                fontFamily: 'Maven Pro'
+                            }}
+                        >
+                            <p
+                                style={{
+                                    color: 'black'
+                                }}
+                            >
+                                Rechazados
+                            </p>
+                        </button>
+
 
                     </div>
 
@@ -320,86 +356,7 @@ const Anticipos = () => {
                             alignItems: 'flex-end'
                         }}
                     >
-
-                        <div
-                            className="dropdown"
-                            style={{
-                                //backgroundColor: 'orange',
-                                justifySelf: 'center'
-                            }}
-                        >
-                            <Dropdown
-                                placement={`${isRtl ? 'bottom-end' : 'bottom-start'}`}
-                                btnClassName="!flex items-center border font-semibold border-white-light dark:border-[#253b5c] rounded-md px-4 py-1.5 text-sm dark:bg-[#1b2e4b] dark:text-white-dark"
-                                button={
-                                    <div
-                                        style={{
-                                            display: 'flex',
-                                            flexDirection: 'row',
-                                            //backgroundColor: 'green',
-                                        }}
-                                    >
-                                        {/* <span className="ltr:mr-1 rtl:ml-1">Filtros</span> */}
-
-                                        <p
-                                            style={{
-                                                color: '#0E1726',
-                                                fontSize: 13,
-                                                fontStyle: 'normal',
-                                                fontWeight: 600,
-                                                lineHeight: 'normal',
-                                                justifySelf: 'center',
-                                                alignSelf: 'center',
-                                                paddingRight: 5
-                                            }}
-                                        >
-                                            Filtros
-                                        </p>
-                                        <FilterAltOutlinedIcon />
-                                    </div>
-                                }
-                            >
-                                <ul className="!min-w-[140px]">
-                                    {cols.map((col, i) => {
-                                        return (
-                                            <li
-                                                key={i}
-                                                className="flex flex-col"
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                }}
-                                            >
-                                                <div
-                                                    className="flex items-center px-4 py-1"
-                                                    style={{
-                                                        color: '#0E1726',
-                                                        fontSize: 13,
-                                                        fontStyle: 'normal',
-                                                        fontWeight: 600,
-                                                        lineHeight: 'normal',
-                                                    }}
-                                                >
-                                                    <label className="cursor-pointer mb-0">
-                                                        <input
-                                                            type="checkbox"
-                                                            checked={!hideCols.includes(col.accessor)}
-                                                            className="form-checkbox"
-                                                            defaultValue={col.accessor}
-                                                            onChange={(event: any) => {
-                                                                setHideCols(event.target.value);
-                                                                showHideColumns(col.accessor, event.target.checked);
-                                                            }}
-                                                        />
-                                                        <span className="ltr:ml-2 rtl:mr-2">{col.title}</span>
-                                                    </label>
-                                                </div>
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </Dropdown>
-                        </div>
-
+                        
                         <div
                             className="dropdown"
                             style={{
@@ -430,6 +387,7 @@ const Anticipos = () => {
                                                     fontSize: 14,
                                                     fontStyle: 'normal',
                                                     fontWeight: 300,
+                                                    fontFamily: 'Maven Pro',
                                                     lineHeight: 'normal',
                                                     backgroundColor: 'white',
                                                     border: '1px solid #E0E6ED',
@@ -499,6 +457,7 @@ const Anticipos = () => {
                                         fontWeight: 600,
                                         lineHeight: 'normal',
                                         outline: 'none',
+                                        fontFamily: 'Maven Pro'
                                     }}
                                 />
 

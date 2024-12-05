@@ -1,5 +1,5 @@
 import { DataTable, DataTableSortStatus } from 'mantine-datatable';
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import IconSearch from "../../../components/Icon/IconSearch";
 import IconXCircle from "../../../components/Icon/IconXCircle";
 import Dropdown from "../../../components/Dropdown";
@@ -11,9 +11,11 @@ import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 import { Checkbox, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import IconTrash from '../../../components/Icon/IconTrash';
 import IconEye from '../../../components/Icon/IconEye';
-
+import { delete_empleados } from '../../../server/empleados/EmpleadosApi';
+import { AccionContext } from '../../../contexts/AccionesContext';
 
 const EmpleadosTable = ({
+    rowData,
     isChecked,
     openModal,
     openModalNew,
@@ -37,7 +39,8 @@ const EmpleadosTable = ({
     PAGE_SIZES,
     openModalEdit,
     setOpenModalEdit
-}:{
+}: {
+    rowData: any[];
     isChecked: boolean;
     openModal: boolean;
     openModalNew: boolean;
@@ -63,6 +66,40 @@ const EmpleadosTable = ({
     setOpenModalEdit: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
 
+    useEffect(() => {
+      console.log(rowData)
+    }, [])
+
+    const { accionDatos } = useContext( AccionContext );
+
+    const handleDelete = (id: any) => {
+        delete_empleados(id)
+            .then((res) => {
+                accionDatos();
+                console.log("Borrado?: ", res);
+            })
+            .catch((err) => {
+                console.log("Error en la API: ", err);
+            })
+    }
+
+    function configDate(fecha: string): string {
+      
+        const months = [
+            "Ene", "Feb", "Mar", "Abr", "May", "Jun",
+            "Jul", "Ago", "Sept", "Oct", "Nov", "Dic"
+        ];
+
+        const date = new Date(fecha);
+
+        const day = date.getDate();
+        const month = months[date.getMonth()];
+        const year = date.getFullYear();
+    
+        return `${day}/${month}/${year}`;
+
+    };
+
     return (
 
         <div
@@ -73,21 +110,22 @@ const EmpleadosTable = ({
         >
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 500 }} size="small">
-                    <TableHead>
+                    <TableHead sx={{  backgroundColor: '#e9efff' }}>
                         <TableRow>
                             <TableCell
                                 align='center'
                                 //size='small'
-                                sx={{ 
+                                sx={{
                                     width: '1%',
                                     color: '#0E1726',
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
-                                    lineHeight: 'normal'
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro'
                                 }}
-                            > 
-                                <p>#</p> 
+                            >
+                                <p>#</p>
                             </TableCell>
                             <TableCell
                                 align='center'
@@ -98,10 +136,11 @@ const EmpleadosTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
-                                    lineHeight: 'normal'
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro'
                                 }}
-                            > 
-                                <p> Código </p> 
+                            >
+                                <p> Código </p>
                             </TableCell>
                             <TableCell
                                 align='center'
@@ -112,9 +151,10 @@ const EmpleadosTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
-                                    lineHeight: 'normal'
-                                }} 
-                            > 
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro'
+                                }}
+                            >
                                 <p> Nombre </p>
                             </TableCell>
                             <TableCell
@@ -126,10 +166,11 @@ const EmpleadosTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
-                                    lineHeight: 'normal'
-                                }} 
-                            > 
-                                <p> Email </p> 
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro'
+                                }}
+                            >
+                                <p> Email </p>
                             </TableCell>
                             <TableCell
                                 align='center'
@@ -140,10 +181,11 @@ const EmpleadosTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
-                                    lineHeight: 'normal'
-                                }} 
-                            > 
-                                <p> Fecha </p> 
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro'
+                                }}
+                            >
+                                <p> Fecha </p>
                             </TableCell>
                             <TableCell
                                 align='center'
@@ -154,9 +196,10 @@ const EmpleadosTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
-                                    lineHeight: 'normal'
-                                }} 
-                            > 
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro'
+                                }}
+                            >
                                 <p> Salario </p>
                             </TableCell>
                             <TableCell
@@ -169,10 +212,11 @@ const EmpleadosTable = ({
                                     fontStyle: 'normal',
                                     fontWeight: 600,
                                     lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro'
                                     //backgroundColor: 'red'
-                                }} 
-                            > 
-                                <p> Estado  </p> 
+                                }}
+                            >
+                                <p> Estado  </p>
                             </TableCell>
                             <TableCell
                                 align='center'
@@ -183,179 +227,224 @@ const EmpleadosTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
-                                    lineHeight: 'normal'
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro'
                                 }}
-                            > 
-                                <p> Acciones </p> 
+                            >
+                                <p> Acciones </p>
                             </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {recordsData.map((row, index) => (
-                            <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                                <TableCell
-                                    align='center'
-                                    //size='small'
-                                    sx={{ 
-                                        width: '1%',
-                                        color: '#0E1726',
-                                        fontSize: 13,
-                                        fontStyle: 'normal',
-                                        fontWeight: 400,
-                                        lineHeight: 'normal'
-                                    }}
-                                >
-                                    <Checkbox
-                                        onChange={() => setIsChecked(!isChecked)}
-                                    />
-                                </TableCell>
-                                <TableCell
-                                    align='center'
-                                    //size='small'
-                                    sx={{ 
-                                        width: '2%',
-                                        color: '#BF5CF3',
-                                        fontSize: 13,
-                                        fontStyle: 'normal',
-                                        fontWeight: 400,
-                                        lineHeight: 'normal'
-                                    }}
-                                > 
-                                    <p> #{row.id} </p>
-                                </TableCell>
-                                <TableCell
-                                    align='center'
-                                    //size='small'
-                                    sx={{ 
-                                        //backgroundColor: 'red',
-                                        //width: '12%',
-                                        color: '#0E1726',
-                                        fontSize: 13,
-                                        fontStyle: 'normal',
-                                        fontWeight: 400,
-                                        lineHeight: 'normal'
-                                    }}
-                                > 
-                                    <p> {`${row.firstName} ${row.lastName}`} </p>
-                                </TableCell>
-                                <TableCell
-                                    align='center'
-                                    //size='small'
-                                    sx={{ 
-                                        //backgroundColor: 'red',
-                                        //width: '10%',
-                                        color: '#0E1726',
-                                        fontSize: 13,
-                                        fontStyle: 'normal',
-                                        fontWeight: 400,
-                                        lineHeight: 'normal'
-                                    }}
-                                > 
-                                    <p> {row.email} </p>
-                                </TableCell>
-                                <TableCell
-                                    align='center'
-                                    //size='small'
-                                    sx={{ 
-                                        //width: '1%',
-                                        color: '#0E1726',
-                                        fontSize: 13,
-                                        fontStyle: 'normal',
-                                        fontWeight: 400,
-                                        lineHeight: 'normal'
-                                    }}
-                                > 
-                                    <p> {row.dob} </p>
-                                </TableCell>
-                                <TableCell
-                                    align='center'
-                                    //size='small'
-                                    sx={{ 
-                                        //width: '1%',
-                                        color: '#0E1726',
-                                        fontSize: 13,
-                                        fontStyle: 'normal',
-                                        fontWeight: 400,
-                                        lineHeight: 'normal'
-                                    }}
-                                > 
-                                    <p> {row.company} </p>
-                                </TableCell>
-                                <TableCell
-                                    //align='center'
-                                    //size='small'
-                                    sx={{ 
-                                        //width: '1%',
-                                        color: '#0E1726',
-                                        //backgroundColor: 'blue',
-                                        //justifyContent: 'center',
-                                        //justifyItems: 'center',
-                                        //alignContent: 'center',
-                                        //alignItems: 'center',
-                                    }}
-                                >
+                        
+                        {rowData.length > 0 ?
+                            <>
+                                {rowData.map((row, index) => (
+                                    <TableRow key={row.identification_number} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                        <TableCell
+                                            align='center'
+                                            //size='small'
+                                            sx={{
+                                                width: '1%',
+                                                color: '#0E1726',
+                                                fontSize: 13,
+                                                fontStyle: 'normal',
+                                                fontWeight: 400,
+                                                lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro'
+                                            }}
+                                        >
+                                            <Checkbox
+                                                onChange={() => setIsChecked(!isChecked)}
+                                            />
+                                        </TableCell>
+                                        <TableCell
+                                            align='left'
+                                            //size='small'
+                                            sx={{
+                                                width: '2%',
+                                                color: '#BF5CF3',
+                                                fontSize: 13,
+                                                fontStyle: 'normal',
+                                                fontWeight: 400,
+                                                lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro'
+                                            }}
+                                        >
+                                            <p> {row.identification_number} </p>
+                                        </TableCell>
+                                        <TableCell
+                                            align='left'
+                                            //size='small'
+                                            sx={{
+                                                //backgroundColor: 'red',
+                                                //width: '12%',
+                                                color: '#0E1726',
+                                                fontSize: 13,
+                                                fontStyle: 'normal',
+                                                fontWeight: 400,
+                                                lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro'
+                                            }}
+                                        >
+                                            <p> {row.name+' '+row.lastname} </p>
+                                        </TableCell>
+                                        <TableCell
+                                            align='left'
+                                            //size='small'
+                                            sx={{
+                                                //backgroundColor: 'red',
+                                                //width: '10%',
+                                                color: '#0E1726',
+                                                fontSize: 13,
+                                                fontStyle: 'normal',
+                                                fontWeight: 400,
+                                                lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro'
+                                            }}
+                                        >
+                                            <p> {row.email} </p>
+                                        </TableCell>
+                                        <TableCell
+                                            align='left'
+                                            //size='small'
+                                            sx={{
+                                                //width: '1%',
+                                                color: '#0E1726',
+                                                fontSize: 13,
+                                                fontStyle: 'normal',
+                                                fontWeight: 400,
+                                                lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro'
+                                            }}
+                                        >
+                                            <p> 
+                                                {configDate(row.registration_date)}
+                                            </p>
+                                        </TableCell>
+                                        <TableCell
+                                            align='right'
+                                            //size='small'
+                                            sx={{
+                                                //width: '1%',
+                                                color: '#0E1726',
+                                                fontSize: 13,
+                                                fontStyle: 'normal',
+                                                fontWeight: 400,
+                                                lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro'
+                                            }}
+                                        >
+                                            <p> {row.net_salary} </p>
+                                        </TableCell>
+                                        <TableCell
+                                            align='center'
+                                            //size='small'
+                                            sx={{
+                                                //width: '1%',
+                                                color: '#0E1726',
+                                                justifyContent: 'center',
+                                                alignContent: 'center',
+                                                justifyItems: 'center',
+                                                alignItems: 'center'
+                                            }}
+                                        >
 
-                                    <div
-                                        style={{
-                                            //width: window.screen.width * 0.06,
-                                            width: '88.201px',
-                                            height: '22px',
-                                            flexShrink: 0,
-                                            //height: window.screen.height * 0.04,
-                                            backgroundColor: row.isActive ? '#00AB55' : '#E7515A',
-                                            color: 'white',
-                                            //justifyContent: 'center',
-                                            alignContent: 'center',
-                                            borderRadius: 4,
-                                            boxShadow: '4px 10px 15px 0px rgba(0, 0, 0, 0.12)',
+                                            <div
+                                                style={{
+                                                    //width: window.screen.width * 0.06,
+                                                    width: '88.201px',
+                                                    height: '22px',
+                                                    flexShrink: 0,
+                                                    //height: window.screen.height * 0.04,
+                                                    backgroundColor: row.status === 'active' ? '#00AB55' : '#E7515A',
+                                                    color: 'white',
+                                                    justifyContent: 'center',
+                                                    alignContent: 'center',
+                                                    justifyItems: 'center',
+                                                    alignItems: 'center',
+                                                    borderRadius: 4,
+                                                    boxShadow: '4px 10px 15px 0px rgba(0, 0, 0, 0.12)',
+                                                    fontSize: 13,
+                                                    fontStyle: 'normal',
+                                                    fontWeight: 400,
+                                                    lineHeight: 'normal',
+                                                    textAlign: 'center',
+                                                    fontFamily: 'Maven Pro'
+                                                    //paddingLeft: 10
+
+                                                }}
+                                            >
+                                                {row.status === 'active' ? 'Activo' : 'Inactivo'}
+                                              
+                                            </div>
+                                        </TableCell>
+                                        <TableCell
+                                            sx={{
+                                                width: window.screen.width * 0.08,
+                                                justifyContent: 'center',
+                                                justifyItems: 'center',
+                                                alignContent: 'center',
+                                                alignItems: 'center'
+                                            }}
+                                        >
+                                            <button
+                                                style={{
+                                                    backgroundColor: 'transparent',
+                                                    border: 'none',
+                                                    cursor: 'pointer',
+                                                    marginTop: window.screen.height * 0.009
+                                                }}
+                                                onClick={() => {
+                                                    setOpenModalEdit(!openModalEdit)
+                                                }}
+                                            >
+                                                <IconEye />
+                                            </button>
+                                            <button
+                                                style={{
+                                                    backgroundColor: 'transparent',
+                                                    border: 'none',
+                                                    cursor: 'pointer',
+                                                    marginLeft: window.screen.width * 0.02
+                                                }}
+                                                onClick={() => {
+                                                    console.log(`Delete: ${row._id}`)
+                                                    handleDelete(row._id)
+                                                }}
+                                            >
+                                                <IconTrash />
+                                            </button>
+                                        </TableCell>
+                                    </TableRow>
+                                ))
+                                }
+                            </>
+                            :
+                            <>
+                                <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                    <TableCell
+                                        align='center'
+                                        colSpan={8}
+                                        //size='small'
+                                        sx={{
+                                            width: '1%',
+                                            height: 300,
+                                            color: '#0E1726',
                                             fontSize: 13,
                                             fontStyle: 'normal',
                                             fontWeight: 400,
                                             lineHeight: 'normal',
-                                            textAlign: 'left',
-                                            paddingLeft: 10
-                                            
+                                            fontFamily: 'Maven Pro'
                                         }}
                                     >
-                                        {row.isActive ? 'Activo' : 'Inactivo'}
-                                    </div>
-                                </TableCell>
-                                <TableCell
-                                    sx={{
-                                        width: window.screen.width * 0.08,
-                                        justifyContent: 'center',
-                                        justifyItems: 'center',
-                                        alignContent: 'center',
-                                        alignItems: 'center'
-                                    }}
-                                >
-                                    <button
-                                        style={{
-                                            backgroundColor: 'transparent',
-                                            border: 'none',
-                                            cursor: 'pointer',
-                                            marginTop: window.screen.height * 0.009
-                                        }}
-                                        onClick={() => {
-                                            setOpenModalEdit(!openModalEdit)
-                                        }}
-                                    >
-                                        <IconEye />
-                                    </button>
-                                    <button
-                                        style={{
-                                            backgroundColor: 'transparent',
-                                            border: 'none',
-                                            cursor: 'pointer',
-                                            marginLeft: window.screen.width * 0.02
-                                        }}
-                                        onClick={() => console.log(`Delete: ${row.id}`)}
-                                    >
-                                        <IconTrash />
-                                    </button>
-                                </TableCell>
-                            </TableRow>
-                        ))}
+                                        
+                                        Sin Registros
+
+                                    </TableCell>
+                                </TableRow>
+                            </>
+                        }
                     </TableBody>
                 </Table>
             </TableContainer>
@@ -383,9 +472,10 @@ const EmpleadosTable = ({
                         style={{
                             fontWeight: 'initial',
                             fontSize: 14,
+                            fontFamily: 'Maven Pro'
                         }}
                     >
-                        Mostrando {recordsData!.length} de {initialRecords!.length} registros
+                        Mostrando {rowData!.length} de {rowData!.length} registros
                     </Typography>
                 </div>
 
@@ -396,7 +486,7 @@ const EmpleadosTable = ({
                         alignItems: 'center',
                         //backgroundColor: 'green'
                     }}
-                >
+                > 
                     <select
                         value={pageSize!}
                         onChange={(e) => setPageSize(Number(e.target.value))}
@@ -446,7 +536,7 @@ const EmpleadosTable = ({
                         {'<'}
                     </button>
 
-                    {[...Array(Math.ceil(initialRecords.length / pageSize)).keys()].map((_, index) => (
+                    {[...Array(Math.ceil(rowData.length / pageSize)).keys()].map((_, index) => (
                         <button
                             key={index}
                             onClick={() => setPage(index + 1)}
@@ -455,7 +545,7 @@ const EmpleadosTable = ({
                                 height: '40px',
                                 border: '1px solid #ccc',
                                 borderRadius: '50%',
-                                backgroundColor: page === index + 1 ? '#4e78f4' : '#f5f5f5',
+                                backgroundColor: page === index + 1 ? '#BF5CF3' : '#f5f5f5',
                                 color: page === index + 1 ? '#ffffff' : '#000',
                                 cursor: 'pointer',
                                 display: 'flex',

@@ -189,6 +189,7 @@ const EditarEmpleadoModal = ({
                                     fontStyle: 'normal',
                                     fontWeight: 700,
                                     lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro',
                                 }}
                             >
                                 <div
@@ -225,33 +226,12 @@ const EditarEmpleadoModal = ({
                                             justifyContent: 'center',
                                             alignContent: 'center',
                                             alignItems: 'center',
-                                            textAlign: 'center'
+                                            textAlign: 'center',
+                                            fontFamily: 'Maven Pro',
                                         }}
                                     >
                                         Ver Historial
                                     </NavLink>
-
-
-                                    {/* <button
-                                        onClick={() => {
-
-                                        }}
-                                        type="button"
-                                        style={{
-                                            width: window.screen.width * 0.1,
-                                            height: window.screen.height * 0.05,
-                                            marginLeft: window.screen.width * 0.005,
-                                            backgroundColor: '#bf5cf3',
-                                            padding: 5,
-                                            borderRadius: 5,
-                                            color: 'white',
-                                            fontSize: 14,
-                                            visibility: hideButton ? 'visible' : 'hidden'
-                                        }}>
-                                        Ver Historial
-                                    </button> */}
-
-
 
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" style={{ marginRight: 10, marginTop: 7 }} onClick={() => { setOpenModalEdit(false) }}>
                                         <path d="M18 6L6 18" stroke="#0E1726" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -284,6 +264,7 @@ const EditarEmpleadoModal = ({
                                             fontStyle: 'normal',
                                             fontWeight: 700,
                                             lineHeight: 'normal',
+                                            fontFamily: 'Maven Pro',
                                         }}
                                     >
                                         <p> Datos Personales</p>
@@ -306,6 +287,7 @@ const EditarEmpleadoModal = ({
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Cedula de identidad</label>
@@ -326,6 +308,7 @@ const EditarEmpleadoModal = ({
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Nombres </label>
@@ -346,6 +329,7 @@ const EditarEmpleadoModal = ({
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Apellidos </label>
@@ -379,6 +363,7 @@ const EditarEmpleadoModal = ({
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Fecha de nacimiento </label>
@@ -399,6 +384,7 @@ const EditarEmpleadoModal = ({
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Nivel educativo </label>
@@ -425,6 +411,7 @@ const EditarEmpleadoModal = ({
                                             fontStyle: 'normal',
                                             fontWeight: 700,
                                             lineHeight: 'normal',
+                                            fontFamily: 'Maven Pro',
                                         }}
                                     >
                                         <p> Datos de Contacto</p>
@@ -447,6 +434,7 @@ const EditarEmpleadoModal = ({
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Correo Electrónico </label>
@@ -467,6 +455,7 @@ const EditarEmpleadoModal = ({
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Teléfono Móvil </label>
@@ -487,6 +476,7 @@ const EditarEmpleadoModal = ({
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Teléfono Fijo </label>
@@ -510,6 +500,7 @@ const EditarEmpleadoModal = ({
                                             fontStyle: 'normal',
                                             fontWeight: 700,
                                             lineHeight: 'normal',
+                                            fontFamily: 'Maven Pro',
                                         }}
                                     >
 
@@ -532,6 +523,7 @@ const EditarEmpleadoModal = ({
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
 
@@ -569,6 +561,7 @@ const EditarEmpleadoModal = ({
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
 
@@ -612,6 +605,7 @@ const EditarEmpleadoModal = ({
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <p> Datos Laborales </p>
@@ -634,6 +628,7 @@ const EditarEmpleadoModal = ({
                                                     fontStyle: 'normal',
                                                     fontWeight: 700,
                                                     lineHeight: 'normal',
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <label> Código de Empresa </label>
@@ -654,6 +649,7 @@ const EditarEmpleadoModal = ({
                                                     fontStyle: 'normal',
                                                     fontWeight: 700,
                                                     lineHeight: 'normal',
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <label> Fecha de Ingreso </label>
@@ -674,6 +670,7 @@ const EditarEmpleadoModal = ({
                                                     fontStyle: 'normal',
                                                     fontWeight: 700,
                                                     lineHeight: 'normal',
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <label> Cargo </label>
@@ -706,6 +703,7 @@ const EditarEmpleadoModal = ({
                                                     fontStyle: 'normal',
                                                     fontWeight: 700,
                                                     lineHeight: 'normal',
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <label> Sueldo Bruto </label>
@@ -726,6 +724,7 @@ const EditarEmpleadoModal = ({
                                                     fontStyle: 'normal',
                                                     fontWeight: 700,
                                                     lineHeight: 'normal',
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <label> Sueldo Neto </label>
@@ -746,6 +745,7 @@ const EditarEmpleadoModal = ({
                                                     fontStyle: 'normal',
                                                     fontWeight: 700,
                                                     lineHeight: 'normal',
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <label> Otros ingresos </label>
@@ -778,6 +778,7 @@ const EditarEmpleadoModal = ({
                                                     fontStyle: 'normal',
                                                     fontWeight: 700,
                                                     lineHeight: 'normal',
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <label> Observaciones </label>
@@ -813,7 +814,8 @@ const EditarEmpleadoModal = ({
                                                 padding: 5,
                                                 borderRadius: 5,
                                                 color: 'white',
-                                                fontSize: 14
+                                                fontSize: 14,
+                                                fontFamily: 'Maven Pro',
                                             }}>
                                             Editar
                                         </button>
@@ -850,7 +852,8 @@ const EditarEmpleadoModal = ({
                                                 padding: 5,
                                                 borderRadius: 5,
                                                 color: 'white',
-                                                fontSize: 14
+                                                fontSize: 14,
+                                                fontFamily: 'Maven Pro',
                                             }}>
                                             Guardar
                                         </button>

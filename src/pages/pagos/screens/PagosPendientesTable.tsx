@@ -80,6 +80,7 @@ const PagosPendientesTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal',
                                     //backgroundColor: 'red'
                                 }}
@@ -94,6 +95,7 @@ const PagosPendientesTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -107,6 +109,7 @@ const PagosPendientesTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -122,6 +125,7 @@ const PagosPendientesTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -135,6 +139,7 @@ const PagosPendientesTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -148,6 +153,7 @@ const PagosPendientesTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -161,6 +167,7 @@ const PagosPendientesTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -174,6 +181,7 @@ const PagosPendientesTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -192,7 +200,7 @@ const PagosPendientesTable = ({
                         {pagosPendientes.map((row, index) => (
                             <TableRow key={row.idAnticipo}>
                                 <TableCell
-                                    align='center'
+                                    align='left'
                                     size='medium'
                                     sx={{
                                         width: '10%',
@@ -200,32 +208,35 @@ const PagosPendientesTable = ({
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: '600',
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.idAnticipo} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='left'
                                     size='small'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.nombre} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='left'
                                     size='small'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
@@ -234,7 +245,7 @@ const PagosPendientesTable = ({
 
 
                                 <TableCell
-                                    align='center'
+                                    align='right'
                                     size='small'
                                     sx={{
                                         color: '#0E1726',
@@ -247,50 +258,54 @@ const PagosPendientesTable = ({
                                     <p> {row.cuota} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='right'
                                     size='small'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.saldo} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='right'
                                     size='small'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.valorCuota} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='right'
                                     size='small'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.tasaUnica} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='right'
                                     size='small'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
+                                        fontFamily: 'Maven Pro',
                                         fontStyle: 'normal',
                                         fontWeight: 400,
                                         lineHeight: 'normal'
@@ -298,25 +313,148 @@ const PagosPendientesTable = ({
                                 >
                                     <p> {row.totalDebitar} </p>
                                 </TableCell>
-                                {/* <TableCell
-                                align='center'
-                                size='small'
-                                style={{ width: '10%' }}
-                            >
-                                <Checkbox
-                                    onChange={() => setIsChecked(!isChecked)}
-                                />
-                            </TableCell> */}
-
-
+                            
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
             </TableContainer>
+            <div
+                style={{
+                    display: 'flex',
+                    marginTop: '1rem',
+                    alignItems: 'center',
+                    //backgroundColor: 'blue',
+                    width: '100%',
+                    gap: '2px'
+                }}
+            >
+
+                <div
+                    style={{
+                        //width: '25px',
+                        width: '25%',
+                        //width: window.screen.width * 0.15,
+                        marginLeft: '1vw',
+                        //backgroundColor: 'yellow'
+                    }}
+                >
+                    <Typography
+                        style={{
+                            fontWeight: 'initial',
+                            fontSize: 14,
+                            fontFamily: 'Maven Pro',
+                        }}
+                    >
+                        Mostrando {pagosPendientes!.length} de {initialRecords!.length} registros
+                    </Typography>
+                </div>
+
+                <div
+                    style={{
+                        display: 'flex',
+                        //marginLeft: window.screen.width * 0.01,
+                        alignItems: 'center',
+                        //backgroundColor: 'green'
+                    }}
+                >
+                    <select
+                        value={pageSize!}
+                        onChange={(e) => setPageSize(Number(e.target.value))}
+                        style={{
+                            padding: '5px',
+                            borderRadius: '4px',
+                            borderWidth: '0.5px',
+                            borderColor: 'gray',
+                            fontFamily: 'Maven Pro',
+                        }}
+                    >
+                        {PAGE_SIZES!.map((size) => (
+                            <option key={size} value={size}>
+                                {size}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+
+
+                <div
+                    style={{
+                        width: '100%',
+                        //backgroundColor: 'cyan',
+                        display: 'flex',
+                        alignItems: 'right',
+                        justifyContent: 'right',
+                        gap: '10px',
+                        //marginLeft: window.screen.width * 0.37
+                    }}
+                >
+                    <button
+                        disabled={page === 1}
+                        onClick={() => setPage(page - 1)}
+                        style={{
+                            width: '40px',
+                            height: '40px',
+                            border: '1px solid #ccc',
+                            borderRadius: '50%',
+                            backgroundColor: page === 1 ? '#f5f5f5' : '#ffffff',
+                            color: page === 1 ? '#ccc' : '#000',
+                            cursor: page === 1 ? 'not-allowed' : 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontFamily: 'Maven Pro',
+                        }}
+                    >
+                        {'<'}
+                    </button>
+
+                    {[...Array(Math.ceil(initialRecords.length / pageSize)).keys()].map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setPage(index + 1)}
+                            style={{
+                                width: '40px',
+                                height: '40px',
+                                border: '1px solid #ccc',
+                                borderRadius: '50%',
+                                backgroundColor: page === index + 1 ? '#BF5CF3' : '#f5f5f5',
+                                color: page === index + 1 ? '#ffffff' : '#000',
+                                cursor: 'pointer',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontWeight: page === index + 1 ? 'bold' : 'normal',
+                                fontFamily: 'Maven Pro',
+                            }}
+                        >
+                            {index + 1}
+                        </button>
+                    ))}
+
+                    <button
+                        disabled={page * pageSize >= initialRecords.length}
+                        onClick={() => setPage(page + 1)}
+                        style={{
+                            width: '40px',
+                            height: '40px',
+                            border: '1px solid #ccc',
+                            borderRadius: '50%',
+                            backgroundColor: page * pageSize >= initialRecords.length ? '#f5f5f5' : '#ffffff',
+                            color: page * pageSize >= initialRecords.length ? '#ccc' : '#000',
+                            cursor: page * pageSize >= initialRecords.length ? 'not-allowed' : 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontFamily: 'Maven Pro',
+                        }}
+                    >
+                        {'>'}
+                    </button>
+                </div>
+            </div>
 
         </div>
-
 
     )
 

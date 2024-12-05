@@ -70,7 +70,8 @@ const MensajeModal = (
                                     paddingTop: 15,
                                     paddingLeft: 20,
                                     paddingBottom: 10,
-                                    paddingRight: 20
+                                    paddingRight: 20,
+                                    fontFamily: 'Maven Pro',
                                 }}
                             >
                                 <p> Guardado Exitosamente </p>
@@ -88,7 +89,8 @@ const MensajeModal = (
                                     paddingTop: 15,
                                     paddingLeft: 20,
                                     paddingBottom: 20,
-                                    paddingRight: 20
+                                    paddingRight: 20,
+                                    fontFamily: 'Maven Pro',
                                 }}
                             >
 
@@ -105,17 +107,13 @@ const MensajeModal = (
                                         padding: 5,
                                         borderRadius: 5,
                                         color: 'white',
-                                        fontSize: 14
+                                        fontSize: 14,
+                                        fontFamily: 'Maven Pro',
                                     }}>
                                     OK
                                 </button>
 
                             </div>
-
-
-
-
-
 
                         </Dialog.Panel>
                     </div>

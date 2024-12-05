@@ -40,23 +40,23 @@ const Index = () => {
                     <text> Dashboard </text>
                 </div>
 
-
             </div>
 
             <div
                 style={{
-                    padding: '1vh',
-                    overflow: 'hidden',
+                    height: '70vh', 
+                    width: '100%', 
+                    overflow: 'hidden', 
+                    padding: 10
                 }}
             >
-
                 <img
-                    src="/assets/images/imagen_prueba.png"
+                    src="/assets/images/banner_min.png"
                     alt="Imagen de Dashboard"
                     style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover'
+                        width: '100%', // La imagen ocupa el ancho completo
+                        height: '100%', // La imagen ocupa la altura completa
+                        objectFit: 'cover', // Se adapta sin distorsionarse
                     }}
                 />
             </div>

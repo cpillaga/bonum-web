@@ -77,6 +77,7 @@ const HistorialEmpleadoTable = ({
                                     fontStyle: 'normal',
                                     fontWeight: 600,
                                     lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro'
                                     //backgroundColor: 'red'
                                 }}
                             >
@@ -90,7 +91,8 @@ const HistorialEmpleadoTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
-                                    lineHeight: 'normal'
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro'
                                 }}
                             >
                                 <p> Nombre </p>
@@ -103,7 +105,8 @@ const HistorialEmpleadoTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
-                                    lineHeight: 'normal'
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro'
                                 }}
                             >
                                 <p> Monto </p>
@@ -118,6 +121,7 @@ const HistorialEmpleadoTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -131,6 +135,7 @@ const HistorialEmpleadoTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -144,6 +149,7 @@ const HistorialEmpleadoTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -157,6 +163,7 @@ const HistorialEmpleadoTable = ({
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -184,6 +191,7 @@ const HistorialEmpleadoTable = ({
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: '600',
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
@@ -197,6 +205,7 @@ const HistorialEmpleadoTable = ({
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
@@ -210,6 +219,7 @@ const HistorialEmpleadoTable = ({
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
@@ -225,6 +235,7 @@ const HistorialEmpleadoTable = ({
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
@@ -238,6 +249,7 @@ const HistorialEmpleadoTable = ({
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
@@ -251,6 +263,7 @@ const HistorialEmpleadoTable = ({
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
@@ -264,6 +277,7 @@ const HistorialEmpleadoTable = ({
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >

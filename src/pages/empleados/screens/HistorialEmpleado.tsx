@@ -132,13 +132,13 @@ const HistorialEmpleado = () => {
             >
 
                 <div
-                    style={{ width: '6vw',  color: '#BF5CF3'}}
+                    style={{ width: '6vw',  color: '#BF5CF3', fontFamily: 'Maven Pro'}}
                 >
                     <p> Cliente Empresa </p>
                 </div>
 
                 <div
-                    style={{ width: '10vw'}}
+                    style={{ width: '10vw', fontFamily: 'Maven Pro'}}
                 >
                     <p> / Historial Empleado </p>
                 </div>
@@ -177,7 +177,7 @@ const HistorialEmpleado = () => {
 
                         }}
                     >
-                        <strong>
+                   
                             <p
                                 style={{
                                     color: '#0E1726',
@@ -186,11 +186,12 @@ const HistorialEmpleado = () => {
                                     fontStyle: 'normal',
                                     fontWeight: 600,
                                     lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro'
                                 }}
                             >
                                 Historial de Empleados
                             </p>
-                        </strong>
+                       
                     </div>
 
                     <div
@@ -214,87 +215,7 @@ const HistorialEmpleado = () => {
                                 gap: '0.3vw'
                             }}
                         >
-                            <div
-                                className="dropdown"
-                                style={{
-                                    //backgroundColor: 'pink',
-                                    justifySelf: 'center',
-                                    paddingTop: 5,
-                                    paddingBottom: 5
-                                }}
-                            >
-                                <Dropdown
-                                    placement={`${isRtl ? 'bottom-end' : 'bottom-start'}`}
-                                    btnClassName="!flex items-center border font-semibold border-white-light dark:border-[#253b5c] rounded-md px-4 py-1.5 text-sm dark:bg-[#1b2e4b] dark:text-white-dark"
-                                    button={
-                                        <div
-                                            style={{
-                                                display: 'flex',
-                                                flexDirection: 'row',
-                                                //backgroundColor: 'green',
-                                            }}
-                                        >
-                                            {/* <span className="ltr:mr-1 rtl:ml-1">Filtros</span> */}
-
-                                            <p
-                                                style={{
-                                                    color: '#0E1726',
-                                                    fontSize: 13,
-                                                    fontStyle: 'normal',
-                                                    fontWeight: 600,
-                                                    lineHeight: 'normal',
-                                                    justifySelf: 'center',
-                                                    alignSelf: 'center',
-                                                    paddingRight: 5
-                                                }}
-                                            >
-                                                Filtros
-                                            </p>
-                                            <FilterAltOutlinedIcon />
-                                        </div>
-                                    }
-                                >
-                                    <ul className="!min-w-[140px]">
-                                        {cols.map((col, i) => {
-                                            return (
-                                                <li
-                                                    key={i}
-                                                    className="flex flex-col"
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                    }}
-                                                >
-                                                    <div
-                                                        className="flex items-center px-4 py-1"
-                                                        style={{
-                                                            color: '#0E1726',
-                                                            fontSize: 13,
-                                                            fontStyle: 'normal',
-                                                            fontWeight: 600,
-                                                            lineHeight: 'normal',
-                                                        }}
-                                                    >
-                                                        <label className="cursor-pointer mb-0">
-                                                            <input
-                                                                type="checkbox"
-                                                                checked={!hideCols.includes(col.accessor)}
-                                                                className="form-checkbox"
-                                                                defaultValue={col.accessor}
-                                                                onChange={(event: any) => {
-                                                                    setHideCols(event.target.value);
-                                                                    showHideColumns(col.accessor, event.target.checked);
-                                                                }}
-                                                            />
-                                                            <span className="ltr:ml-2 rtl:mr-2">{col.title}</span>
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                            );
-                                        })}
-                                    </ul>
-                                </Dropdown>
-                            </div>
-
+                          
                             <form
                                 className={`${searchData && '!block'} sm:relative absolute inset-x-0 sm:top-0 top-1/2 sm:translate-y-0 -translate-y-1/2 sm:mx-0 mx-4 z-10 sm:block hidden`}
                                 onSubmit={() => setSearchData(false)}
@@ -324,6 +245,7 @@ const HistorialEmpleado = () => {
                                             fontWeight: 600,
                                             lineHeight: 'normal',
                                             outline: 'none',
+                                            fontFamily: 'Maven Pro'
                                         }}
                                     />
 
@@ -332,6 +254,7 @@ const HistorialEmpleado = () => {
                                         onClick={() => { }}
                                         style={{
                                             marginTop: 8,
+                                            fontFamily: 'Maven Pro'
                                         }}
                                     >
                                         <IconSearch className="w-5 h-5 text-gray-500" />

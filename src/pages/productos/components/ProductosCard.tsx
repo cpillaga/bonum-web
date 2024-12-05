@@ -46,11 +46,12 @@ const ProductosCard = ({
                                     alignContent: 'center',
                                     textAlign: 'center',
                                     fontWeight: 200,
-                                    fontSize: 24
+                                    fontSize: 24,
+                                    fontFamily: 'Maven Pro',
                                 }}
                             >
                                 <div>
-                                    <p>{data.id}</p>
+                                    <p style={{fontFamily: 'Maven Pro'}}>{data.id}</p>
                                 </div>
 
                                 <div>
@@ -72,7 +73,8 @@ const ProductosCard = ({
                                     textAlign: 'center',
                                     fontSize: 48,
                                     fontWeight: 700,
-                                    marginTop: '2vh'
+                                    marginTop: '2vh',
+                                    fontFamily: 'Maven Pro',
                                 }}
                             >
                                 <h2>${data.amount}</h2>
@@ -90,7 +92,8 @@ const ProductosCard = ({
                                     alignItems: 'center',
                                     fontSize: 13,
                                     fontWeight: 400,
-                                    lineHeight: '30px'
+                                    lineHeight: '30px',
+                                    fontFamily: 'Maven Pro',
                                 }}
                             >
                                 <div
@@ -104,12 +107,12 @@ const ProductosCard = ({
                                         <IconArrowLeft />
                                     </div>
                                     <div>
-                                        <p>Plazo: </p>
+                                        <p style={{ fontFamily: 'Maven Pro'}}>Plazo: </p>
                                     </div>
                                 </div>
 
                                 <div>
-                                    <p>{data.term}</p>
+                                    <p style={{ fontFamily: 'Maven Pro'}}>{data.term}</p>
                                 </div>
 
                             </div>
@@ -126,7 +129,8 @@ const ProductosCard = ({
                                     alignItems: 'center',
                                     fontSize: 13,
                                     fontWeight: 400,
-                                    lineHeight: '30px'
+                                    lineHeight: '30px',
+                                    fontFamily: 'Maven Pro'
                                 }}
                             >
                                 <div
@@ -161,7 +165,8 @@ const ProductosCard = ({
                                     justifySelf: 'center',
                                     fontSize: 13,
                                     fontWeight: 400,
-                                    lineHeight: '30px'
+                                    lineHeight: '30px',
+                                    fontFamily: 'Maven Pro'
                                 }}
                             >
 
@@ -176,7 +181,7 @@ const ProductosCard = ({
                                         <IconArrowLeft />
                                     </div>
                                     <div>
-                                        <p>
+                                        <p style={{fontFamily: 'Maven Pro'}}>
                                             Tarifa de Capital:
                                         </p>
                                     </div>
@@ -199,7 +204,8 @@ const ProductosCard = ({
                                     justifySelf: 'center',
                                     fontSize: 13,
                                     fontWeight: 400,
-                                    lineHeight: '30px'
+                                    lineHeight: '30px',
+                                    fontFamily: 'Maven Pro'
                                 }}
                             >
 
@@ -207,7 +213,8 @@ const ProductosCard = ({
                                     style={{
                                         display: 'flex',
                                         flexDirection: 'row',
-                                        gap: '1vw'
+                                        gap: '1vw',
+                                        fontFamily: 'Maven Pro'
                                     }}
                                 >
                                     <div style={{ marginTop: '1vh' }}>
@@ -236,14 +243,16 @@ const ProductosCard = ({
                                     justifySelf: 'center',
                                     fontSize: 13,
                                     fontWeight: 400,
-                                    lineHeight: '30px'
+                                    lineHeight: '30px',
+                                    fontFamily: 'Maven Pro'
                                 }}
                             >
                                 <div
                                     style={{
                                         display: 'flex',
                                         flexDirection: 'row',
-                                        gap: '1vw'
+                                        gap: '1vw',
+                                        fontFamily: 'Maven Pro'
                                     }}
                                 >
                                     <div style={{ marginTop: '1vh' }}>
@@ -272,7 +281,8 @@ const ProductosCard = ({
                                     justifySelf: 'center',
                                     fontSize: 13,
                                     fontWeight: 400,
-                                    lineHeight: '30px'
+                                    lineHeight: '30px',
+                                    fontFamily: 'Maven Pro'
                                 }}
                             >
 
@@ -280,7 +290,8 @@ const ProductosCard = ({
                                     style={{
                                         display: 'flex',
                                         flexDirection: 'row',
-                                        gap: '1vw'
+                                        gap: '1vw',
+                                        fontFamily: 'Maven Pro'
                                     }}
                                 >
                                     <div style={{ marginTop: '1vh' }}>

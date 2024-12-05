@@ -1,20 +1,74 @@
 
 import { Dialog, Transition } from '@headlessui/react';
-import { useState, Fragment } from 'react';
+import { useState, Fragment, useEffect, useContext } from 'react';
+import { create_empleados } from '../../../server/empleados/EmpleadosApi';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { Dayjs } from 'dayjs';
+import { AccionContext } from '../../../contexts/AccionesContext';
 
-const NuevoEmpleadoModal = (
+const NuevoEmpleadoModal = ( 
     {
         openModal,
         setOpenModal,
     }
-    :
-    {
-        openModal: boolean;
-        setOpenModal: (isOpen: boolean) => void;
-    }
+        :
+        {
+            openModal: boolean;
+            setOpenModal: (isOpen: boolean) => void;
+        }
 ) => {
 
-    
+    const { accionDatos } = useContext( AccionContext );
+
+    const [cedula, setCedula] = useState('');
+    const [nombre, setNombre] = useState('');
+    const [apellido, setApellido] = useState('');
+
+    const [fechaNac, setFechaNac] = useState<Dayjs | null>(null);
+
+    const [nivelEducativo, setNivelEducativo] = useState('');
+
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [number, setNumber] = useState('');
+    const [provincia, setProvincia] = useState('');
+    const [ciudad, setCiudad] = useState('');
+    const [direccionPrincipal, setDireccionPrincipal] = useState('');
+    const [numero, setNumero] = useState('');
+    const [direccionSecundaria, setDireccionSecundaria] = useState('');
+
+    const [codigoEmpresa, setCodigoEmpresa] = useState('');
+    const [fechaIngreso, setFechaIngreso] = useState<Dayjs | null>(null);
+    const [cargo, setCargo] = useState('');
+    const [sueldoBruto, setSueldoBruto] = useState('');
+    const [sueldoNeto, setSueldoNeto] = useState('');
+    const [otrosIngresos, setOtrosIngresos] = useState('');
+    const [observaciones, setObservaciones] = useState('');
+
+
+
+    const handleCreateEmpleado = (data: any) => {
+
+        create_empleados(data)
+            .then((res) => {
+                accionDatos();
+                setOpenModal(false);
+                
+            })
+            .catch((err) => {
+                console.log("Error API: ", err)
+            })
+
+    }
+
+    const editDate = (newValue: any) => {
+        if (newValue) {
+            const formattedDate = newValue.format("YYYY-MM-DD");
+            return formattedDate
+        }
+    };
 
     return (
 
@@ -58,6 +112,7 @@ const NuevoEmpleadoModal = (
                                     fontStyle: 'normal',
                                     fontWeight: 700,
                                     lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro',
                                     display: 'flex',
                                     flexDirection: 'row',
                                     justifyContent: 'space-between',
@@ -86,6 +141,7 @@ const NuevoEmpleadoModal = (
                                 <form>
 
                                     <div
+
                                         style={{
                                             //backgroundColor: 'blue',
                                             marginTop: 10,
@@ -95,6 +151,7 @@ const NuevoEmpleadoModal = (
                                             fontStyle: 'normal',
                                             fontWeight: 700,
                                             lineHeight: 'normal',
+                                            fontFamily: 'Maven Pro',
                                         }}
                                     >
                                         <p> Datos Personales</p>
@@ -117,10 +174,12 @@ const NuevoEmpleadoModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Cedula de identidad</label>
                                             <input
+                                                onChange={(e) => setCedula(e.target.value)}
                                                 placeholder="Ingresar número de cédula"
                                                 className="form-input"
                                                 style={{
@@ -137,10 +196,12 @@ const NuevoEmpleadoModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Nombres </label>
                                             <input
+                                                onChange={(e) => setNombre(e.target.value)}
                                                 placeholder="Ingresar nombres completos"
                                                 className="form-input"
                                                 style={{
@@ -157,10 +218,12 @@ const NuevoEmpleadoModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Apellidos </label>
                                             <input
+                                                onChange={(e) => setApellido(e.target.value)}
                                                 placeholder="Ingresar dos apellidos"
                                                 className="form-input"
                                                 style={{
@@ -190,17 +253,73 @@ const NuevoEmpleadoModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Fecha de nacimiento </label>
-                                            <input
-                                                placeholder="Ingresar número de cédula"
-                                                className="form-input"
-                                                style={{
-                                                    width: window.screen.width * 0.17,
-                                                    height: '5vh'
-                                                }}
-                                            />
+                                            <LocalizationProvider
+                                                dateAdapter={AdapterDayjs}
+                                            >
+                                                <DatePicker
+                                                    onChange={(newValue) => setFechaNac(newValue)}
+                                                    slotProps={{
+                                                        textField: {
+                                                            placeholder: 'Fecha',
+                                                            fullWidth: true,
+                                                            InputLabelProps: {
+                                                                shrink: true,
+                                                            },
+                                                            inputProps: {
+                                                                readOnly: true,
+                                                            },
+                                                            sx: {
+                                                                width: window.screen.width * 0.17,
+                                                                '& .MuiInputBase-root': {
+                                                                    height: window.screen.height * 0.05,
+                                                                    marginTop: window.screen.height * 0.0005,
+                                                                    fontSize: 14,
+                                                                    fontStyle: 'normal',
+                                                                    fontWeight: 300,
+                                                                    lineHeight: 'normal',
+                                                                    fontFamily: 'Maven Pro',
+                                                                    backgroundColor: 'white',
+                                                                    border: '1px solid #E0E6ED',
+                                                                    borderRadius: '4px',
+                                                                    boxShadow: 'none',
+                                                                    transition: 'none',
+                                                                    '&:hover': {
+                                                                        backgroundColor: 'white',
+                                                                        borderColor: '#E0E6ED',
+                                                                    },
+                                                                    '&.Mui-focused': {
+                                                                        backgroundColor: 'white',
+                                                                        borderColor: '#E0E6ED',
+                                                                    },
+                                                                },
+                                                                '& .MuiOutlinedInput-notchedOutline': {
+                                                                    border: 'none',
+                                                                },
+                                                                '& .MuiInputBase-input': {
+                                                                    '::placeholder': {
+                                                                        //color: '#888EA8',
+                                                                        fontSize: 14,
+                                                                        fontStyle: 'normal',
+                                                                        fontWeight: 600,
+                                                                        lineHeight: 'normal',
+                                                                        fontFamily: 'Maven Pro',
+                                                                        // fontSize: 13,
+                                                                        // fontFamily: 'serif',
+                                                                        // fontWeight: 600,
+                                                                        color: '#0E1726',
+                                                                        opacity: 1
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                    }}
+                                                />
+
+                                            </LocalizationProvider>
                                         </div>
 
                                         <div
@@ -210,10 +329,12 @@ const NuevoEmpleadoModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Nivel educativo </label>
                                             <input
+                                                onChange={(e) => setNivelEducativo(e.target.value)}
                                                 placeholder="Ingresar nivel educativo"
                                                 className="form-input"
                                                 style={{
@@ -236,6 +357,7 @@ const NuevoEmpleadoModal = (
                                             fontStyle: 'normal',
                                             fontWeight: 700,
                                             lineHeight: 'normal',
+                                            fontFamily: 'Maven Pro',
                                         }}
                                     >
                                         <p> Datos de Contacto</p>
@@ -258,10 +380,12 @@ const NuevoEmpleadoModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Correo Electrónico </label>
                                             <input
+                                                onChange={(e) => setEmail(e.target.value)}
                                                 placeholder="Ingresar correo electronico"
                                                 className="form-input"
                                                 style={{
@@ -278,10 +402,12 @@ const NuevoEmpleadoModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Teléfono Móvil </label>
                                             <input
+                                                onChange={(e) => setPhone(e.target.value)}
                                                 placeholder="Ingresar numero de celular"
                                                 className="form-input"
                                                 style={{
@@ -298,10 +424,12 @@ const NuevoEmpleadoModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <label> Teléfono Fijo </label>
                                             <input
+                                                onChange={(e) => setNumber(e.target.value)}
                                                 placeholder="Ingresar numero de teléfono"
                                                 className="form-input"
                                                 style={{
@@ -321,6 +449,7 @@ const NuevoEmpleadoModal = (
                                             fontStyle: 'normal',
                                             fontWeight: 700,
                                             lineHeight: 'normal',
+                                            fontFamily: 'Maven Pro',
                                         }}
                                     >
 
@@ -343,11 +472,13 @@ const NuevoEmpleadoModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
 
 
                                             <input
+                                                onChange={(e) => setProvincia(e.target.value)}
                                                 placeholder="Provincia"
                                                 className="form-input"
                                                 style={{
@@ -357,6 +488,7 @@ const NuevoEmpleadoModal = (
                                             />
 
                                             <input
+                                                onChange={(e) => setCiudad(e.target.value)}
                                                 placeholder="Ciudad"
                                                 className="form-input"
                                                 style={{
@@ -380,11 +512,13 @@ const NuevoEmpleadoModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
 
 
                                             <input
+                                                onChange={(e) => setDireccionPrincipal(e.target.value)}
                                                 placeholder="Ingresar direccion principal"
                                                 className="form-input"
                                                 style={{
@@ -394,6 +528,7 @@ const NuevoEmpleadoModal = (
                                             />
 
                                             <input
+                                                onChange={(e) => setNumero(e.target.value)}
                                                 placeholder="Número"
                                                 className="form-input"
                                                 style={{
@@ -403,6 +538,7 @@ const NuevoEmpleadoModal = (
                                             />
 
                                             <input
+                                                onChange={(e) => setDireccionSecundaria(e.target.value)}
                                                 placeholder="Ingresar dirección transversal"
                                                 className="form-input"
                                                 style={{
@@ -423,6 +559,7 @@ const NuevoEmpleadoModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 700,
                                                 lineHeight: 'normal',
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <p> Datos Laborales </p>
@@ -445,10 +582,12 @@ const NuevoEmpleadoModal = (
                                                     fontStyle: 'normal',
                                                     fontWeight: 700,
                                                     lineHeight: 'normal',
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <label> Código de Empresa </label>
                                                 <input
+                                                    onChange={(e) => setCodigoEmpresa(e.target.value)}
                                                     placeholder="Código de Empresa"
                                                     className="form-input"
                                                     style={{
@@ -465,17 +604,73 @@ const NuevoEmpleadoModal = (
                                                     fontStyle: 'normal',
                                                     fontWeight: 700,
                                                     lineHeight: 'normal',
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <label> Fecha de Ingreso </label>
-                                                <input
-                                                    placeholder="Fecha de Ingreso"
-                                                    className="form-input"
-                                                    style={{
-                                                        width: window.screen.width * 0.17,
-                                                        height: '5vh'
-                                                    }}
-                                                />
+                                                <LocalizationProvider
+                                                    dateAdapter={AdapterDayjs}
+                                                >
+                                                    <DatePicker
+                                                        onChange={(newValue) => setFechaIngreso(newValue)}
+                                                        slotProps={{
+                                                            textField: {
+                                                                placeholder: 'Fecha',
+                                                                fullWidth: true,
+                                                                InputLabelProps: {
+                                                                    shrink: true,
+                                                                },
+                                                                inputProps: {
+                                                                    readOnly: true,
+                                                                },
+                                                                sx: {
+                                                                    width: window.screen.width * 0.17,
+                                                                    '& .MuiInputBase-root': {
+                                                                        height: window.screen.height * 0.05,
+                                                                        marginTop: window.screen.height * 0.0005,
+                                                                        fontSize: 14,
+                                                                        fontStyle: 'normal',
+                                                                        fontWeight: 300,
+                                                                        lineHeight: 'normal',
+                                                                        backgroundColor: 'white',
+                                                                        border: '1px solid #E0E6ED',
+                                                                        borderRadius: '4px',
+                                                                        boxShadow: 'none',
+                                                                        transition: 'none',
+                                                                        fontFamily: 'Maven Pro',
+                                                                        '&:hover': {
+                                                                            backgroundColor: 'white',
+                                                                            borderColor: '#E0E6ED',
+                                                                        },
+                                                                        '&.Mui-focused': {
+                                                                            backgroundColor: 'white',
+                                                                            borderColor: '#E0E6ED',
+                                                                        },
+                                                                    },
+                                                                    '& .MuiOutlinedInput-notchedOutline': {
+                                                                        border: 'none',
+                                                                    },
+                                                                    '& .MuiInputBase-input': {
+                                                                        '::placeholder': {
+                                                                            //color: '#888EA8',
+                                                                            fontSize: 14,
+                                                                            fontStyle: 'normal',
+                                                                            fontWeight: 600,
+                                                                            lineHeight: 'normal',
+                                                                            // fontSize: 13,
+                                                                            // fontFamily: 'serif',
+                                                                            // fontWeight: 600,
+                                                                            color: '#0E1726',
+                                                                            opacity: 1,
+                                                                            fontFamily: 'Maven Pro',
+                                                                        },
+                                                                    },
+                                                                },
+                                                            },
+                                                        }}
+                                                    />
+
+                                                </LocalizationProvider>
                                             </div>
 
                                             <div
@@ -485,10 +680,12 @@ const NuevoEmpleadoModal = (
                                                     fontStyle: 'normal',
                                                     fontWeight: 700,
                                                     lineHeight: 'normal',
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <label> Cargo </label>
                                                 <input
+                                                    onChange={(e) => setCargo(e.target.value)}
                                                     placeholder="Ingresar cargo"
                                                     className="form-input"
                                                     style={{
@@ -517,10 +714,12 @@ const NuevoEmpleadoModal = (
                                                     fontStyle: 'normal',
                                                     fontWeight: 700,
                                                     lineHeight: 'normal',
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <label> Sueldo Bruto </label>
                                                 <input
+                                                    onChange={(e) => setSueldoBruto(e.target.value)}
                                                     placeholder="Ingresar valor"
                                                     className="form-input"
                                                     style={{
@@ -537,10 +736,12 @@ const NuevoEmpleadoModal = (
                                                     fontStyle: 'normal',
                                                     fontWeight: 700,
                                                     lineHeight: 'normal',
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <label> Sueldo Neto </label>
                                                 <input
+                                                    onChange={(e) => setSueldoNeto(e.target.value)}
                                                     placeholder="Ingresar valor"
                                                     className="form-input"
                                                     style={{
@@ -557,10 +758,12 @@ const NuevoEmpleadoModal = (
                                                     fontStyle: 'normal',
                                                     fontWeight: 700,
                                                     lineHeight: 'normal',
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <label> Otros ingresos </label>
                                                 <input
+                                                    onChange={(e) => setOtrosIngresos(e.target.value)}
                                                     placeholder="Ingresar valor"
                                                     className="form-input"
                                                     style={{
@@ -589,10 +792,12 @@ const NuevoEmpleadoModal = (
                                                     fontStyle: 'normal',
                                                     fontWeight: 700,
                                                     lineHeight: 'normal',
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <label> Observaciones </label>
                                                 <textarea
+                                                    onChange={(e) => setObservaciones(e.target.value)}
                                                     placeholder="Ingresar observaciones"
                                                     className="form-input"
                                                     style={{
@@ -617,7 +822,58 @@ const NuevoEmpleadoModal = (
                                         Cancelar
                                     </button>
                                     <button
-                                        onClick={() => setOpenModal(false)}
+                                        onClick={() => {
+
+                                            const data = {
+                                                "identification_number": cedula,
+                                                "name": nombre,
+                                                "lastname": apellido,
+                                                "address": direccionPrincipal,
+                                                "date_of_birth": editDate(fechaNac),
+                                                "level_education": nivelEducativo,
+                                                "email": email,
+                                                "phoneMovil": phone,
+                                                "phoneFijo": number,
+                                                "provincia": provincia,
+                                                "ciudad": ciudad,
+                                                "street_primary": direccionSecundaria,
+                                                "address_secondary": direccionSecundaria,
+                                                "company_code": codigoEmpresa,
+                                                "job_title": cargo,
+                                                "gross_salary": sueldoBruto,
+                                                "net_salary": sueldoNeto,
+                                                "other_income": otrosIngresos,
+                                                "observations": observaciones,
+                                                "status": 'active'
+                                            }
+                                            
+                                            /*
+                                            const data = {
+                                                "identification_number": "1003836721",
+                                                "name": "Juan",
+                                                "lastname": "Pérez",
+                                                "address": "Calle 123, Edificio A, Quito",
+                                                "date_of_birth": "1985-06-15",
+                                                "level_education": "Universitario",
+                                                "email": "juan.perez77@example.com",
+                                                "phoneMovil": "0987654321",
+                                                "phoneFijo": "022345678",
+                                                "provincia": "Pichincha",
+                                                "ciudad": "Quito",
+                                                "street_primary": "Calle Principal",
+                                                "address_secondary": "Calle Secundaria",
+                                                "company_code": "EMP1277",
+                                                "job_title": "Ingeniero de Software",
+                                                "gross_salary": 3000,
+                                                "net_salary": 2400,
+                                                "other_income": 200,
+                                                "observations": "Empleado destacado en proyectos de desarrollo.",
+                                                "status": "active"
+                                            }*/
+                                           
+                                            handleCreateEmpleado(data)
+
+                                        }}
                                         type="button"
                                         style={{
                                             width: window.screen.width * 0.067,
@@ -627,7 +883,9 @@ const NuevoEmpleadoModal = (
                                             padding: 5,
                                             borderRadius: 5,
                                             color: 'white',
-                                            fontSize: 14
+                                            fontSize: 14,
+                                            fontFamily: 'Maven Pro',
+                                            fontWeight: 600,
                                         }}>
                                         Añadir
                                     </button>
@@ -638,12 +896,7 @@ const NuevoEmpleadoModal = (
                 </div>
             </Dialog>
 
-            
-
-        </Transition>
-
-
-
+        </Transition> 
 
     )
 

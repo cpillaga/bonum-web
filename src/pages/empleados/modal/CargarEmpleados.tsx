@@ -94,10 +94,11 @@ const CargarEmpleadosModal = (
                                         fontStyle: 'normal',
                                         fontWeight: 600,
                                         lineHeight: 'normal',
+                                        fontFamily: 'Maven Pro',
                                         color: '#BF5CF3'
                                     }}
                                 >
-                                    <text> Subir nómina de empleados </text>
+                                    <p> Subir nómina de empleados </p>
 
                                 </div>
 
@@ -126,7 +127,8 @@ const CargarEmpleadosModal = (
                                                 backgroundColor: '#f4f4f4',
                                                 borderTopLeftRadius: 5,
                                                 borderBottomLeftRadius: 5,
-                                                height: window.screen.height * 0.035
+                                                height: window.screen.height * 0.035,
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             {fileName}
@@ -143,7 +145,8 @@ const CargarEmpleadosModal = (
                                                 backgroundColor: '#f4f4f4',
                                                 borderTopLeftRadius: 5,
                                                 borderBottomLeftRadius: 5,
-                                                height: window.screen.height * 0.035
+                                                height: window.screen.height * 0.035,
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             Formato XLSX o CSV
@@ -165,7 +168,8 @@ const CargarEmpleadosModal = (
                                             width: window.screen.width * 0.1,
                                             fontStyle: 'normal',
                                             fontWeight: '600',
-                                            lineHeight: 'normal'
+                                            lineHeight: 'normal',
+                                            fontFamily: 'Maven Pro',
                                         }}
                                     >
                                         Subir Archivo
@@ -212,49 +216,6 @@ const CargarEmpleadosModal = (
                                         />
                                     </div>
 
-                                    {/* <div
-                                        style={{
-                                            overflow: 'hidden',
-                                            position: 'absolute',
-                                            top: window.screen.height * 0.435,
-                                            left: window.screen.width * 0.5,
-                                            //top: '46%',
-                                            //left: '40%',
-                                            transform: 'translate(-50%, -50%)'
-                                        }}
-                                    >
-
-                                        <img
-                                            src="/assets/images/arrow.png"
-                                            alt="Imagen de Dashboard"
-                                            style={{
-                                                width: window.screen.width * 0.1,
-                                                height: window.screen.height * 0.26,
-                                                objectFit: 'contain'
-                                            }}
-                                        />
-
-                                    </div> */}
-
-                                    {/* <div
-                                        style={{
-                                            paddingBottom: window.screen.height * 0.025,
-                                            overflow: 'hidden'
-                                        }}
-                                    >
-
-                                        <img
-                                            src="/assets/images/csv.png"
-                                            alt="Imagen de Dashboard"
-                                            style={{
-                                                width: window.screen.width * 0.12,
-                                                height: window.screen.height * 0.27,
-                                                objectFit: 'contain'
-                                            }}
-                                        />
-
-                                    </div> */}
-
                                 </div>
 
                             </div>
@@ -279,7 +240,8 @@ const CargarEmpleadosModal = (
                                         padding: 5,
                                         borderRadius: 5,
                                         color: 'white',
-                                        fontSize: 13
+                                        fontSize: 13,
+                                        fontFamily: 'Maven Pro',
                                     }}>
                                     Guardar
                                 </button>

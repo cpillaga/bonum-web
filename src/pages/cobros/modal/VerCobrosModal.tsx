@@ -19,7 +19,7 @@ const cuotas = [
     { id: 3, description: "Cuota 3", valor: 100.00 },
 ];
 
-const DetallesAnticiposModal = (
+const VerCobrosModal = (
     {
         openModal,
         setOpenModal,
@@ -27,12 +27,12 @@ const DetallesAnticiposModal = (
         setStateModal
     }
         :
-    {
-        openModal: boolean;
-        setOpenModal: (isOpen: boolean) => void;
-        stateModal: boolean;
-        setStateModal: (isOpen: boolean) => void;
-    }
+        {
+            openModal: boolean;
+            setOpenModal: (isOpen: boolean) => void;
+            stateModal: boolean;
+            setStateModal: (isOpen: boolean) => void;
+        }
 ) => {
 
     useEffect(() => {
@@ -111,6 +111,7 @@ const DetallesAnticiposModal = (
                                             color: '#888EA8',
                                             fontSize: 13,
                                             fontWeight: 600,
+                                            fontFamily: 'Maven Pro'
                                         }}
                                     >
                                         13 Tetrick Road, Cypress Gardens, Florida, 33884, US
@@ -121,6 +122,7 @@ const DetallesAnticiposModal = (
                                             color: '#888EA8',
                                             fontSize: 13,
                                             fontWeight: 600,
+                                            fontFamily: 'Maven Pro'
                                         }}
                                     >
                                         info@bonum.com
@@ -131,6 +133,7 @@ const DetallesAnticiposModal = (
                                             color: '#888EA8',
                                             fontSize: 13,
                                             fontWeight: 600,
+                                            fontFamily: 'Maven Pro'
                                         }}
                                     >
                                         +1 (070) 123-4567
@@ -206,7 +209,7 @@ const DetallesAnticiposModal = (
                                                 style={{
                                                     width: window.screen.width * 0.08,
                                                     height: window.screen.height * 0.04,
-                                                    backgroundColor: stateModal ? 'green' : 'red',
+                                                    backgroundColor: 'green',
                                                     color: 'white',
                                                     alignContent: 'center',
                                                     fontWeight: 'bold',
@@ -218,7 +221,7 @@ const DetallesAnticiposModal = (
                                                     fontFamily: 'Maven Pro'
                                                 }}
                                             >
-                                                {stateModal ? 'Activo' : 'Inactivo'}
+                                                {'Activo'}
                                             </div>
 
                                             <input id="hrDefaultinput" placeholder="" className="form-input" />
@@ -249,9 +252,9 @@ const DetallesAnticiposModal = (
                                                                     backgroundColor: 'white',
                                                                     border: '1px solid #E0E6ED',
                                                                     borderRadius: '4px',
+                                                                    fontFamily: 'Maven Pro',
                                                                     boxShadow: 'none',
                                                                     transition: 'none',
-                                                                    fontFamily: 'Maven Pro',
                                                                     '&:hover': {
                                                                         backgroundColor: 'white',
                                                                         borderColor: '#E0E6ED',
@@ -269,8 +272,8 @@ const DetallesAnticiposModal = (
                                                                         fontSize: 13,
                                                                         fontWeight: 600,
                                                                         color: '#0E1726',
-                                                                        opacity: 1,
-                                                                        fontFamily: 'Maven Pro'
+                                                                        fontFamily: 'Maven Pro',
+                                                                        opacity: 1
                                                                     },
                                                                 },
                                                             },
@@ -320,15 +323,14 @@ const DetallesAnticiposModal = (
                                                 height: window.screen.height * 0.05,
                                                 backgroundColor: '#bf5cf3',
                                                 borderRadius: 5,
-                                                gap: window.screen.width * 0.01,
-                                                fontFamily: 'Maven Pro'
+                                                gap: window.screen.width * 0.01
                                             }}
                                         >
                                             <FileDownloadOutlinedIcon sx={{ color: 'white' }} />
                                             <text
                                                 style={{
                                                     color: 'white',
-                                                    fontFamily: 'Maven Pro'
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 Descargar
@@ -372,7 +374,7 @@ const DetallesAnticiposModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 600,
                                                 lineHeight: 'normal',
-                                                fontFamily: 'Maven Pro'
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <p> Informacion del Solicitante: </p>
@@ -401,7 +403,7 @@ const DetallesAnticiposModal = (
                                                         fontSize: 14,
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
-                                                        fontFamily: 'Maven Pro'
+                                                        fontFamily: 'Maven Pro',
                                                     }}
                                                 >
                                                     Nombre:
@@ -413,7 +415,7 @@ const DetallesAnticiposModal = (
                                                         fontSize: 14,
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
-                                                        fontFamily: 'Maven Pro'
+                                                        fontFamily: 'Maven Pro',
                                                     }}
                                                 >
                                                     Email:
@@ -425,7 +427,7 @@ const DetallesAnticiposModal = (
                                                         fontSize: 14,
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
-                                                        fontFamily: 'Maven Pro'
+                                                        fontFamily: 'Maven Pro',
                                                     }}
                                                 >
                                                     Cargo:
@@ -437,7 +439,7 @@ const DetallesAnticiposModal = (
                                                         fontSize: 14,
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
-                                                        fontFamily: 'Maven Pro'
+                                                        fontFamily: 'Maven Pro',
                                                     }}
                                                 >
                                                     Ingresos:
@@ -486,12 +488,11 @@ const DetallesAnticiposModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 600,
                                                 lineHeight: 'normal',
-                                                fontFamily: 'Maven Pro'
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
-                                            {stateModal === true ?
-                                                <p>Detalles del Pago:</p> : <p>Observaciones:</p>
-                                            }
+
+                                            <p>Detalles del Pago:</p>
 
                                         </div>
 
@@ -517,16 +518,16 @@ const DetallesAnticiposModal = (
                                                 <label
                                                     htmlFor="hrDefaultinput"
                                                     style={{
-                                                        fontSize: 14,
                                                         fontFamily: 'Maven Pro',
+                                                        fontSize: 14,
                                                         marginTop: window.screen.height * 0.005,
                                                         width: stateModal ? window.screen.width * 0.083 : window.screen.width * 0.1
                                                     }}
                                                 >
 
-                                                    {stateModal === true ?
-                                                        <p>  Metodo de Pago: </p> : <p> Motivo del Rechazo: </p>
-                                                    }
+
+                                                    <p>  Metodo de Pago: </p>
+
 
                                                 </label>
 
@@ -534,46 +535,45 @@ const DetallesAnticiposModal = (
                                                     htmlFor="hrDefaultinput"
                                                     style={{
                                                         fontSize: 14,
-                                                        fontFamily: 'Maven Pro',
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
+                                                        fontFamily: 'Maven Pro',
                                                     }}
                                                 >
 
-                                                    {stateModal === true ?
-                                                        <p> Banco: </p> : <p> Observaciones: </p>
-                                                    }
+
+                                                    <p> Banco: </p>
+
 
                                                 </label>
 
-                                                {stateModal && (
-                                                    <>
-                                                        <label
-                                                            htmlFor="hrDefaultinput"
-                                                            style={{
-                                                                fontSize: 14,
-                                                                marginTop: window.screen.height * 0.005,
-                                                                width: window.screen.width * 0.083,
-                                                                fontFamily: 'Maven Pro'
-                                                            }}
-                                                        >
-                                                            <p> Referencia: </p>
 
-                                                        </label>
+                                                <label
+                                                    htmlFor="hrDefaultinput"
+                                                    style={{
+                                                        fontSize: 14,
+                                                        marginTop: window.screen.height * 0.005,
+                                                        width: window.screen.width * 0.083,
+                                                        fontFamily: 'Maven Pro',
+                                                    }}
+                                                >
+                                                    <p> Referencia: </p>
 
-                                                        <label
-                                                            htmlFor="hrDefaultinput"
-                                                            style={{
-                                                                fontSize: 14,
-                                                                marginTop: window.screen.height * 0.005,
-                                                                width: window.screen.width * 0.083,
-                                                                fontFamily: 'Maven Pro'
-                                                            }}
-                                                        >
-                                                            Comprobante:
-                                                        </label>
-                                                    </>
-                                                )}
+                                                </label>
+
+                                                <label
+                                                    htmlFor="hrDefaultinput"
+                                                    style={{
+                                                        fontSize: 14,
+                                                        marginTop: window.screen.height * 0.005,
+                                                        width: window.screen.width * 0.083,
+                                                        fontFamily: 'Maven Pro',
+                                                    }}
+                                                >
+                                                    Comprobante:
+                                                </label>
+
+
 
 
                                             </div>
@@ -592,71 +592,32 @@ const DetallesAnticiposModal = (
 
                                                 <input id="hrDefaultinput" placeholder="" className="form-input" />
 
-                                                {stateModal ?
+                                                <input id="hrDefaultinput" placeholder="" className="form-input" />
 
-                                                    <>
-
-                                                        <input id="hrDefaultinput" placeholder="" className="form-input" />
-
-                                                        <div style={{ position: 'relative', width: '100%' }}>
-                                                            <input
-                                                                id="hrDefaultinput"
-                                                                placeholder=""
-                                                                className="form-input"
-                                                                style={{
-                                                                    width: '100%',
-                                                                    paddingRight: '30px'
-                                                                }}
-                                                            />
-                                                            <span
-                                                                style={{
-                                                                    position: 'absolute',
-                                                                    top: '50%',
-                                                                    right: '10px',
-                                                                    transform: 'translateY(-50%)',
-                                                                    fontSize: '16px',
-                                                                    color: '#999',
-                                                                    pointerEvents: 'none',
-                                                                }}
-                                                            >
-                                                                <IconEye />
-                                                            </span>
-                                                        </div>
-
-                                                    </> :
-                                                    <>
-
-                                                        <input id="hrDefaultinput" placeholder="" className="form-input" style={{  visibility: 'hidden'}}/>
-
-                                                        <div style={{ position: 'relative', width: '100%',  visibility: 'hidden'}}>
-                                                            <input
-                                                                id="hrDefaultinput"
-                                                                placeholder=""
-                                                                className="form-input"
-                                                                style={{
-                                                                    width: '100%',
-                                                                    paddingRight: '30px',
-                                                                    visibility: 'hidden'
-                                                                }}
-                                                            />
-                                                            <span
-                                                                style={{
-                                                                    position: 'absolute',
-                                                                    top: '50%',
-                                                                    right: '10px',
-                                                                    transform: 'translateY(-50%)',
-                                                                    fontSize: '16px',
-                                                                    color: '#999',
-                                                                    pointerEvents: 'none',
-                                                                }}
-                                                            >
-                                                                <IconEye />
-                                                            </span>
-                                                        </div>
-
-                                                    </>
-
-                                                }
+                                                <div style={{ position: 'relative', width: '100%' }}>
+                                                    <input
+                                                        id="hrDefaultinput"
+                                                        placeholder=""
+                                                        className="form-input"
+                                                        style={{
+                                                            width: '100%',
+                                                            paddingRight: '30px'
+                                                        }}
+                                                    />
+                                                    <span
+                                                        style={{
+                                                            position: 'absolute',
+                                                            top: '50%',
+                                                            right: '10px',
+                                                            transform: 'translateY(-50%)',
+                                                            fontSize: '16px',
+                                                            color: '#999',
+                                                            pointerEvents: 'none',
+                                                        }}
+                                                    >
+                                                        <IconEye />
+                                                    </span>
+                                                </div>
 
                                             </div>
 
@@ -691,7 +652,8 @@ const DetallesAnticiposModal = (
                                             lineHeight: 'normal',
                                             alignContent: 'center',
                                             paddingLeft: 1,
-                                            fontFamily: 'Maven Pro'
+                                            fontFamily: 'Maven Pro',
+                                            
                                         }}
                                     >
                                         <p> Item </p>
@@ -706,7 +668,7 @@ const DetallesAnticiposModal = (
                                             fontWeight: 600,
                                             lineHeight: 'normal',
                                             alignContent: 'center',
-                                            fontFamily: 'Maven Pro'
+                                            fontFamily: 'Maven Pro',
                                         }}
                                     >
                                         <p> Cuotas </p>
@@ -722,7 +684,7 @@ const DetallesAnticiposModal = (
                                             lineHeight: 'normal',
                                             alignContent: 'center',
                                             paddingLeft: 5,
-                                            fontFamily: 'Maven Pro'
+                                            fontFamily: 'Maven Pro',
                                         }}
                                     >
                                         <p> Monto </p>
@@ -738,7 +700,7 @@ const DetallesAnticiposModal = (
                                             lineHeight: 'normal',
                                             alignContent: 'center',
                                             paddingLeft: 10,
-                                            fontFamily: 'Maven Pro'
+                                            fontFamily: 'Maven Pro',
                                         }}
                                     >
                                         <p> Tarifa única </p>
@@ -809,7 +771,7 @@ const DetallesAnticiposModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 600,
                                                 lineHeight: 'normal',
-                                                fontFamily: 'Maven Pro'
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             Documentación
@@ -829,6 +791,7 @@ const DetallesAnticiposModal = (
 
                                                 <div
                                                     style={{
+                                                        fontFamily: 'Maven Pro',
                                                         color: doc.title.includes("Line") ? "#007bff" : "#000",
                                                         fontWeight: doc.title.includes("Line") ? "bold" : "normal",
                                                     }}
@@ -869,7 +832,7 @@ const DetallesAnticiposModal = (
                                                     fontSize: 14,
                                                     fontStyle: 'normal',
                                                     fontWeight: 400,
-                                                    fontFamily: 'Maven Pro'
+                                                    fontFamily: 'Maven Pro',
                                                 }}
                                             >
                                                 <span>{cuota.description}</span>
@@ -886,7 +849,7 @@ const DetallesAnticiposModal = (
                                                 fontSize: 14,
                                                 fontStyle: 'normal',
                                                 fontWeight: 400,
-                                                fontFamily: 'Maven Pro'
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             <span>Total</span>
@@ -908,6 +871,7 @@ const DetallesAnticiposModal = (
 
     )
 
+
 }
 
-export default DetallesAnticiposModal
+export default VerCobrosModal;

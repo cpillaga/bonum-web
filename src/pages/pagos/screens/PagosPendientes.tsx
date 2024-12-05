@@ -310,7 +310,8 @@ const PagosPendientes = () => {
                                 fontSize: 13,
                                 fontStyle: 'normal',
                                 fontWeight: 800,
-                                lineHeight: 'normal'
+                                lineHeight: 'normal',
+                                fontFamily: 'Maven Pro',
                             }}
                         > Pagos </p>
                         <p
@@ -318,7 +319,8 @@ const PagosPendientes = () => {
                                 fontSize: 13,
                                 fontStyle: 'normal',
                                 fontWeight: 600,
-                                lineHeight: 'normal'
+                                lineHeight: 'normal',
+                                fontFamily: 'Maven Pro',
                             }}
                         >
                             /&nbsp; {idPagoNav}
@@ -368,14 +370,15 @@ const PagosPendientes = () => {
 
                             <div
                                 style={{
-                                    
+
                                     color: '#888EA8',
                                     //fontFamily: Nunito,
                                     fontSize: 14,
                                     fontStyle: 'normal',
                                     fontWeight: 400,
                                     lineHeight: '24px',
-                                    marginTop: 10
+                                    marginTop: 10,
+                                    fontFamily: 'Maven Pro',
 
                                     // color: '#888EA8',
                                     // fontSize: 13,
@@ -388,44 +391,14 @@ const PagosPendientes = () => {
                                 </p>
 
                                 <p>
-                                    info@bonum.com
+                                    info@bonum.com,
+
                                 </p>
 
                                 <p>
                                     +1 (070) 123-4567
                                 </p>
                             </div>
-
-                            {/* <form>
-
-                                <div
-                                    style={{
-                                        backgroundColor: 'red',
-                                        flexDirection: 'row',
-                                        display: 'flex',
-                                        gap: window.screen.width * 0.06,
-                                    }}
-                                >
-                                    <div>
-                                        <label
-                                            htmlFor="hrDefaultinput"
-                                            style={{
-                                                fontSize: 14,
-                                                marginTop: window.screen.height * 0.012,
-                                                //width: window.screen.width * 0.083,
-                                            }}
-                                        >
-                                            Empresa:
-                                        </label>
-                                    </div>
-
-                                    <div>
-                                        <input id="hrDefaultinput" placeholder="Nombre de Empresa" className="form-input" style={{ width: window.screen.width * 0.22 }} />
-                                    </div>
-
-                                </div>
-
-                            </form> */}
 
                         </div>
 
@@ -452,37 +425,30 @@ const PagosPendientes = () => {
                                         //backgroundColor: 'red',
                                         flexDirection: 'column',
                                         display: 'flex',
-                                        gap: window.screen.width * 0.012,
+
+                                        //gap: window.screen.width * 0.02,
                                         color: '#0E1726',
+                                        //height: window.screen.height * 0.1,
                                         //fontFamily: Nunito;
                                         fontSize: 14,
                                         fontStyle: 'normal',
                                         fontWeight: 600,
-                                        lineHeight: 'normal'
+                                        lineHeight: 'normal',
+                                        fontFamily: 'Maven Pro',
                                     }}
                                 >
-                                    <label
-                                        htmlFor="hrDefaultinput"
-                                        style={{
-                                            //fontSize: 14,
-                                            marginTop: window.screen.height * 0.005,
-                                            visibility: 'hidden',
-                                            //display: 'none',
-                                            width: window.screen.width * 0.083,
-
-
-
-                                        }}
-                                    >
-                                        Comprobante N°:
-                                    </label>
 
                                     <label
                                         htmlFor="hrDefaultinput"
                                         style={{
                                             //fontSize: 14,
-                                            marginTop: window.screen.height * 0.005,
-                                            //width: window.screen.width * 0.083,
+                                            //paddingTop: 20,
+
+
+                                            //marginBottom: 20,
+                                            marginTop: 50,
+                                            fontFamily: 'Maven Pro',
+                                            width: window.screen.width * 0.09,
                                         }}
                                     >
                                         Comprobante N°
@@ -491,8 +457,10 @@ const PagosPendientes = () => {
                                     <label
                                         htmlFor="hrDefaultinput"
                                         style={{
+                                            paddingTop: 25,
                                             //fontSize: 14,
-                                            marginTop: window.screen.height * 0.01,
+                                            //marginTop: window.screen.height * 0.01,
+                                            fontFamily: 'Maven Pro',
                                             //width: window.screen.width * 0.083,
                                         }}
                                     >
@@ -503,7 +471,9 @@ const PagosPendientes = () => {
                                         htmlFor="hrDefaultinput"
                                         style={{
                                             //fontSize: 14,
-                                            marginTop: window.screen.height * 0.01,
+                                            paddingTop: 25,
+                                            //marginTop: window.screen.height * 0.01,
+                                            fontFamily: 'Maven Pro'
                                             //width: window.screen.width * 0.083,
                                         }}
                                     >
@@ -540,7 +510,8 @@ const PagosPendientes = () => {
                                             fontWeight: 400,
                                             lineHeight: 'normal',
                                             textAlign: 'left',
-                                            paddingLeft: 10
+                                            paddingLeft: 10,
+                                            fontFamily: 'Maven Pro',
                                         }}
                                     >
                                         {estadoPagoNav ? 'Confirmado' : 'Pendiente'}
@@ -599,7 +570,7 @@ const PagosPendientes = () => {
                         flexDirection: 'row',
                         gap: window.screen.width * 0.01,
                         paddingTop: '14vh',
-                        paddingBottom: '9vh', 
+                        paddingBottom: '9vh',
                         //backgroundColor: 'orange',
                         //marginTop: window.screen.height * 0.15,
                         justifyContent: 'space-evenly',
@@ -621,6 +592,7 @@ const PagosPendientes = () => {
                             style={{
                                 fontSize: 13,
                                 marginTop: window.screen.height * 0.005,
+                                fontFamily: 'Maven Pro',
                                 //visibility: 'hidden'
                                 //display: 'none',
                                 //width: window.screen.width * 0.083,
@@ -634,6 +606,7 @@ const PagosPendientes = () => {
                             style={{
                                 fontSize: 13,
                                 marginTop: window.screen.height * 0.005,
+                                fontFamily: 'Maven Pro',
                                 //width: window.screen.width * 0.083,
                             }}
                         >
@@ -645,6 +618,7 @@ const PagosPendientes = () => {
                             style={{
                                 fontSize: 13,
                                 marginTop: window.screen.height * 0.005,
+                                fontFamily: 'Maven Pro',
                                 //width: window.screen.width * 0.083,
                             }}
                         >
@@ -669,7 +643,8 @@ const PagosPendientes = () => {
                             style={{
                                 fontSize: 13,
                                 marginTop: window.screen.height * 0.005,
-                                textAlign: 'right'
+                                textAlign: 'right',
+                                fontFamily: 'Maven Pro'
                                 //visibility: 'hidden'
                                 //display: 'none',
                                 //width: window.screen.width * 0.083,
@@ -683,7 +658,8 @@ const PagosPendientes = () => {
                             style={{
                                 fontSize: 13,
                                 marginTop: window.screen.height * 0.005,
-                                textAlign: 'right'
+                                textAlign: 'right',
+                                fontFamily: 'Maven Pro'
                                 //width: window.screen.width * 0.083,
                             }}
                         >
@@ -695,7 +671,8 @@ const PagosPendientes = () => {
                             style={{
                                 fontSize: 13,
                                 marginTop: window.screen.height * 0.005,
-                                textAlign: 'right'
+                                textAlign: 'right',
+                                fontFamily: 'Maven Pro'
                                 //width: window.screen.width * 0.083,
                             }}
                         >
@@ -717,29 +694,29 @@ const PagosPendientes = () => {
 
                     <form className="space-y-2">
                         <div>
-                            <label htmlFor="gridEmail">Monto</label>
+                            <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro' }}>Monto</label>
                             <input type="email" placeholder="" className="form-input" style={{ width: '45%', height: '5vh' }} />
 
                         </div>
                         <div>
-                            <label htmlFor="gridEmail">Método de Pago</label>
+                            <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro' }}>Método de Pago</label>
                             <Select defaultValue={transacciones[0]} options={transacciones} isSearchable={false} />
                         </div>
                         <div>
-                            <label htmlFor="gridEmail">Detalle de método de pago</label>
+                            <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro' }}>Detalle de método de pago</label>
                             <Select defaultValue={bancos[0]} options={bancos} isSearchable={false} />
                         </div>
                         <div>
-                            <label htmlFor="gridEmail">Concepto</label>
+                            <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro' }}>Concepto</label>
                             <input type="email" placeholder="Breve descripción" className="form-input" style={{ height: '5vh' }} />
                         </div>
                         <div>
-                            <label htmlFor="gridEmail">Referencia</label>
+                            <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro' }}>Referencia</label>
                             <input type="email" placeholder="Ingresar numero de referencia" className="form-input" style={{ height: '5vh' }} />
                         </div>
 
                         <div>
-                            <label htmlFor="gridEmail">Subir Comprobante</label>
+                            <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro' }}>Subir Comprobante</label>
                             <div
                                 style={{
                                     display: 'flex',
@@ -775,6 +752,7 @@ const PagosPendientes = () => {
                                             padding: 10,
                                             display: 'flex',
                                             alignItems: 'center',
+                                            fontFamily: 'Maven Pro'
                                         }}
                                     >
                                         Adjuntar comprobante
@@ -791,6 +769,7 @@ const PagosPendientes = () => {
                                         cursor: 'pointer',
                                         //padding: '0 12px',
                                         height: '100%',
+                                        fontFamily: 'Maven Pro'
                                         //borderLeft: '1px solid #E0E6ED',
                                     }}
                                 >
@@ -836,28 +815,59 @@ const PagosPendientes = () => {
 
                     {estadoPagoNav ?
 
-                        <button
-                            style={{
-                                padding: 10,
-                                backgroundColor: '#805DCA',
-                                display: 'flex',
-                                flexDirection: 'row',
-                                gap: '1vw',
-                                borderRadius: 4,
-                                width: '100%',
-                                justifyContent: 'center',
-                                alignContent: 'center',
-                                color: 'white'
-                            }}
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M17.5 12.5V15.8333C17.5 16.2754 17.3244 16.6993 17.0118 17.0118C16.6993 17.3244 16.2754 17.5 15.8333 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V12.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M5.83398 8.3335L10.0007 12.5002L14.1673 8.3335" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M10 12.5V2.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            Descargar
+                        <>
+                            <button
+                                style={{
+                                    padding: 10,
+                                    backgroundColor: '#805DCA',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    gap: '1vw',
+                                    borderRadius: 4,
+                                    width: '100%',
+                                    justifyContent: 'center',
+                                    alignContent: 'center',
+                                    color: 'white',
+                                    fontFamily: 'Maven Pro'
+                                }}
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M17.5 12.5V15.8333C17.5 16.2754 17.3244 16.6993 17.0118 17.0118C16.6993 17.3244 16.2754 17.5 15.8333 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V12.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M5.83398 8.3335L10.0007 12.5002L14.1673 8.3335" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M10 12.5V2.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                Descargar PDF
 
-                        </button>
+                            </button>
+
+                            <button
+                                style={{
+                                    padding: 10,
+                                    backgroundColor: '#805DCA',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    gap: '1vw',
+                                    borderRadius: 4,
+                                    width: '100%',
+                                    justifyContent: 'center',
+                                    alignContent: 'center',
+                                    color: 'white',
+                                    fontFamily: 'Maven Pro'
+                                }}
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M17.5 12.5V15.8333C17.5 16.2754 17.3244 16.6993 17.0118 17.0118C16.6993 17.3244 16.2754 17.5 15.8333 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V12.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M5.83398 8.3335L10.0007 12.5002L14.1673 8.3335" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M10 12.5V2.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                Descargar XLSX
+
+                            </button>
+                        </>
+
+
+
+
                         :
                         <>
                             <button
@@ -871,7 +881,8 @@ const PagosPendientes = () => {
                                     width: '100%',
                                     justifyContent: 'center',
                                     alignContent: 'center',
-                                    color: 'white'
+                                    color: 'white',
+                                    fontFamily: 'Maven Pro'
                                 }}
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -901,7 +912,7 @@ const PagosPendientes = () => {
                                     <path d="M5.83398 8.3335L10.0007 12.5002L14.1673 8.3335" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                     <path d="M10 12.5V2.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                                Descargar
+                                Descargar PDF
 
                             </button>
 

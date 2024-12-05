@@ -18,37 +18,45 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Paper } from '@mantine/core';
 import IconEye from '../../../components/Icon/IconEye';
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const CobrosTable = (
     {
         isChecked,
+        openModal,
         page,
         pageSize,
         initialRecords,
+        recordsData,
         cobrosData,
         search,
         searchData,
         sortStatus,
         hideCols,
         setIsChecked,
+        setOpenModal,
         setPage,
         setPageSize,
         setSearch,
         setSearchData,
         setSortStatus,
         setHideCols,
-        PAGE_SIZES
+        PAGE_SIZES,
+        setStateModal
     }: {
         isChecked: boolean;
+        openModal: boolean;
         page: number;
         pageSize: number;
         initialRecords: any[];
+        recordsData: any[];
         cobrosData: any[];
         search: string;
         searchData: boolean;
         sortStatus: DataTableSortStatus;
         hideCols: any;
         setIsChecked: React.Dispatch<React.SetStateAction<boolean>>;
+        setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
         setPage: React.Dispatch<React.SetStateAction<number>>;
         setPageSize: React.Dispatch<React.SetStateAction<number>>;
         setSearch: React.Dispatch<React.SetStateAction<string>>;
@@ -56,8 +64,26 @@ const CobrosTable = (
         setSortStatus: React.Dispatch<React.SetStateAction<DataTableSortStatus>>;
         setHideCols: React.Dispatch<React.SetStateAction<any>>;
         PAGE_SIZES: any[];
+        setStateModal: React.Dispatch<React.SetStateAction<boolean>>;
     }
 ) => {
+
+    const [cobrosDataInf, setCobrosDataInf] = useState(cobrosData.slice(0, pageSize));
+    const [addData, setAddData] = useState(cobrosData.length > pageSize);
+
+    const moreData = () => {
+
+        const nextIndex = cobrosDataInf.length;
+        const newPageData = cobrosData.slice(nextIndex, nextIndex + pageSize);
+
+        if (newPageData.length === 0) {
+            setAddData(false);
+        }
+        else {
+            setCobrosDataInf((prevData) => [...prevData, ...newPageData]);
+        }
+
+    };
 
     const [totales, setTotales] = useState({
         anticipoActivo: 0,
@@ -79,7 +105,7 @@ const CobrosTable = (
                 totalDebitar: 0,
             };
 
-            cobrosData.forEach((item) => {
+            recordsData.forEach((item) => {
                 initialSums.anticipoActivo += item.anticipoActivo;
                 initialSums.saldo += item.saldo;
                 initialSums.valorCuota += item.valorCuota;
@@ -91,7 +117,7 @@ const CobrosTable = (
         };
 
         calculateSums();
-    }, []);
+    }, [recordsData]);
 
     return (
 
@@ -101,10 +127,15 @@ const CobrosTable = (
                 margin: '1.5vh'
             }}
         >
-            <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 500 }} size="small">
-                    <TableHead>
-                        <TableRow>
+            <TableContainer
+                component={Paper}
+            >
+
+                <Table
+                    size="small"
+                >
+                    <TableHead >
+                        <TableRow sx={{  backgroundColor: '#e9efff' }}>
                             <TableCell
                                 align='center'
                                 //size='small'
@@ -114,10 +145,11 @@ const CobrosTable = (
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
-                                <p> ID Anticipo </p>
+                                <p> ID Cobro </p>
                             </TableCell>
                             <TableCell
                                 align='center'
@@ -127,6 +159,7 @@ const CobrosTable = (
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -140,6 +173,7 @@ const CobrosTable = (
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -153,6 +187,7 @@ const CobrosTable = (
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -166,6 +201,7 @@ const CobrosTable = (
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -179,6 +215,7 @@ const CobrosTable = (
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -192,6 +229,7 @@ const CobrosTable = (
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -205,6 +243,7 @@ const CobrosTable = (
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -218,10 +257,11 @@ const CobrosTable = (
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
-                                <p> Tasa Única </p>
+                                <p> Costo por Servicio </p>
                             </TableCell>
                             <TableCell
                                 align='center'
@@ -231,17 +271,12 @@ const CobrosTable = (
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
                                 <p> Total a Debitar </p>
                             </TableCell>
-                            {/* <TableCell
-                                align='center'
-                                size='small'
-                            >
-                                <p> Estado </p>
-                            </TableCell> */}
                             <TableCell
                                 align='center'
                                 //size='small'
@@ -250,6 +285,7 @@ const CobrosTable = (
                                     fontSize: 13,
                                     fontStyle: 'normal',
                                     fontWeight: 600,
+                                    fontFamily: 'Maven Pro',
                                     lineHeight: 'normal'
                                 }}
                             >
@@ -257,154 +293,153 @@ const CobrosTable = (
                             </TableCell>
                         </TableRow>
                     </TableHead>
+                    
                     <TableBody>
-                        {cobrosData.map((row, index) => (
+                        {recordsData.map((row, index) => (
                             <TableRow key={row.idAnticipo} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                 <TableCell
-                                    align='center'
+                                    align='left'
                                     size='medium'
                                     sx={{
                                         color: '#BF5CF3',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: '600',
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.idAnticipo} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='left'
                                     size='medium'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.nombre} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='left'
                                     size='medium'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.identificacion} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='left'
                                     size='medium'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.fechaAnticipo} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='right'
                                     size='medium'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.anticipoActivo} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='left'
                                     size='medium'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.cuota} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='right'
                                     size='medium'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.saldo} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='right'
                                     size='medium'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.valorCuota} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='right'
                                     size='medium'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.tasaUnica} </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='right'
                                     size='medium'
                                     sx={{
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
                                         fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> {row.totalDebitar} </p>
                                 </TableCell>
-                                {/* <TableCell
-                                    align='center'
-                                    size='small'
-                                    style={{ width: '10%' }}
-                                >
-                                    <Checkbox
-                                        onChange={() => setIsChecked(!isChecked)}
-                                    />
-                                </TableCell> */}
 
                                 <TableCell
                                     align='center'
-                                // sx={{
-                                //     backgroundColor: 'cyan'
-                                // }}
                                 >
 
                                     <button
@@ -412,7 +447,16 @@ const CobrosTable = (
                                             border: 'none',
                                             cursor: 'pointer'
                                         }}
-                                        onClick={() => console.log(`View: ${row.idAnticipo}`)}
+                                        onClick={() => {
+                                            if (row.estado === true) {
+                                                setOpenModal(true)
+                                                setStateModal(true)
+                                            }
+                                            else {
+                                                setOpenModal(true)
+                                                setStateModal(false)
+                                            }
+                                        }}
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                             <path d="M0.833496 10C0.833496 10 4.16683 3.33337 10.0002 3.33337C15.8335 3.33337 19.1668 10 19.1668 10C19.1668 10 15.8335 16.6667 10.0002 16.6667C4.16683 16.6667 0.833496 10 0.833496 10Z" stroke="#0E1726" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
@@ -420,51 +464,128 @@ const CobrosTable = (
                                         </svg>
                                     </button>
 
-                                    <button
-                                        style={{
-                                            border: 'none',
-                                            cursor: 'pointer',
-                                            marginLeft: window.screen.width * 0.01
-                                        }}
-                                        onClick={() => console.log(`View: ${row.idAnticipo}`)}
-                                    >
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <path d="M2.5 5H4.16667H17.5" stroke="#0E1726" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M15.8332 4.99996V16.6666C15.8332 17.1087 15.6576 17.5326 15.345 17.8451C15.0325 18.1577 14.6085 18.3333 14.1665 18.3333H5.83317C5.39114 18.3333 4.96722 18.1577 4.65466 17.8451C4.3421 17.5326 4.1665 17.1087 4.1665 16.6666V4.99996M6.6665 4.99996V3.33329C6.6665 2.89127 6.8421 2.46734 7.15466 2.15478C7.46722 1.84222 7.89114 1.66663 8.33317 1.66663H11.6665C12.1085 1.66663 12.5325 1.84222 12.845 2.15478C13.1576 2.46734 13.3332 2.89127 13.3332 3.33329V4.99996" stroke="#0E1726" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M8.3335 9.16663V14.1666" stroke="#0E1726" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M11.6665 9.16663V14.1666" stroke="#0E1726" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </button>
-
                                 </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
-                    <TableFooter>
+
+                    <TableFooter
+                        sx={{
+                            position: 'sticky',
+                            bottom: 0,
+                            backgroundColor: 'white',
+                            zIndex: 2,
+                            width: '100%'
+                        }}
+                    >
                         <TableRow>
-                            <TableCell colSpan={4} style={{ fontWeight: "bold" }}>
-                                Totales (Visibles)
+                            <TableCell
+                                //align='center'
+                                size='medium'
+                                colSpan={4}
+                                style={{
+                                    color: '#0E1726',
+                                    fontSize: 13,
+                                    fontStyle: 'normal',
+                                    fontWeight: 600,
+                                    lineHeight: 'normal',
+                                    paddingLeft: 30,
+                                    fontFamily: 'Maven Pro',
+                                }}
+                            >
+                                Total
                             </TableCell>
-                            <TableCell align="right" style={{ fontWeight: "bold" }}>
+                            <TableCell
+                                size='medium'
+                                align="right"
+                                style={{
+                                    color: '#0E1726',
+                                    fontSize: 13,
+                                    fontStyle: 'normal',
+                                    fontWeight: 400,
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro',
+                                }}
+                            >
                                 {totales.anticipoActivo.toFixed(2)}
                             </TableCell>
-                            <TableCell align="right" style={{ fontWeight: "bold" }}>
+                            <TableCell
+                                size='medium'
+                                align="right"
+                                style={{
+                                    color: '#0E1726',
+                                    fontSize: 13,
+                                    fontStyle: 'normal',
+                                    fontWeight: 400,
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro',
+
+                                }}>
+
+                            </TableCell>
+                            <TableCell
+                                size='medium'
+                                align="right"
+                                style={{
+                                    color: '#0E1726',
+                                    fontSize: 13,
+                                    fontStyle: 'normal',
+                                    fontWeight: 400,
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro',
+                                }}
+                            >
                                 {totales.saldo.toFixed(2)}
                             </TableCell>
-                            <TableCell align="right" style={{ fontWeight: "bold" }}>
+
+                            <TableCell
+                                size='medium'
+                                align="right"
+                                style={{
+                                    color: '#0E1726',
+                                    fontSize: 13,
+                                    fontStyle: 'normal',
+                                    fontWeight: 400,
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro',
+                                }}>
                                 {totales.valorCuota.toFixed(2)}
                             </TableCell>
-                            <TableCell align="right" style={{ fontWeight: "bold" }}>
+                            <TableCell
+                                size='medium'
+                                align="right"
+                                style={{
+                                    color: '#0E1726',
+                                    fontSize: 13,
+                                    fontStyle: 'normal',
+                                    fontWeight: 400,
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro',
+                                }}>
                                 {totales.tasaUnica.toFixed(2)}
                             </TableCell>
-                            <TableCell align="right" style={{ fontWeight: "bold" }}>
+                            <TableCell
+                                size='medium'
+                                align="right"
+                                style={{
+                                    color: '#0E1726',
+                                    fontSize: 13,
+                                    fontStyle: 'normal',
+                                    fontWeight: 400,
+                                    lineHeight: 'normal',
+                                    fontFamily: 'Maven Pro'
+                                }}
+                            >
                                 {totales.totalDebitar.toFixed(2)}
                             </TableCell>
                             <TableCell />
                         </TableRow>
                     </TableFooter>
+
                 </Table>
+
             </TableContainer>
+
             <div
                 style={{
                     display: 'flex',
@@ -489,9 +610,10 @@ const CobrosTable = (
                         style={{
                             fontWeight: 'initial',
                             fontSize: 14,
+                            fontFamily: 'Maven Pro',
                         }}
                     >
-                        Mostrando {cobrosData!.length} de {initialRecords!.length} registros
+                        Mostrando {recordsData!.length} de {initialRecords!.length} registros
                     </Typography>
                 </div>
 
@@ -510,7 +632,8 @@ const CobrosTable = (
                             padding: '5px',
                             borderRadius: '4px',
                             borderWidth: '0.5px',
-                            borderColor: 'gray'
+                            borderColor: 'gray',
+                            fontFamily: 'Maven Pro',
                         }}
                     >
                         {PAGE_SIZES!.map((size) => (
@@ -547,6 +670,7 @@ const CobrosTable = (
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
+                            fontFamily: 'Maven Pro',
                         }}
                     >
                         {'<'}
@@ -561,13 +685,14 @@ const CobrosTable = (
                                 height: '40px',
                                 border: '1px solid #ccc',
                                 borderRadius: '50%',
-                                backgroundColor: page === index + 1 ? '#4e78f4' : '#f5f5f5',
+                                backgroundColor: page === index + 1 ? '#BF5CF3' : '#f5f5f5',
                                 color: page === index + 1 ? '#ffffff' : '#000',
                                 cursor: 'pointer',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 fontWeight: page === index + 1 ? 'bold' : 'normal',
+                                fontFamily: 'Maven Pro',
                             }}
                         >
                             {index + 1}
@@ -588,13 +713,16 @@ const CobrosTable = (
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
+                            fontFamily: 'Maven Pro',
                         }}
                     >
                         {'>'}
                     </button>
                 </div>
             </div>
+
         </div>
+        
 
     )
 

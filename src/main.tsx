@@ -18,17 +18,20 @@ import router from './router/index';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store/index';
+import { AccionesContext } from './contexts/AccionesContext';
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
-        <Suspense>
-            <Provider store={store}>
-                <MantineProvider>
-                    <RouterProvider router={router} />
-                </MantineProvider>
-            </Provider>
-        </Suspense>
+        <AccionesContext>
+            <Suspense>
+                <Provider store={store}>
+                    <MantineProvider>
+                        <RouterProvider router={router} />
+                    </MantineProvider>
+                </Provider>
+            </Suspense>
+        </AccionesContext>
     </React.StrictMode>
 );
 
