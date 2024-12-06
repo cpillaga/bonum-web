@@ -20,15 +20,19 @@ const Empleados = () => {
 
     const { accionDatos, recargarDatos } = useContext( AccionContext );
 
-
     const [rowData, setRowData] = useState([])
-    const [initialRecords, setInitialRecords] = useState(sortBy(rowData, 'identification_number'));
+    const [initialRecords, setInitialRecords] = useState(sortBy(rowData || [], 'identification_number'));
     useEffect(() => {
       
         all_empleados()
             .then((res) => {
-                setRowData(res.data)
-                setInitialRecords(res.data)
+                if (res && res.data) {
+                    setRowData(res.data);
+                    setInitialRecords(res.data);
+                } else {
+                    setRowData([]);
+                    setInitialRecords([]);
+                }
             })
             .catch((err) => {
                 console.log("Error API: ", err)
@@ -48,75 +52,13 @@ const Empleados = () => {
     const [page, setPage] = useState(1);
     const [pageSize, setPageSize] = useState(PAGE_SIZES[0]);
     
-    const [recordsData, setRecordsData] = useState(initialRecords);
+    const [recordsData, setRecordsData] = useState(initialRecords || []);
     const [search, setSearch] = useState('');
     const [searchData, setSearchData] = useState(false);
     const [sortStatus, setSortStatus] = useState<DataTableSortStatus>({ columnAccessor: 'identification_number', direction: 'asc' });
     const [hideCols, setHideCols] = useState<any>(['age', 'dob', 'isActive']);
 
-    /*
-    useEffect(() => {
-        setPage(1);
-    }, [pageSize]);
-
-    useEffect(() => {
-        const from = (page - 1) * pageSize;
-        const to = from + pageSize;
-        setRecordsData([...initialRecords.slice(from, to)]);
-    }, [page, pageSize, initialRecords]);
-
-    useEffect(() => {
-        setInitialRecords(() => {
-            
-            return rowData.filter((item: any) => {
-                return (
-
-                    item.identification_number.toString().includes(search.toLowerCase()) ||
-                    item.email.toLowerCase().includes(search.toLowerCase()) ||
-                    item.registration_date.toString().toLowerCase().includes(search.toLowerCase()) ||
-                    item.name.toString().toLowerCase().includes(search.toLowerCase()) ||
-                    item.lastname.toString().toLowerCase().includes(search.toLowerCase()) ||
-                    item.net_salary.toString().toLowerCase().includes(search.toLowerCase()) ||
-                    item.status.toString().toLowerCase().includes(search.toLowerCase())
-                );
-            });
-        });
-    }, [search]);
-
-    useEffect(() => {
-        const data = sortBy(initialRecords, sortStatus.columnAccessor);
-        setInitialRecords(sortStatus.direction === 'desc' ? data.reverse() : data);
-        setPage(1);
-    }, [sortStatus]);
-
-    const isRtl = useSelector((state: IRootState) => state.themeConfig.rtlClass) === 'rtl' ? true : false;
-
-    const showHideColumns = (col: any, value: any) => {
-        if (hideCols.includes(col)) {
-            setHideCols((col: any) => hideCols.filter((d: any) => d !== col));
-        } else {
-            setHideCols([...hideCols, col]);
-        }
-    };
-
-    const cols = [
-        { accessor: 'id', title: 'ID' },
-        { accessor: 'firstName', title: 'First Name' },
-        { accessor: 'lastName', title: 'Last Name' },
-        { accessor: 'email', title: 'Email' },
-        { accessor: 'phone', title: 'Phone' },
-        { accessor: 'company', title: 'Company' },
-        { accessor: 'address.street', title: 'Address' },
-        { accessor: 'age', title: 'Age' },
-        { accessor: 'dob', title: 'Birthdate' },
-        { accessor: 'isActive', title: 'Active' },
-    ];*/
-
-    useEffect(() => {
-      console.log("Initial Records: ", rowData)
-    }, [])
     
-
     return (
 
         <div>
@@ -340,14 +282,14 @@ const Empleados = () => {
                 </div>
 
                 <EmpleadosTable
-                    rowData={rowData}
+                    rowData={rowData || []}
                     isChecked={isChecked}
                     openModal={openModal}
                     openModalNew={openModalNew}
                     page={page}
                     pageSize={pageSize}
-                    initialRecords={initialRecords}
-                    recordsData={recordsData}
+                    initialRecords={initialRecords || []}
+                    recordsData={recordsData || []}
                     search={search}
                     searchData={searchData}
                     sortStatus={sortStatus}

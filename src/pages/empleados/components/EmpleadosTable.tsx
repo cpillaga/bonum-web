@@ -237,7 +237,7 @@ const EmpleadosTable = ({
                     </TableHead>
                     <TableBody>
                         
-                        {rowData.length > 0 ?
+                        {rowData!.length > 0 ?
                             <>
                                 {rowData.map((row, index) => (
                                     <TableRow key={row.identification_number} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
@@ -536,7 +536,7 @@ const EmpleadosTable = ({
                         {'<'}
                     </button>
 
-                    {[...Array(Math.ceil(rowData.length / pageSize)).keys()].map((_, index) => (
+                    {[...Array(Math.ceil(rowData!.length / pageSize)).keys()].map((_, index) => (
                         <button
                             key={index}
                             onClick={() => setPage(index + 1)}
@@ -559,16 +559,16 @@ const EmpleadosTable = ({
                     ))}
 
                     <button
-                        disabled={page * pageSize >= initialRecords.length}
+                        disabled={page * pageSize >= initialRecords!.length}
                         onClick={() => setPage(page + 1)}
                         style={{
                             width: '40px',
                             height: '40px',
                             border: '1px solid #ccc',
                             borderRadius: '50%',
-                            backgroundColor: page * pageSize >= initialRecords.length ? '#f5f5f5' : '#ffffff',
-                            color: page * pageSize >= initialRecords.length ? '#ccc' : '#000',
-                            cursor: page * pageSize >= initialRecords.length ? 'not-allowed' : 'pointer',
+                            backgroundColor: page * pageSize >= initialRecords!.length ? '#f5f5f5' : '#ffffff',
+                            color: page * pageSize >= initialRecords!.length ? '#ccc' : '#000',
+                            cursor: page * pageSize >= initialRecords!.length ? 'not-allowed' : 'pointer',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
