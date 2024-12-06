@@ -398,11 +398,7 @@ const TablePagosMain = ({
                     component={Paper}
                 >
 
-                    <Table
-                        stickyHeader
-                        size="small"
-                        id="scrollableDiv"
-                    >
+                    <Table>
                         <TableHead
                         sx={{
                             backgroundColor: '#e9efff',
@@ -411,7 +407,7 @@ const TablePagosMain = ({
                     >
                             <TableRow>
                                 <TableCell
-                                    align='center'
+                                    align='left'
                                     //size='small'
                                     sx={{
                                         color: '#0E1726',
@@ -426,7 +422,7 @@ const TablePagosMain = ({
                                 </TableCell>
 
                                 <TableCell
-                                    align='center'
+                                    align='left'
                                     //size='small'
                                     sx={{
                                         color: '#0E1726',
@@ -441,7 +437,7 @@ const TablePagosMain = ({
                                 </TableCell>
                                 
                                 <TableCell
-                                    align='center'
+                                    align='left'
                                     //size='small'
                                     sx={{
                                         color: '#0E1726',
@@ -456,7 +452,7 @@ const TablePagosMain = ({
                                 </TableCell>
                                 
                                 <TableCell
-                                    align='center'
+                                    align='right'
                                     //size='small'
                                     sx={{
                                         color: '#0E1726',
@@ -470,7 +466,7 @@ const TablePagosMain = ({
                                     <p> Saldo </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='right'
                                     //size='small'
                                     sx={{
                                         color: '#0E1726',
@@ -484,7 +480,7 @@ const TablePagosMain = ({
                                     <p> Valor Cuota  </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='right'
                                     //size='small'
                                     sx={{
                                         color: '#0E1726',
@@ -498,7 +494,7 @@ const TablePagosMain = ({
                                     <p> Costo por Servicio </p>
                                 </TableCell>
                                 <TableCell
-                                    align='center'
+                                    align='right'
                                     //size='small'
                                     sx={{
                                         color: '#0E1726',
@@ -538,7 +534,7 @@ const TablePagosMain = ({
                                             color: '#BF5CF3',
                                             fontSize: 13,
                                             fontStyle: 'normal',
-                                            fontWeight: '600',
+                                            fontWeight: '400',
                                             fontFamily: 'Maven Pro',
                                             lineHeight: 'normal'
                                         }}

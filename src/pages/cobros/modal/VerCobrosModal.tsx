@@ -166,7 +166,8 @@ const VerCobrosModal = (
                                                     fontSize: 14,
                                                     marginTop: window.screen.height * 0.005,
                                                     width: window.screen.width * 0.083,
-                                                    fontFamily: 'Maven Pro'
+                                                    fontFamily: 'Maven Pro',
+                                                    fontWeight: 400,
                                                 }}
                                             >
                                                 Estado:
@@ -178,7 +179,8 @@ const VerCobrosModal = (
                                                     fontSize: 14,
                                                     marginTop: window.screen.height * 0.005,
                                                     width: window.screen.width * 0.083,
-                                                    fontFamily: 'Maven Pro'
+                                                    fontFamily: 'Maven Pro',
+                                                    fontWeight: 400,
                                                 }}
                                             >
                                                 ID de Solicitud:
@@ -190,7 +192,8 @@ const VerCobrosModal = (
                                                     fontSize: 14,
                                                     marginTop: window.screen.height * 0.005,
                                                     width: window.screen.width * 0.083,
-                                                    fontFamily: 'Maven Pro'
+                                                    fontFamily: 'Maven Pro',
+                                                    fontWeight: 400,
                                                 }}
                                             >
                                                 Fecha de Ingreso:
@@ -331,6 +334,7 @@ const VerCobrosModal = (
                                                 style={{
                                                     color: 'white',
                                                     fontFamily: 'Maven Pro',
+                                                    fontWeight: 400,
                                                 }}
                                             >
                                                 Descargar
@@ -404,6 +408,7 @@ const VerCobrosModal = (
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
                                                         fontFamily: 'Maven Pro',
+                                                        fontWeight: 400,
                                                     }}
                                                 >
                                                     Nombre:
@@ -416,6 +421,7 @@ const VerCobrosModal = (
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
                                                         fontFamily: 'Maven Pro',
+                                                        fontWeight: 400,
                                                     }}
                                                 >
                                                     Email:
@@ -428,6 +434,7 @@ const VerCobrosModal = (
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
                                                         fontFamily: 'Maven Pro',
+                                                        fontWeight: 400,
                                                     }}
                                                 >
                                                     Cargo:
@@ -440,6 +447,7 @@ const VerCobrosModal = (
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
                                                         fontFamily: 'Maven Pro',
+                                                        fontWeight: 400,
                                                     }}
                                                 >
                                                     Ingresos:
@@ -520,6 +528,7 @@ const VerCobrosModal = (
                                                     style={{
                                                         fontFamily: 'Maven Pro',
                                                         fontSize: 14,
+                                                        fontWeight: 400,
                                                         marginTop: window.screen.height * 0.005,
                                                         width: stateModal ? window.screen.width * 0.083 : window.screen.width * 0.1
                                                     }}
@@ -538,6 +547,7 @@ const VerCobrosModal = (
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
                                                         fontFamily: 'Maven Pro',
+                                                        fontWeight: 400,
                                                     }}
                                                 >
 
@@ -555,6 +565,7 @@ const VerCobrosModal = (
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
                                                         fontFamily: 'Maven Pro',
+                                                        fontWeight: 400,
                                                     }}
                                                 >
                                                     <p> Referencia: </p>
@@ -568,6 +579,7 @@ const VerCobrosModal = (
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
                                                         fontFamily: 'Maven Pro',
+                                                        fontWeight: 400,
                                                     }}
                                                 >
                                                     Comprobante:

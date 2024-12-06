@@ -672,7 +672,8 @@ const PagosPendientes = () => {
                                 fontSize: 13,
                                 marginTop: window.screen.height * 0.005,
                                 textAlign: 'right',
-                                fontFamily: 'Maven Pro'
+                                fontFamily: 'Maven Pro',
+                                fontWeight: 400
                             }}
                         >
                             $ 1357.98
@@ -698,29 +699,29 @@ const PagosPendientes = () => {
 
                         <form className="space-y-2">
                             <div>
-                                <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro' }}>Monto</label>
+                                <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro', fontWeight: 400 }}>Monto</label>
                                 <input type="email" placeholder="" className="form-input" style={{ width: '45%', height: '5vh' }} />
 
                             </div>
                             <div>
-                                <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro' }}>Método de Pago</label>
+                                <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro', fontWeight: 400 }}>Método de Pago</label>
                                 <Select defaultValue={transacciones[0]} options={transacciones} isSearchable={false} />
                             </div>
                             <div>
-                                <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro' }}>Detalle de método de pago</label>
+                                <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro', fontWeight: 400 }}>Detalle de método de pago</label>
                                 <Select defaultValue={bancos[0]} options={bancos} isSearchable={false} />
                             </div>
                             <div>
-                                <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro' }}>Concepto</label>
+                                <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro', fontWeight: 400 }}>Concepto</label>
                                 <input type="email" placeholder="Breve descripción" className="form-input" style={{ height: '5vh' }} />
                             </div>
                             <div>
-                                <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro' }}>Referencia</label>
+                                <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro', fontWeight: 400 }}>Referencia</label>
                                 <input type="email" placeholder="Ingresar numero de referencia" className="form-input" style={{ height: '5vh' }} />
                             </div>
 
                             <div>
-                                <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro' }}>Subir Comprobante</label>
+                                <label htmlFor="gridEmail" style={{ fontFamily: 'Maven Pro', fontWeight: 400 }}>Subir Comprobante</label>
                                 <div
                                     style={{
                                         display: 'flex',

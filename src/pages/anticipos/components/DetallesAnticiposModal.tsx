@@ -163,7 +163,8 @@ const DetallesAnticiposModal = (
                                                     fontSize: 14,
                                                     marginTop: window.screen.height * 0.005,
                                                     width: window.screen.width * 0.083,
-                                                    fontFamily: 'Maven Pro'
+                                                    fontFamily: 'Maven Pro',
+                                                    fontWeight: 400
                                                 }}
                                             >
                                                 Estado:
@@ -175,7 +176,8 @@ const DetallesAnticiposModal = (
                                                     fontSize: 14,
                                                     marginTop: window.screen.height * 0.005,
                                                     width: window.screen.width * 0.083,
-                                                    fontFamily: 'Maven Pro'
+                                                    fontFamily: 'Maven Pro',
+                                                    fontWeight: 400
                                                 }}
                                             >
                                                 ID de Solicitud:
@@ -187,7 +189,8 @@ const DetallesAnticiposModal = (
                                                     fontSize: 14,
                                                     marginTop: window.screen.height * 0.005,
                                                     width: window.screen.width * 0.083,
-                                                    fontFamily: 'Maven Pro'
+                                                    fontFamily: 'Maven Pro',
+                                                    fontWeight: 400
                                                 }}
                                             >
                                                 Fecha de Ingreso:
@@ -401,7 +404,8 @@ const DetallesAnticiposModal = (
                                                         fontSize: 14,
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
-                                                        fontFamily: 'Maven Pro'
+                                                        fontFamily: 'Maven Pro',
+                                                        fontWeight: 400
                                                     }}
                                                 >
                                                     Nombre:
@@ -413,7 +417,8 @@ const DetallesAnticiposModal = (
                                                         fontSize: 14,
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
-                                                        fontFamily: 'Maven Pro'
+                                                        fontFamily: 'Maven Pro',
+                                                        fontWeight: 400
                                                     }}
                                                 >
                                                     Email:
@@ -425,7 +430,9 @@ const DetallesAnticiposModal = (
                                                         fontSize: 14,
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
-                                                        fontFamily: 'Maven Pro'
+                                                        fontFamily: 'Maven Pro',
+                                                        fontWeight: 400
+
                                                     }}
                                                 >
                                                     Cargo:
@@ -437,7 +444,8 @@ const DetallesAnticiposModal = (
                                                         fontSize: 14,
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
-                                                        fontFamily: 'Maven Pro'
+                                                        fontFamily: 'Maven Pro',
+                                                        fontWeight: 400
                                                     }}
                                                 >
                                                     Ingresos:
@@ -519,6 +527,7 @@ const DetallesAnticiposModal = (
                                                     style={{
                                                         fontSize: 14,
                                                         fontFamily: 'Maven Pro',
+                                                        fontWeight: 400,
                                                         marginTop: window.screen.height * 0.005,
                                                         width: stateModal ? window.screen.width * 0.083 : window.screen.width * 0.1
                                                     }}
@@ -537,6 +546,7 @@ const DetallesAnticiposModal = (
                                                         fontFamily: 'Maven Pro',
                                                         marginTop: window.screen.height * 0.005,
                                                         width: window.screen.width * 0.083,
+                                                        fontWeight: 400
                                                     }}
                                                 >
 
@@ -554,7 +564,8 @@ const DetallesAnticiposModal = (
                                                                 fontSize: 14,
                                                                 marginTop: window.screen.height * 0.005,
                                                                 width: window.screen.width * 0.083,
-                                                                fontFamily: 'Maven Pro'
+                                                                fontFamily: 'Maven Pro',
+                                                                fontWeight: 400,
                                                             }}
                                                         >
                                                             <p> Referencia: </p>
@@ -567,7 +578,8 @@ const DetallesAnticiposModal = (
                                                                 fontSize: 14,
                                                                 marginTop: window.screen.height * 0.005,
                                                                 width: window.screen.width * 0.083,
-                                                                fontFamily: 'Maven Pro'
+                                                                fontFamily: 'Maven Pro',
+                                                                fontWeight: 400,
                                                             }}
                                                         >
                                                             Comprobante:
