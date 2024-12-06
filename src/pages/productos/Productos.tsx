@@ -196,7 +196,8 @@ const Productos = () => {
                                     fontWeight: 400,
                                     lineHeight: 'normal',
                                     fontFamily: 'Maven Pro',
-                                    paddingBottom: 3
+                                    paddingBottom: 3,
+                                    marginLeft: 15
                                 }}
                             >
                                 <p>
