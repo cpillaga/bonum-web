@@ -110,7 +110,7 @@ const VerCobrosModal = (
                                         style={{
                                             color: '#888EA8',
                                             fontSize: 13,
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                             fontFamily: 'Maven Pro'
                                         }}
                                     >
@@ -121,7 +121,7 @@ const VerCobrosModal = (
                                         style={{
                                             color: '#888EA8',
                                             fontSize: 13,
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                             fontFamily: 'Maven Pro'
                                         }}
                                     >
@@ -132,7 +132,7 @@ const VerCobrosModal = (
                                         style={{
                                             color: '#888EA8',
                                             fontSize: 13,
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                             fontFamily: 'Maven Pro'
                                         }}
                                     >
@@ -270,7 +270,7 @@ const VerCobrosModal = (
                                                                 '& .MuiInputBase-input': {
                                                                     '::placeholder': {
                                                                         fontSize: 13,
-                                                                        fontWeight: 600,
+                                                                        fontWeight: 400,
                                                                         color: '#0E1726',
                                                                         fontFamily: 'Maven Pro',
                                                                         opacity: 1
@@ -372,7 +372,7 @@ const VerCobrosModal = (
                                                 fontSize: '16px',
                                                 color: '#0E1726',
                                                 fontStyle: 'normal',
-                                                fontWeight: 600,
+                                                fontWeight: 400,
                                                 lineHeight: 'normal',
                                                 fontFamily: 'Maven Pro',
                                             }}
@@ -486,7 +486,7 @@ const VerCobrosModal = (
                                                 fontSize: '16px',
                                                 color: '#0E1726',
                                                 fontStyle: 'normal',
-                                                fontWeight: 600,
+                                                fontWeight: 400,
                                                 lineHeight: 'normal',
                                                 fontFamily: 'Maven Pro',
                                             }}
@@ -648,7 +648,7 @@ const VerCobrosModal = (
                                             color: '#0E1726',
                                             fontSize: '14px',
                                             fontStyle: 'normal',
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                             lineHeight: 'normal',
                                             alignContent: 'center',
                                             paddingLeft: 1,
@@ -665,7 +665,7 @@ const VerCobrosModal = (
                                             color: '#0E1726',
                                             fontSize: '14px',
                                             fontStyle: 'normal',
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                             lineHeight: 'normal',
                                             alignContent: 'center',
                                             fontFamily: 'Maven Pro',
@@ -680,7 +680,7 @@ const VerCobrosModal = (
                                             color: '#0E1726',
                                             fontSize: '14px',
                                             fontStyle: 'normal',
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                             lineHeight: 'normal',
                                             alignContent: 'center',
                                             paddingLeft: 5,
@@ -696,7 +696,7 @@ const VerCobrosModal = (
                                             color: '#0E1726',
                                             fontSize: '14px',
                                             fontStyle: 'normal',
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                             lineHeight: 'normal',
                                             alignContent: 'center',
                                             paddingLeft: 10,
@@ -769,7 +769,7 @@ const VerCobrosModal = (
                                                 color: '#0E1726',
                                                 fontSize: '18px',
                                                 fontStyle: 'normal',
-                                                fontWeight: 600,
+                                                fontWeight: 400,
                                                 lineHeight: 'normal',
                                                 fontFamily: 'Maven Pro',
                                             }}

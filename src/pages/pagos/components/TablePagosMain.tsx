@@ -113,7 +113,12 @@ const TablePagosMain = ({
             >
                 {/* <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 500 }} size="medium">
-                        <TableHead>
+                        <TableHead
+                        sx={{
+                            backgroundColor: '#e9efff',
+                            flexShrink: 0,
+                        }}
+                    >
                             <TableRow>
                                 <TableCell
                                     align='center'
@@ -123,7 +128,7 @@ const TablePagosMain = ({
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         lineHeight: 'normal'
                                     }}
                                 >
@@ -136,7 +141,7 @@ const TablePagosMain = ({
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         lineHeight: 'normal'
                                     }}
                                 >
@@ -149,7 +154,7 @@ const TablePagosMain = ({
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         lineHeight: 'normal'
                                     }}
                                 >
@@ -162,7 +167,7 @@ const TablePagosMain = ({
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         lineHeight: 'normal'
                                     }}
                                 >
@@ -175,11 +180,11 @@ const TablePagosMain = ({
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         lineHeight: 'normal'
                                     }}
                                 >
-                                    <p> Tasa Única </p>
+                                    <p> Costo por Servicio </p>
                                 </TableCell>
                                 <TableCell
                                     align='center'
@@ -188,7 +193,7 @@ const TablePagosMain = ({
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         lineHeight: 'normal'
                                     }}
                                 >
@@ -201,7 +206,7 @@ const TablePagosMain = ({
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         lineHeight: 'normal'
                                     }}
                                 >
@@ -398,22 +403,41 @@ const TablePagosMain = ({
                         size="small"
                         id="scrollableDiv"
                     >
-                        <TableHead>
+                        <TableHead
+                        sx={{
+                            backgroundColor: '#e9efff',
+                            flexShrink: 0,
+                        }}
+                    >
                             <TableRow>
                                 <TableCell
                                     align='center'
                                     //size='small'
                                     sx={{
-                                        width: '8%',
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
                                     <p> ID Anticipo </p>
+                                </TableCell>
+
+                                <TableCell
+                                    align='center'
+                                    //size='small'
+                                    sx={{
+                                        color: '#0E1726',
+                                        fontSize: 13,
+                                        fontStyle: 'normal',
+                                        fontWeight: 400,
+                                        fontFamily: 'Maven Pro',
+                                        lineHeight: 'normal'
+                                    }}
+                                >
+                                    <p> Pago </p>
                                 </TableCell>
                                 
                                 <TableCell
@@ -423,7 +447,7 @@ const TablePagosMain = ({
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
@@ -438,7 +462,7 @@ const TablePagosMain = ({
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
@@ -452,7 +476,7 @@ const TablePagosMain = ({
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
@@ -466,12 +490,12 @@ const TablePagosMain = ({
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
                                 >
-                                    <p> Tasa Única </p>
+                                    <p> Costo por Servicio </p>
                                 </TableCell>
                                 <TableCell
                                     align='center'
@@ -480,7 +504,7 @@ const TablePagosMain = ({
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
@@ -494,7 +518,7 @@ const TablePagosMain = ({
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         fontFamily: 'Maven Pro',
                                         lineHeight: 'normal'
                                     }}
@@ -520,6 +544,21 @@ const TablePagosMain = ({
                                         }}
                                     >
                                         <p> {row.idAnticipo} </p>
+                                    </TableCell>
+
+                                    <TableCell
+                                        align='left'
+                                        size='medium'
+                                        sx={{
+                                            color: '#0E1726',
+                                            fontSize: 13,
+                                            fontStyle: 'normal',
+                                            fontWeight: 400,
+                                            fontFamily: 'Maven Pro',
+                                            lineHeight: 'normal'
+                                        }}
+                                    >
+                                        <p> {row.nombre} </p>
                                     </TableCell>
                                     
                                     <TableCell
@@ -709,7 +748,7 @@ const TablePagosMain = ({
                                         color: '#0E1726',
                                         fontSize: 13,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         lineHeight: 'normal',
                                         paddingLeft: 30
                                     }}

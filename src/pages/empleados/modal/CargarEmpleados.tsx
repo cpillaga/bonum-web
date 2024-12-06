@@ -92,7 +92,7 @@ const CargarEmpleadosModal = (
                                         //fontFamily: 'Nunito',
                                         fontSize: 16,
                                         fontStyle: 'normal',
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         lineHeight: 'normal',
                                         fontFamily: 'Maven Pro',
                                         color: '#BF5CF3'
@@ -167,7 +167,7 @@ const CargarEmpleadosModal = (
                                             height: window.screen.height * 0.035,
                                             width: window.screen.width * 0.1,
                                             fontStyle: 'normal',
-                                            fontWeight: '600',
+                                            fontWeight: '400',
                                             lineHeight: 'normal',
                                             fontFamily: 'Maven Pro',
                                         }}

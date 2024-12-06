@@ -65,7 +65,7 @@ const MensajeModal = (
                                     //fontFamily: Nunito;
                                     fontSize: 20,
                                     fontStyle: 'normal',
-                                    fontWeight: 500,
+                                    fontWeight: 400,
                                     lineHeight: 'normal',
                                     paddingTop: 15,
                                     paddingLeft: 20,
@@ -84,7 +84,7 @@ const MensajeModal = (
                                     //fontFamily: Nunito;
                                     fontSize: 20,
                                     fontStyle: 'normal',
-                                    fontWeight: 500,
+                                    fontWeight: 400,
                                     lineHeight: 'normal',
                                     paddingTop: 15,
                                     paddingLeft: 20,

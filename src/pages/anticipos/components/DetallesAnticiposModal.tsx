@@ -110,7 +110,7 @@ const DetallesAnticiposModal = (
                                         style={{
                                             color: '#888EA8',
                                             fontSize: 13,
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                         }}
                                     >
                                         13 Tetrick Road, Cypress Gardens, Florida, 33884, US
@@ -120,7 +120,7 @@ const DetallesAnticiposModal = (
                                         style={{
                                             color: '#888EA8',
                                             fontSize: 13,
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                         }}
                                     >
                                         info@bonum.com
@@ -130,7 +130,7 @@ const DetallesAnticiposModal = (
                                         style={{
                                             color: '#888EA8',
                                             fontSize: 13,
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                         }}
                                     >
                                         +1 (070) 123-4567
@@ -267,7 +267,7 @@ const DetallesAnticiposModal = (
                                                                 '& .MuiInputBase-input': {
                                                                     '::placeholder': {
                                                                         fontSize: 13,
-                                                                        fontWeight: 600,
+                                                                        fontWeight: 400,
                                                                         color: '#0E1726',
                                                                         opacity: 1,
                                                                         fontFamily: 'Maven Pro'
@@ -370,7 +370,7 @@ const DetallesAnticiposModal = (
                                                 fontSize: '16px',
                                                 color: '#0E1726',
                                                 fontStyle: 'normal',
-                                                fontWeight: 600,
+                                                fontWeight: 400,
                                                 lineHeight: 'normal',
                                                 fontFamily: 'Maven Pro'
                                             }}
@@ -484,7 +484,7 @@ const DetallesAnticiposModal = (
                                                 fontSize: '16px',
                                                 color: '#0E1726',
                                                 fontStyle: 'normal',
-                                                fontWeight: 600,
+                                                fontWeight: 400,
                                                 lineHeight: 'normal',
                                                 fontFamily: 'Maven Pro'
                                             }}
@@ -687,7 +687,7 @@ const DetallesAnticiposModal = (
                                             color: '#0E1726',
                                             fontSize: '14px',
                                             fontStyle: 'normal',
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                             lineHeight: 'normal',
                                             alignContent: 'center',
                                             paddingLeft: 1,
@@ -703,7 +703,7 @@ const DetallesAnticiposModal = (
                                             color: '#0E1726',
                                             fontSize: '14px',
                                             fontStyle: 'normal',
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                             lineHeight: 'normal',
                                             alignContent: 'center',
                                             fontFamily: 'Maven Pro'
@@ -718,7 +718,7 @@ const DetallesAnticiposModal = (
                                             color: '#0E1726',
                                             fontSize: '14px',
                                             fontStyle: 'normal',
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                             lineHeight: 'normal',
                                             alignContent: 'center',
                                             paddingLeft: 5,
@@ -734,7 +734,7 @@ const DetallesAnticiposModal = (
                                             color: '#0E1726',
                                             fontSize: '14px',
                                             fontStyle: 'normal',
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                             lineHeight: 'normal',
                                             alignContent: 'center',
                                             paddingLeft: 10,
@@ -807,7 +807,7 @@ const DetallesAnticiposModal = (
                                                 color: '#0E1726',
                                                 fontSize: '18px',
                                                 fontStyle: 'normal',
-                                                fontWeight: 600,
+                                                fontWeight: 400,
                                                 lineHeight: 'normal',
                                                 fontFamily: 'Maven Pro'
                                             }}

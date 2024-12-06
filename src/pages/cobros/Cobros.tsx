@@ -548,7 +548,7 @@ const Cobros = () => {
                     color: '#0E1726',
                     fontSize: 13,
                     fontStyle: 'normal',
-                    fontWeight: 600,
+                    fontWeight: 400,
                     lineHeight: 'normal',
                     fontFamily: 'Maven Pro'
                 }}
@@ -598,7 +598,7 @@ const Cobros = () => {
                                             color: '#0E1726',
                                             fontSize: 13,
                                             fontStyle: 'normal',
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                             lineHeight: 'normal',
                                             justifySelf: 'center',
                                             alignSelf: 'center',
@@ -608,7 +608,7 @@ const Cobros = () => {
                                     >
                                         Periodo
                                     </p>
-                                    <FilterAltOutlinedIcon />
+                                    
                                 </div>
                             }
                         >
@@ -634,7 +634,7 @@ const Cobros = () => {
                                             color: '#0E1726',
                                             fontSize: 13,
                                             fontStyle: 'normal',
-                                            fontWeight: 600,
+                                            fontWeight: 400,
                                             lineHeight: 'normal',
                                             justifySelf: 'center',
                                             alignSelf: 'center',
@@ -669,7 +669,7 @@ const Cobros = () => {
                                                     color: '#0E1726',
                                                     fontSize: 13,
                                                     fontStyle: 'normal',
-                                                    fontWeight: 600,
+                                                    fontWeight: 400,
                                                     lineHeight: 'normal',
                                                     fontFamily: 'Maven Pro'
                                                 }}
@@ -715,7 +715,7 @@ const Cobros = () => {
                                 gap: '0.5vw',
                                 fontSize: 14,
                                 fontStyle: 'normal',
-                                fontWeight: 600,
+                                fontWeight: 400,
                                 lineHeight: 'normal',
                                 fontFamily: 'Maven Pro',
                             }}
