@@ -252,7 +252,7 @@ const Anticipos = () => {
 
                         <button
                             style={{
-                                width: '79px',
+                                width: '70px',
                                 height: '38px',
                                 backgroundColor: 'white',
                                 borderRadius: 5,
@@ -280,8 +280,8 @@ const Anticipos = () => {
 
                         <button
                             style={{
-                                width: '82px',
-                                height: '42px',
+                                width: '70px',
+                                height: '38px',
                                 backgroundColor: 'white',
                                 borderRadius: 5,
                                 border: 'none',
