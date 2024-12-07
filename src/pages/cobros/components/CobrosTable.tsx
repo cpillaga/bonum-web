@@ -124,7 +124,7 @@ const CobrosTable = (
         <div
             className="datatables"
             style={{
-                margin: '1.5vh'
+                marginTop: 23
             }}
         >
             <TableContainer

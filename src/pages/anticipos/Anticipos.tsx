@@ -349,8 +349,7 @@ const Anticipos = () => {
                         style={{
                             display: 'flex',
                             flexDirection: 'row',
-                            gap: '13x',
-                            //backgroundColor: 'blue',
+                            gap: 5,
                             width: '100%',
                             justifyContent: 'flex-end',
                             justifyItems: 'flex-end',
@@ -361,10 +360,6 @@ const Anticipos = () => {
 
                         <div
                             className="dropdown"
-                            style={{
-                                //backgroundColor: 'pink',
-                                //paddingBottom: 1
-                            }}
                         >
 
                             <LocalizationProvider
@@ -382,9 +377,9 @@ const Anticipos = () => {
                                                 readOnly: true,
                                             },
                                             sx: {
-                                                width: window.screen.width * 0.1,
+                                                width: '154px',
                                                 '& .MuiInputBase-root': {
-                                                    width: '114px',
+                                                    width: '154px',
                                                     height: '42px',
                                                     flexShrink: 0,
                                                     // marginTop: window.screen.height * 0.0005,

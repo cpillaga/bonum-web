@@ -53,6 +53,7 @@ const NuevoEmpleadoModal = (
 
         create_empleados(data)
             .then((res) => {
+                console.log(res)
                 accionDatos();
                 setOpenModal(false);
 
@@ -1014,30 +1015,30 @@ const NuevoEmpleadoModal = (
                                     <button
                                         onClick={() => {
 
-                                            const data = {
-                                                "identification_number": cedula,
-                                                "name": nombre,
-                                                "lastname": apellido,
-                                                "address": direccionPrincipal,
-                                                "date_of_birth": editDate(fechaNac),
-                                                "level_education": nivelEducativo,
-                                                "email": email,
-                                                "phoneMovil": phone,
-                                                "phoneFijo": number,
-                                                "provincia": provincia,
-                                                "ciudad": ciudad,
-                                                "street_primary": direccionSecundaria,
-                                                "address_secondary": direccionSecundaria,
-                                                "company_code": codigoEmpresa,
-                                                "job_title": cargo,
-                                                "gross_salary": sueldoBruto,
-                                                "net_salary": sueldoNeto,
-                                                "other_income": otrosIngresos,
-                                                "observations": observaciones,
-                                                "status": 'active'
-                                            }
+                                            // const data = {
+                                            //     "identification_number": cedula,
+                                            //     "name": nombre,
+                                            //     "lastname": apellido,
+                                            //     "address": direccionPrincipal,
+                                            //     "date_of_birth": editDate(fechaNac),
+                                            //     "level_education": nivelEducativo,
+                                            //     "email": email,
+                                            //     "phoneMovil": phone,
+                                            //     "phoneFijo": number,
+                                            //     "provincia": provincia,
+                                            //     "ciudad": ciudad,
+                                            //     "street_primary": direccionSecundaria,
+                                            //     "address_secondary": direccionSecundaria,
+                                            //     "company_code": codigoEmpresa,
+                                            //     "job_title": cargo,
+                                            //     "gross_salary": sueldoBruto,
+                                            //     "net_salary": sueldoNeto,
+                                            //     "other_income": otrosIngresos,
+                                            //     "observations": observaciones,
+                                            //     "status": 'active'
+                                            // }
 
-                                            /*
+                                            
                                             const data = {
                                                 "identification_number": "1003836721",
                                                 "name": "Juan",
@@ -1045,21 +1046,21 @@ const NuevoEmpleadoModal = (
                                                 "address": "Calle 123, Edificio A, Quito",
                                                 "date_of_birth": "1985-06-15",
                                                 "level_education": "Universitario",
-                                                "email": "juan.perez77@example.com",
+                                                "email": "juan.perez99999@example.com",
                                                 "phoneMovil": "0987654321",
                                                 "phoneFijo": "022345678",
                                                 "provincia": "Pichincha",
                                                 "ciudad": "Quito",
                                                 "street_primary": "Calle Principal",
                                                 "address_secondary": "Calle Secundaria",
-                                                "company_code": "EMP1277",
+                                                "company_code": "EMP1211111222",
                                                 "job_title": "Ingeniero de Software",
                                                 "gross_salary": 3000,
                                                 "net_salary": 2400,
                                                 "other_income": 200,
                                                 "observations": "Empleado destacado en proyectos de desarrollo.",
                                                 "status": "active"
-                                            }*/
+                                            }
 
                                             handleCreateEmpleado(data)
 
@@ -1082,7 +1083,7 @@ const NuevoEmpleadoModal = (
                                     </button>
 
                                 </div>
-                                
+
                             </div>
                         </Dialog.Panel>
                     </div>

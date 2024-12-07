@@ -533,7 +533,7 @@ const Cobros = () => {
         <div
             style={{
                 backgroundColor: 'white',
-                margin: window.screen.width * 0.01,
+                margin: 24,
                 borderRadius: 5,
                 overflow: 'hidden'
             }}
@@ -544,7 +544,8 @@ const Cobros = () => {
                     display: 'flex',
                     flexDirection: 'row',
                     width: '100%',
-                    padding: 15,
+                    paddingTop: 17,
+                    paddingLeft: 21,
                     color: '#0E1726',
                     fontSize: 13,
                     fontStyle: 'normal',
@@ -558,13 +559,9 @@ const Cobros = () => {
                     style={{
                         display: 'flex',
                         flexDirection: 'row',
-                        //justifyContent: 'space-between',
-                        //paddingTop: 15,
-                        //paddingLeft: 15,
                         paddingRight: 15,
                         width: '100%',
-                        gap: window.screen.width * 0.48,
-                        
+                        gap: window.screen.width * 0.48
                     }}
                 >
 
@@ -584,15 +581,12 @@ const Cobros = () => {
                             btnClassName="!flex items-center border font-semibold border-white-light dark:border-[#253b5c] rounded-md px-4 py-1.5 text-sm dark:bg-[#1b2e4b] dark:text-white-dark"
                             button={
                                 <div
-
                                     style={{
                                         display: 'flex',
                                         flexDirection: 'row',
                                         //backgroundColor: 'green',
                                     }}
                                 >
-
-
                                     <p
                                         style={{
                                             color: '#0E1726',

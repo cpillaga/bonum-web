@@ -849,7 +849,7 @@ const PagosPendientes = () => {
                     <button
                         style={{
                             padding: 10,
-                            backgroundColor: '#805DCA',
+                            backgroundColor: '#bf5cf3',
                             display: 'flex',
                             flexDirection: 'row',
                             gap: '1vw',
@@ -873,7 +873,7 @@ const PagosPendientes = () => {
                     <button
                         style={{
                             padding: 10,
-                            backgroundColor: '#805DCA',
+                            backgroundColor: '#bf5cf3',
                             display: 'flex',
                             flexDirection: 'row',
                             gap: '1vw',

@@ -9,8 +9,7 @@ import IconEye from '../../../components/Icon/IconEye';
 const documentos = [
     { id: 1, title: "Documento 1", description: "" },
     { id: 2, title: "Documento 2", description: "" },
-    { id: 3, title: "Documento 3", description: "" },
-    { id: 4, title: "Documento 4", description: "" },
+    
 ];
 
 const cuotas = [
@@ -27,12 +26,12 @@ const DetallesAnticiposModal = (
         setStateModal
     }
         :
-    {
-        openModal: boolean;
-        setOpenModal: (isOpen: boolean) => void;
-        stateModal: boolean;
-        setStateModal: (isOpen: boolean) => void;
-    }
+        {
+            openModal: boolean;
+            setOpenModal: (isOpen: boolean) => void;
+            stateModal: boolean;
+            setStateModal: (isOpen: boolean) => void;
+        }
 ) => {
 
     useEffect(() => {
@@ -70,18 +69,21 @@ const DetallesAnticiposModal = (
                             style={{
                                 backgroundColor: 'white',
                                 margin: window.screen.height * 0.025,
-                                borderRadius: 10,
-                                height: window.screen.height * 1.15
+                                borderRadius: 6,
+                                // height: window.screen.height * 1.15,
+                                boxShadow: '0px 1px 2px -1px rgba(0, 0, 0, 0.10), 0px 1px 3px 0px rgba(0, 0, 0, 0.10)'
                             }}
                         >
 
                             <div
                                 style={{
+                                    //backgroundColor: 'red',
                                     display: 'flex',
                                     flexDirection: 'row',
-                                    gap: window.screen.width * 0.04,
-                                    margin: 10,
-                                    padding: 5
+                                    gap: 20,
+                                    marginLeft: 29,
+                                    marginTop: 18,
+                                    marginRight: 29
 
                                 }}
                             >
@@ -90,9 +92,7 @@ const DetallesAnticiposModal = (
                                     style={{
                                         display: 'flex',
                                         flexDirection: 'column',
-                                        padding: window.screen.width * 0.004,
-                                        margin: window.screen.height * 0.002,
-                                        gap: window.screen.height * 0.007
+
                                     }}
                                 >
 
@@ -100,41 +100,49 @@ const DetallesAnticiposModal = (
                                         src="/assets/images/logo_side.png"
                                         alt="logo"
                                         style={{
-                                            width: '201px',
-                                            height: '56px',
+                                            width: '158px',
+                                            height: '43px',
                                             objectFit: 'cover'
                                         }}
                                     />
 
-                                    <p
+                                    <div
                                         style={{
-                                            color: '#888EA8',
-                                            fontSize: 13,
-                                            fontWeight: 400,
+                                            display: 'flex',
+                                            flexDirection: 'row',
+                                            marginTop: 7
                                         }}
                                     >
-                                        13 Tetrick Road, Cypress Gardens, Florida, 33884, US
-                                    </p>
+                                        <label
+                                            htmlFor="hrDefaultinput"
+                                            style={{
+                                                fontSize: 14,
+                                                paddingTop: 7,
+                                                width: '84px',
+                                                //backgroundColor: 'green',
+                                                fontFamily: 'Maven Pro',
+                                                fontWeight: 400,
+                                            }}
+                                        >
+                                            ID Solicitud:
+                                        </label>
 
-                                    <p
-                                        style={{
-                                            color: '#888EA8',
-                                            fontSize: 13,
-                                            fontWeight: 400,
-                                        }}
-                                    >
-                                        info@bonum.com
-                                    </p>
-
-                                    <p
-                                        style={{
-                                            color: '#888EA8',
-                                            fontSize: 13,
-                                            fontWeight: 400,
-                                        }}
-                                    >
-                                        +1 (070) 123-4567
-                                    </p>
+                                        <form>
+                                            <input
+                                                id="hrDefaultinput"
+                                                placeholder=""
+                                                className="form-input"
+                                                style={{
+                                                    width: '250px',
+                                                    height: '35px',
+                                                    flexShrink: 0,
+                                                    borderRadius: '6px',
+                                                    border: '1px solid #E0E6ED',
+                                                    background: '#FFFFFF',
+                                                }}
+                                            />
+                                        </form>
+                                    </div>
 
                                 </div>
 
@@ -145,8 +153,8 @@ const DetallesAnticiposModal = (
                                             display: 'flex',
                                             flexDirection: 'row',
                                             margin: window.screen.height * 0.002,
-                                            gap: window.screen.width * 0.005,
-                                            padding: 5
+                                            gap: 5
+                                            // padding: 5
                                         }}
                                     >
 
@@ -154,7 +162,7 @@ const DetallesAnticiposModal = (
                                             style={{
                                                 flexDirection: 'column',
                                                 display: 'flex',
-                                                gap: window.screen.width * 0.015,
+                                                gap: 25,
                                             }}
                                         >
                                             <label
@@ -170,18 +178,6 @@ const DetallesAnticiposModal = (
                                                 Estado:
                                             </label>
 
-                                            <label
-                                                htmlFor="hrDefaultinput"
-                                                style={{
-                                                    fontSize: 14,
-                                                    marginTop: window.screen.height * 0.005,
-                                                    width: window.screen.width * 0.083,
-                                                    fontFamily: 'Maven Pro',
-                                                    fontWeight: 400
-                                                }}
-                                            >
-                                                ID de Solicitud:
-                                            </label>
 
                                             <label
                                                 htmlFor="hrDefaultinput"
@@ -202,7 +198,7 @@ const DetallesAnticiposModal = (
                                             style={{
                                                 flexDirection: 'column',
                                                 display: 'flex',
-                                                gap: window.screen.width * 0.01,
+                                                gap: 17
                                             }}
                                         >
                                             <div
@@ -224,12 +220,11 @@ const DetallesAnticiposModal = (
                                                 {stateModal ? 'Activo' : 'Inactivo'}
                                             </div>
 
-                                            <input id="hrDefaultinput" placeholder="" className="form-input" />
-
                                             <LocalizationProvider
                                                 dateAdapter={AdapterDayjs}
                                             >
                                                 <DatePicker
+                                                    disabled 
                                                     slotProps={{
                                                         textField: {
                                                             placeholder: 'Fecha',
@@ -328,14 +323,18 @@ const DetallesAnticiposModal = (
                                             }}
                                         >
                                             <FileDownloadOutlinedIcon sx={{ color: 'white' }} />
-                                            <text
+                                            <p
                                                 style={{
                                                     color: 'white',
-                                                    fontFamily: 'Maven Pro'
+                                                    fontFamily: 'Maven Pro',
+                                                    fontWeight: 400,
+                                                    fontSize: '14px',
+                                                    fontStyle: 'normal',
+                                                    lineHeight: 'normal'
                                                 }}
                                             >
                                                 Descargar
-                                            </text>
+                                            </p>
                                         </button>
                                     </div>
 
@@ -351,150 +350,206 @@ const DetallesAnticiposModal = (
                                     justifyItems: 'center',
                                     alignItems: 'center',
                                     alignContent: 'center',
-                                    margin: window.screen.height * 0.002,
+                                    marginTop: 10,
+                                    marginBottom: 10,
+                                    marginLeft: 24,
+                                    marginRight: 24,
+                                    gap: 40,
+                                    //backgroundColor: 'green'
                                 }}
                             >
 
                                 <div
                                     style={{
-                                        width: '50%',
-                                        margin: 10
+                                        //width: '100%',
+                                        //margin: 10,
+                                        padding: 10,
+                                        //backgroundColor: 'cyan',
                                     }}
                                 >
 
-                                    <form>
+
+
+                                    <div
+                                        style={{
+                                            //paddingTop: 5,
+                                            //paddingRight: 5,
+                                            //paddingBottom: 5,
+                                            //marginLeft: window.screen.width * 0.008,
+                                            fontSize: 16,
+                                            color: '#0E1726',
+                                            fontStyle: 'normal',
+                                            fontWeight: 400,
+                                            lineHeight: 'normal',
+                                            fontFamily: 'Maven Pro',
+                                        }}
+                                    >
+                                        <p> Informacion del Solicitante: </p>
+                                    </div>
+
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'row',
+                                        }}
+                                    >
 
                                         <div
                                             style={{
-                                                paddingTop: 5,
-                                                paddingRight: 5,
-                                                paddingBottom: 5,
-                                                marginLeft: window.screen.width * 0.008,
-                                                fontSize: '16px',
-                                                color: '#0E1726',
-                                                fontStyle: 'normal',
-                                                fontWeight: 400,
-                                                lineHeight: 'normal',
-                                                fontFamily: 'Maven Pro'
-                                            }}
-                                        >
-                                            <p> Informacion del Solicitante: </p>
-                                        </div>
-
-                                        <div
-                                            style={{
+                                                flexDirection: 'column',
                                                 display: 'flex',
-                                                flexDirection: 'row',
-                                                margin: window.screen.height * 0.002,
-                                                gap: window.screen.width * 0.1,
-                                                padding: 10
+                                                //backgroundColor: 'red',
+                                                paddingRight: 100,
+                                                marginTop: 15,
+                                                gap: 13
                                             }}
                                         >
-
-                                            <div
+                                            <label
+                                                htmlFor="hrDefaultinput"
                                                 style={{
-                                                    flexDirection: 'column',
-                                                    display: 'flex',
-                                                    gap: window.screen.width * 0.015,
+                                                    fontSize: 14,
+                                                    //marginTop: window.screen.height * 0.005,
+                                                    //width: window.screen.width * 0.083,
+                                                    fontFamily: 'Maven Pro',
+                                                    fontWeight: 400,
                                                 }}
                                             >
-                                                <label
-                                                    htmlFor="hrDefaultinput"
-                                                    style={{
-                                                        fontSize: 14,
-                                                        marginTop: window.screen.height * 0.005,
-                                                        width: window.screen.width * 0.083,
-                                                        fontFamily: 'Maven Pro',
-                                                        fontWeight: 400
-                                                    }}
-                                                >
-                                                    Nombre:
-                                                </label>
+                                                Nombre:
+                                            </label>
 
-                                                <label
-                                                    htmlFor="hrDefaultinput"
-                                                    style={{
-                                                        fontSize: 14,
-                                                        marginTop: window.screen.height * 0.005,
-                                                        width: window.screen.width * 0.083,
-                                                        fontFamily: 'Maven Pro',
-                                                        fontWeight: 400
-                                                    }}
-                                                >
-                                                    Email:
-                                                </label>
+                                            <label
+                                                htmlFor="hrDefaultinput"
+                                                style={{
+                                                    fontSize: 14,
+                                                    //marginTop: window.screen.height * 0.005,
+                                                    //width: window.screen.width * 0.083,
+                                                    fontFamily: 'Maven Pro',
+                                                    fontWeight: 400,
+                                                }}
+                                            >
+                                                Email:
+                                            </label>
 
-                                                <label
-                                                    htmlFor="hrDefaultinput"
-                                                    style={{
-                                                        fontSize: 14,
-                                                        marginTop: window.screen.height * 0.005,
-                                                        width: window.screen.width * 0.083,
-                                                        fontFamily: 'Maven Pro',
-                                                        fontWeight: 400
+                                            <label
+                                                htmlFor="hrDefaultinput"
+                                                style={{
+                                                    fontSize: 14,
+                                                    //marginTop: window.screen.height * 0.005,
+                                                    //width: window.screen.width * 0.083,
+                                                    fontFamily: 'Maven Pro',
+                                                    fontWeight: 400,
+                                                }}
+                                            >
+                                                Cargo:
+                                            </label>
 
-                                                    }}
-                                                >
-                                                    Cargo:
-                                                </label>
+                                            <label
+                                                htmlFor="hrDefaultinput"
+                                                style={{
+                                                    fontSize: 14,
+                                                    //marginTop: window.screen.height * 0.005,
+                                                    //width: window.screen.width * 0.083,
+                                                    fontFamily: 'Maven Pro',
+                                                    fontWeight: 400,
+                                                }}
+                                            >
+                                                Ingresos:
+                                            </label>
 
-                                                <label
-                                                    htmlFor="hrDefaultinput"
-                                                    style={{
-                                                        fontSize: 14,
-                                                        marginTop: window.screen.height * 0.005,
-                                                        width: window.screen.width * 0.083,
-                                                        fontFamily: 'Maven Pro',
-                                                        fontWeight: 400
-                                                    }}
-                                                >
-                                                    Ingresos:
-                                                </label>
+                                        </div>
 
-                                            </div>
+                                        <form>
 
                                             <div
                                                 style={{
                                                     flexDirection: 'column',
                                                     display: 'flex',
-                                                    gap: window.screen.width * 0.01,
+                                                    gap: 5,
+                                                    marginTop: 10,
                                                     width: '100%'
                                                 }}
                                             >
-                                                <input id="hrDefaultinput" placeholder="" className="form-input" style={{ width: '100%' }} />
+                                                <input
+                                                    id="hrDefaultinput"
+                                                    placeholder=""
+                                                    className="form-input"
+                                                    style={{
+                                                        width: '250px',
+                                                        height: '35px',
+                                                        flexShrink: 0,
+                                                        borderRadius: '6px',
+                                                        border: '1px solid #E0E6ED',
+                                                        background: '#FFFFFF',
+                                                    }} />
 
-                                                <input id="hrDefaultinput" placeholder="" className="form-input" />
+                                                <input
+                                                    id="hrDefaultinput"
+                                                    placeholder=""
+                                                    className="form-input"
+                                                    style={{
+                                                        width: '250px',
+                                                        height: '35px',
+                                                        flexShrink: 0,
+                                                        borderRadius: '6px',
+                                                        border: '1px solid #E0E6ED',
+                                                        background: '#FFFFFF',
+                                                    }}
+                                                />
 
-                                                <input id="hrDefaultinput" placeholder="" className="form-input" />
+                                                <input
+                                                    id="hrDefaultinput"
+                                                    placeholder=""
+                                                    className="form-input"
+                                                    style={{
+                                                        width: '250px',
+                                                        height: '35px',
+                                                        flexShrink: 0,
+                                                        borderRadius: '6px',
+                                                        border: '1px solid #E0E6ED',
+                                                        background: '#FFFFFF',
+                                                    }}
+                                                />
 
-                                                <input id="hrDefaultinput" placeholder="" className="form-input" />
+                                                <input
+                                                    id="hrDefaultinput"
+                                                    placeholder=""
+                                                    className="form-input"
+                                                    style={{
+                                                        width: '250px',
+                                                        height: '35px',
+                                                        flexShrink: 0,
+                                                        borderRadius: '6px',
+                                                        border: '1px solid #E0E6ED',
+                                                        background: '#FFFFFF',
+                                                    }}
+                                                />
                                             </div>
 
-                                        </div>
-                                    </form>
+                                        </form>
+
+
+                                    </div>
 
                                 </div>
 
                                 <div
-                                    style={{
-                                        width: '50%'
-                                    }}
+
                                 >
 
                                     <form>
 
                                         <div
                                             style={{
-                                                paddingTop: 5,
-                                                paddingRight: 5,
-                                                paddingBottom: 5,
-                                                marginLeft: window.screen.width * 0.008,
+                                                //paddingTop: 5,
+                                                //paddingRight: 5,
+                                                //paddingBottom: 5,
+                                                //marginLeft: window.screen.width * 0.008,
                                                 fontSize: '16px',
                                                 color: '#0E1726',
                                                 fontStyle: 'normal',
                                                 fontWeight: 400,
                                                 lineHeight: 'normal',
-                                                fontFamily: 'Maven Pro'
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             {stateModal === true ?
@@ -507,9 +562,11 @@ const DetallesAnticiposModal = (
                                             style={{
                                                 display: 'flex',
                                                 flexDirection: 'row',
-                                                margin: window.screen.height * 0.002,
-                                                gap: window.screen.width * 0.1,
-                                                padding: 10,
+                                                // marginTop: 15,
+                                                // gap: 13, 
+                                                //margin: window.screen.height * 0.002,
+                                                //gap: window.screen.width * 0.1,
+                                                //padding: 10,
                                                 //backgroundColor: 'red'
                                             }}
                                         >
@@ -518,17 +575,20 @@ const DetallesAnticiposModal = (
                                                 style={{
                                                     flexDirection: 'column',
                                                     display: 'flex',
-                                                    gap: window.screen.width * 0.015,
+                                                    marginTop: 15,
+                                                    gap: 13,
+                                                    paddingRight: 100,
+                                                    //gap: window.screen.width * 0.015,
                                                     //backgroundColor: 'yellow'
                                                 }}
                                             >
                                                 <label
                                                     htmlFor="hrDefaultinput"
                                                     style={{
-                                                        fontSize: 14,
                                                         fontFamily: 'Maven Pro',
+                                                        fontSize: 14,
                                                         fontWeight: 400,
-                                                        marginTop: window.screen.height * 0.005,
+                                                        //marginTop: window.screen.height * 0.005,
                                                         width: stateModal ? window.screen.width * 0.083 : window.screen.width * 0.1
                                                     }}
                                                 >
@@ -543,10 +603,10 @@ const DetallesAnticiposModal = (
                                                     htmlFor="hrDefaultinput"
                                                     style={{
                                                         fontSize: 14,
+                                                        //marginTop: window.screen.height * 0.005,
+                                                        //width: window.screen.width * 0.083,
                                                         fontFamily: 'Maven Pro',
-                                                        marginTop: window.screen.height * 0.005,
-                                                        width: window.screen.width * 0.083,
-                                                        fontWeight: 400
+                                                        fontWeight: 400,
                                                     }}
                                                 >
 
@@ -562,8 +622,8 @@ const DetallesAnticiposModal = (
                                                             htmlFor="hrDefaultinput"
                                                             style={{
                                                                 fontSize: 14,
-                                                                marginTop: window.screen.height * 0.005,
-                                                                width: window.screen.width * 0.083,
+                                                                //marginTop: window.screen.height * 0.005,
+                                                                //width: window.screen.width * 0.083,
                                                                 fontFamily: 'Maven Pro',
                                                                 fontWeight: 400,
                                                             }}
@@ -576,8 +636,8 @@ const DetallesAnticiposModal = (
                                                             htmlFor="hrDefaultinput"
                                                             style={{
                                                                 fontSize: 14,
-                                                                marginTop: window.screen.height * 0.005,
-                                                                width: window.screen.width * 0.083,
+                                                                //marginTop: window.screen.height * 0.005,
+                                                                //width: window.screen.width * 0.083,
                                                                 fontFamily: 'Maven Pro',
                                                                 fontWeight: 400,
                                                             }}
@@ -594,21 +654,58 @@ const DetallesAnticiposModal = (
                                                 style={{
                                                     flexDirection: 'column',
                                                     display: 'flex',
-                                                    gap: window.screen.width * 0.01,
+                                                    gap: 5,
+                                                    marginTop: 10,
+                                                    //gap: window.screen.width * 0.01,
                                                     width: '100%'
                                                 }}
                                             >
 
 
-                                                <input id="hrDefaultinput" placeholder="" className="form-input" style={{ width: '100%' }} />
+                                                <input
+                                                    id="hrDefaultinput"
+                                                    placeholder=""
+                                                    className="form-input"
+                                                    style={{
+                                                        width: '250px',
+                                                        height: '35px',
+                                                        flexShrink: 0,
+                                                        borderRadius: '6px',
+                                                        border: '1px solid #E0E6ED',
+                                                        background: '#FFFFFF',
+                                                    }}
+                                                />
 
-                                                <input id="hrDefaultinput" placeholder="" className="form-input" />
+                                                <input
+                                                    id="hrDefaultinput"
+                                                    placeholder=""
+                                                    className="form-input"
+                                                    style={{
+                                                        width: '250px',
+                                                        height: '35px',
+                                                        flexShrink: 0,
+                                                        borderRadius: '6px',
+                                                        border: '1px solid #E0E6ED',
+                                                        background: '#FFFFFF',
+                                                    }}
+                                                />
 
                                                 {stateModal ?
 
                                                     <>
 
-                                                        <input id="hrDefaultinput" placeholder="" className="form-input" />
+                                                        <input
+                                                            id="hrDefaultinput" placeholder=""
+                                                            className="form-input"
+                                                            style={{
+                                                                width: '250px',
+                                                                height: '35px',
+                                                                flexShrink: 0,
+                                                                borderRadius: '6px',
+                                                                border: '1px solid #E0E6ED',
+                                                                background: '#FFFFFF',
+                                                            }}
+                                                        />
 
                                                         <div style={{ position: 'relative', width: '100%' }}>
                                                             <input
@@ -616,19 +713,24 @@ const DetallesAnticiposModal = (
                                                                 placeholder=""
                                                                 className="form-input"
                                                                 style={{
-                                                                    width: '100%',
-                                                                    paddingRight: '30px'
+                                                                    width: '250px',
+                                                                    height: '35px',
+                                                                    flexShrink: 0,
+                                                                    borderRadius: '6px',
+                                                                    border: '1px solid #E0E6ED',
+                                                                    background: '#FFFFFF',
                                                                 }}
                                                             />
                                                             <span
                                                                 style={{
                                                                     position: 'absolute',
                                                                     top: '50%',
-                                                                    right: '10px',
+                                                                    right: '5%',
                                                                     transform: 'translateY(-50%)',
                                                                     fontSize: '16px',
                                                                     color: '#999',
                                                                     pointerEvents: 'none',
+                                                                    //backgroundColor: 'cyan'
                                                                 }}
                                                             >
                                                                 <IconEye />
@@ -638,28 +740,44 @@ const DetallesAnticiposModal = (
                                                     </> :
                                                     <>
 
-                                                        <input id="hrDefaultinput" placeholder="" className="form-input" style={{  visibility: 'hidden'}}/>
+                                                        <input
+                                                            id="hrDefaultinput"
+                                                            placeholder=""
+                                                            className="form-input"
+                                                            style={{
+                                                                visibility: 'hidden',
+                                                                width: '250px',
+                                                                height: '35px',
+                                                                flexShrink: 0,
+                                                                borderRadius: '6px',
+                                                                border: '1px solid #E0E6ED',
+                                                                background: '#FFFFFF',
+                                                            }} />
 
-                                                        <div style={{ position: 'relative', width: '100%',  visibility: 'hidden'}}>
+                                                        <div style={{ position: 'relative', width: '100%', visibility: 'hidden' }}>
                                                             <input
                                                                 id="hrDefaultinput"
                                                                 placeholder=""
                                                                 className="form-input"
                                                                 style={{
-                                                                    width: '100%',
-                                                                    paddingRight: '30px',
-                                                                    visibility: 'hidden'
+                                                                    width: '250px',
+                                                                    height: '35px',
+                                                                    flexShrink: 0,
+                                                                    borderRadius: '6px',
+                                                                    border: '1px solid #E0E6ED',
+                                                                    background: '#FFFFFF',
                                                                 }}
                                                             />
                                                             <span
                                                                 style={{
                                                                     position: 'absolute',
                                                                     top: '50%',
-                                                                    right: '10px',
+                                                                    right: '5%',
                                                                     transform: 'translateY(-50%)',
                                                                     fontSize: '16px',
                                                                     color: '#999',
                                                                     pointerEvents: 'none',
+                                                                    //backgroundColor: 'cyan'
                                                                 }}
                                                             >
                                                                 <IconEye />
@@ -680,7 +798,8 @@ const DetallesAnticiposModal = (
 
                             <div
                                 style={{
-                                    margin: 10
+                                    marginLeft: 24,
+                                    marginRight: 24
                                 }}
                             >
 
@@ -688,7 +807,7 @@ const DetallesAnticiposModal = (
                                     style={{
                                         display: 'flex',
                                         flexDirection: 'row',
-                                        backgroundColor: '#E0E6ED',
+                                        backgroundColor: '#e9efff',
                                         padding: 5
                                     }}
                                 >
@@ -771,25 +890,73 @@ const DetallesAnticiposModal = (
                                     <div
                                         style={{ width: '60%' }}
                                     >
-                                        <input id="hrDefaultinput" placeholder="" className="form-input" style={{ width: '100%' }} />
+                                        <input
+                                            id="hrDefaultinput"
+                                            placeholder=""
+                                            className="form-input"
+                                            style={{
+                                                width: '100%',
+                                                height: '35px',
+                                                flexShrink: 0,
+                                                borderRadius: '6px',
+                                                border: '1px solid #E0E6ED',
+                                                background: '#FFFFFF'
+                                            }}
+                                        />
                                     </div>
 
                                     <div
                                         style={{ width: '14%' }}
                                     >
-                                        <input id="hrDefaultinput" placeholder="" className="form-input" style={{ width: '100%' }} />
+                                        <input
+                                            id="hrDefaultinput"
+                                            placeholder=""
+                                            className="form-input"
+                                            style={{
+                                                width: '100%',
+                                                height: '35px',
+                                                flexShrink: 0,
+                                                borderRadius: '6px',
+                                                border: '1px solid #E0E6ED',
+                                                background: '#FFFFFF'
+                                            }}
+                                        />
                                     </div>
 
                                     <div
                                         style={{ width: '14%' }}
                                     >
-                                        <input id="hrDefaultinput" placeholder="" className="form-input" style={{ width: '100%' }} />
+                                        <input
+                                            id="hrDefaultinput"
+                                            placeholder=""
+                                            className="form-input"
+                                            style={{
+                                                width: '100%',
+                                                height: '35px',
+                                                flexShrink: 0,
+                                                borderRadius: '6px',
+                                                border: '1px solid #E0E6ED',
+                                                background: '#FFFFFF'
+                                            }}
+                                        />
                                     </div>
 
                                     <div
                                         style={{ width: '14%' }}
                                     >
-                                        <input id="hrDefaultinput" placeholder="" className="form-input" style={{ width: '100%' }} />
+                                        <input
+                                            id="hrDefaultinput"
+                                            placeholder=""
+                                            className="form-input"
+                                            style={{
+                                                width: '100%',
+                                                height: '35px',
+                                                flexShrink: 0,
+                                                borderRadius: '6px',
+                                                border: '1px solid #E0E6ED',
+                                                background: '#FFFFFF'
+                                            }}
+                                        />
                                     </div>
 
                                 </div>
@@ -805,11 +972,13 @@ const DetallesAnticiposModal = (
                                     <div
                                         style={{
                                             width: '40%',
-                                            marginTop: 20,
+                                            flexShrink: 0,
+                                            marginTop: 10,
                                             marginBottom: 20,
                                             border: '1px solid #E5E5E5',
                                             borderRadius: '8px',
                                             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                                            //backgroundColor: 'blue'
                                         }}
                                     >
 
@@ -821,7 +990,7 @@ const DetallesAnticiposModal = (
                                                 fontStyle: 'normal',
                                                 fontWeight: 400,
                                                 lineHeight: 'normal',
-                                                fontFamily: 'Maven Pro'
+                                                fontFamily: 'Maven Pro',
                                             }}
                                         >
                                             Documentación
@@ -831,8 +1000,11 @@ const DetallesAnticiposModal = (
                                             <div
                                                 key={doc.id}
                                                 style={{
-                                                    margin: 20,
+                                                    marginTop: 5,
+                                                    marginLeft: 20,
+                                                    marginRight: 20,
                                                     display: "flex",
+                                                    //backgroundColor: 'pink',
                                                     justifyContent: "space-between",
                                                     alignItems: "center",
                                                     borderBottom: index !== documentos.length - 1 ? "1px solid #E5E5E5" : "none",
@@ -841,6 +1013,7 @@ const DetallesAnticiposModal = (
 
                                                 <div
                                                     style={{
+                                                        fontFamily: 'Maven Pro',
                                                         color: doc.title.includes("Line") ? "#007bff" : "#000",
                                                         fontWeight: doc.title.includes("Line") ? "bold" : "normal",
                                                     }}
@@ -884,8 +1057,18 @@ const DetallesAnticiposModal = (
                                                     fontFamily: 'Maven Pro'
                                                 }}
                                             >
-                                                <span>{cuota.description}</span>
-                                                <span>${cuota.valor.toFixed(2)}</span>
+                                                <p style={{ 
+                                                    color: 'green',  
+                                                    fontSize: 14,
+                                                    fontStyle: 'normal',
+                                                    fontWeight: 600,
+                                                    fontFamily: 'Maven Pro'
+                                                }}>
+                                                    {cuota.description}
+                                                </p>
+                                                <p>
+                                                    ${cuota.valor.toFixed(2)}
+                                                </p>
                                             </div>
                                         ))}
 
