@@ -1,4 +1,3 @@
-
 import { Dialog, Transition } from '@headlessui/react';
 import { useState, Fragment, useEffect, useContext } from 'react';
 import { create_empleados } from '../../../server/empleados/EmpleadosApi';
@@ -7,6 +6,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Dayjs } from 'dayjs';
 import { AccionContext } from '../../../contexts/AccionesContext';
+import { Box, FormControl, MenuItem, Select } from '@mui/material';
 
 const NuevoEmpleadoModal = (
     {
@@ -69,6 +69,24 @@ const NuevoEmpleadoModal = (
             const formattedDate = newValue.format("YYYY-MM-DD");
             return formattedDate
         }
+    };
+
+    const [nivelEducacion, setNivelEducacion] = useState("");
+    const [provinciaSeleccionada, setProvinciaSeleccionada] = useState("");
+
+    const handleComboEducativo = (event: any) => {
+        setNivelEducacion(event.target.value);
+    };
+
+    const provincias = [
+        "Azuay", "Bolívar", "Cañar", "Carchi", "Chimborazo", "Cotopaxi", "El Oro",
+        "Esmeraldas", "Guayas", "Imbabura", "Loja", "Los Ríos", "Manabí", "Morona Santiago",
+        "Napo", "Orellana", "Pastaza", "Pichincha", "Santa Elena", "Santo Domingo de los Tsáchilas",
+        "Sucumbíos", "Tungurahua", "Zamora-Chinchipe"
+    ];
+
+    const handleProvinciaChange = (event: any) => {
+        setProvinciaSeleccionada(event.target.value);
     };
 
     return (
@@ -141,9 +159,7 @@ const NuevoEmpleadoModal = (
                             >
 
                                 <form>
-
                                     <div
-
                                         style={{
                                             //backgroundColor: 'blue',
                                             marginTop: 10,
@@ -364,26 +380,80 @@ const NuevoEmpleadoModal = (
                                                     lineHeight: 'normal',
                                                     fontFamily: 'Maven Pro',
                                                 }}
-                                            > Nivel educativo </label>
-                                            <input
-                                                onChange={(e) => setNivelEducativo(e.target.value)}
-                                                placeholder="Ingresar nivel educativo"
-                                                className="form-input"
-                                                style={{
+                                            >
+                                                Nivel educativo
+                                            </label>
+
+                                            <FormControl
+                                                sx={{
                                                     width: '222px',
                                                     height: '38px',
-                                                    flexShrink: 0,
-                                                    fontSize: 14,
-                                                    color: '#0E1726',
-                                                    fontStyle: 'normal',
-                                                    fontWeight: 400,
-                                                    lineHeight: 'normal',
-                                                    fontFamily: 'Maven Pro',
-                                                    borderRadius: '6px',
-                                                    border: '1px solid #E0E6ED',
-                                                    background: '#FFFFF'
-                                                }}
-                                            />
+                                                    '& .MuiOutlinedInput-root': {
+                                                        fontSize: 14,
+                                                        color: '#0E1726',
+                                                        fontStyle: 'normal',
+                                                        fontWeight: 400,
+                                                        lineHeight: 'normal',
+                                                        fontFamily: 'Maven Pro',
+                                                        borderRadius: '6px',
+                                                        backgroundColor: '#FFFFFF',
+                                                        height: '38px',
+                                                        '& fieldset': {
+                                                            borderColor: '#E0E6ED',
+                                                        },
+                                                        '&:hover fieldset': {
+                                                            borderColor: '#E0E6ED',
+                                                        },
+                                                        '&.Mui-focused fieldset': {
+                                                            borderColor: '#E0E6ED',
+                                                            borderWidth: '1px',
+                                                        },
+                                                    },
+                                                    '& .MuiSelect-select': {
+                                                        padding: '8px',
+                                                    }
+                                                }
+                                                }
+                                            >
+
+                                                <Select
+                                                    labelId="demo-simple-select-label"
+                                                    id="demo-simple-select"
+                                                    value={nivelEducacion}
+                                                    onChange={handleComboEducativo}
+                                                    displayEmpty
+                                                    MenuProps={{
+                                                        PaperProps: {
+                                                            sx: {
+                                                                '& .MuiMenuItem-root': {
+                                                                    fontFamily: 'Maven Pro',
+                                                                    fontSize: '14px',
+                                                                    fontWeight: 400,
+                                                                    color: '#0E1726'
+                                                                },
+                                                            },
+                                                        },
+                                                    }}
+
+                                                >
+                                                    <MenuItem value="" sx={{
+                                                        fontFamily: 'Maven Pro',
+                                                        fontSize: '14px',
+                                                        fontWeight: 400,
+                                                        color: '#0E1726',
+                                                        paddingLeft: '12px'
+                                                    }}>
+                                                        &nbsp;Niv. Educativo
+                                                    </MenuItem>
+                                                    <MenuItem value="Primaria">&nbsp;Primaria</MenuItem>
+                                                    <MenuItem value="Secundaria">&nbsp;Secundaria</MenuItem>
+                                                    <MenuItem value="Técnico">&nbsp;Técnico</MenuItem>
+                                                    <MenuItem value="Tecnológico">&nbsp;Tecnológico</MenuItem>
+                                                    <MenuItem value="Universitario">&nbsp;Universitario</MenuItem>
+                                                    <MenuItem value="Posgrado">&nbsp;Posgrado</MenuItem>
+                                                </Select>
+                                            </FormControl>
+
                                         </div>
 
                                     </div>
@@ -543,8 +613,80 @@ const NuevoEmpleadoModal = (
                                             }}
                                         >
 
+                                            <FormControl
+                                                sx={{
+                                                    width: '364px',
+                                                    height: '38px',
+                                                    flexShrink: 0,
+                                                    '& .MuiOutlinedInput-root': {
+                                                        fontSize: 14,
+                                                        color: '#0E1726',
+                                                        fontStyle: 'normal',
+                                                        fontWeight: 400,
+                                                        lineHeight: 'normal',
+                                                        fontFamily: 'Maven Pro',
+                                                        borderRadius: '6px',
+                                                        backgroundColor: '#FFFFFF',
+                                                        height: '38px',
+                                                        '& fieldset': {
+                                                            borderColor: '#E0E6ED',
+                                                        },
+                                                        '&:hover fieldset': {
+                                                            borderColor: '#E0E6ED',
+                                                        },
+                                                        '&.Mui-focused fieldset': {
+                                                            borderColor: '#E0E6ED',
+                                                            borderWidth: '1px',
+                                                        },
+                                                    },
+                                                    '& .MuiSelect-select': {
+                                                        padding: '8px',
+                                                    }
+                                                }
+                                                }
+                                            >
+                                                <Select
+                                                    labelId="demo-simple-select-label"
+                                                    id="demo-simple-select"
+                                                    value={provinciaSeleccionada}
+                                                    onChange={handleProvinciaChange}
+                                                    displayEmpty
+                                                    MenuProps={{
+                                                        PaperProps: {
+                                                            sx: {
+                                                                '& .MuiMenuItem-root': {
+                                                                    fontFamily: 'Maven Pro',
+                                                                    fontSize: '14px',
+                                                                    fontWeight: 400,
+                                                                    color: '#0E1726'
+                                                                },
+                                                            },
+                                                        },
+                                                    }}
 
-                                            <input
+                                                >
+                                                    <MenuItem value="" sx={{
+                                                        fontFamily: 'Maven Pro',
+                                                        fontSize: '14px',
+                                                        fontWeight: 400,
+                                                        color: '#0E1726'
+                                                    }}>
+                                                        &nbsp;Provincia
+                                                    </MenuItem>
+                                                        {
+                                                            provincias.map((provincia, index) => (
+                                                                <MenuItem 
+                                                                    key={index} 
+                                                                    value={provincia}
+                                                                >
+                                                                    &nbsp;{provincia}
+                                                                </MenuItem>
+                                                            ))
+                                                        }
+                                                </Select>
+                                            </FormControl>
+
+                                            {/* <input
                                                 onChange={(e) => setProvincia(e.target.value)}
                                                 placeholder="Provincia"
                                                 className="form-input"
@@ -562,7 +704,7 @@ const NuevoEmpleadoModal = (
                                                     border: '1px solid #E0E6ED',
                                                     background: '#FFFFF'
                                                 }}
-                                            />
+                                            /> */}
 
                                             <input
                                                 onChange={(e) => setCiudad(e.target.value)}
@@ -1022,11 +1164,11 @@ const NuevoEmpleadoModal = (
                                                 "lastname": apellido,
                                                 "address": direccionPrincipal,
                                                 "date_of_birth": editDate(fechaNac),
-                                                "level_education": nivelEducativo,
+                                                "level_education": nivelEducacion,
                                                 "email": email,
                                                 "phoneMovil": phone,
                                                 "phoneFijo": number,
-                                                "provincia": provincia,
+                                                "provincia": provinciaSeleccionada,
                                                 "ciudad": ciudad,
                                                 "street_primary": direccionSecundaria,
                                                 "address_secondary": direccionSecundaria,
@@ -1038,6 +1180,8 @@ const NuevoEmpleadoModal = (
                                                 "observations": observaciones,
                                                 "status": 'active'
                                             }
+
+                                            console.log("Data para crear: ", data)
 
 
                                             // const data = {
@@ -1089,9 +1233,9 @@ const NuevoEmpleadoModal = (
                         </Dialog.Panel>
                     </div>
                 </div>
-            </Dialog>
+            </Dialog >
 
-        </Transition>
+        </Transition >
 
     )
 

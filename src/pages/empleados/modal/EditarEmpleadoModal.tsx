@@ -19,6 +19,7 @@ import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import dayjs, { Dayjs } from 'dayjs';
 import { an_empleados, update_empleados } from '../../../server/empleados/EmpleadosApi';
 import { AccionContext } from '../../../contexts/AccionesContext';
+import { Box, FormControl, MenuItem, Select } from '@mui/material';
 
 const historialData = [
     {
@@ -223,7 +224,14 @@ const EditarEmpleadoModal = (
             });
 
     }, [recargarDatos, idEmpleado]);
-    
+
+    const provincias = [
+        "Azuay", "Bolívar", "Cañar", "Carchi", "Chimborazo", "Cotopaxi", "El Oro",
+        "Esmeraldas", "Guayas", "Imbabura", "Loja", "Los Ríos", "Manabí", "Morona Santiago",
+        "Napo", "Orellana", "Pastaza", "Pichincha", "Santa Elena", "Santo Domingo de los Tsáchilas",
+        "Sucumbíos", "Tungurahua", "Zamora-Chinchipe"
+    ];
+
     const handleEditarEmpleado = (e: any) => {
 
         const { name, value } = e.target;
@@ -243,6 +251,7 @@ const EditarEmpleadoModal = (
             return formattedDate
         }
     };
+
 
     return (
 
@@ -588,7 +597,78 @@ const EditarEmpleadoModal = (
                                                     fontFamily: 'Maven Pro',
                                                 }}
                                             > Nivel educativo </label>
-                                            <input
+                                            <FormControl
+                                                sx={{
+                                                    width: '222px',
+                                                    height: '38px',
+                                                    '& .MuiOutlinedInput-root': {
+                                                        fontSize: 14,
+                                                        color: '#0E1726',
+                                                        fontStyle: 'normal',
+                                                        fontWeight: 400,
+                                                        lineHeight: 'normal',
+                                                        fontFamily: 'Maven Pro',
+                                                        borderRadius: '6px',
+                                                        backgroundColor: '#FFFFFF',
+                                                        height: '38px',
+                                                        '& fieldset': {
+                                                            borderColor: '#E0E6ED',
+                                                        },
+                                                        '&:hover fieldset': {
+                                                            borderColor: '#E0E6ED',
+                                                        },
+                                                        '&.Mui-focused fieldset': {
+                                                            borderColor: '#E0E6ED',
+                                                            borderWidth: '1px',
+                                                        },
+                                                    },
+                                                    '& .MuiSelect-select': {
+                                                        padding: '8px',
+                                                    }
+                                                }
+                                                }
+                                            >
+
+                                                <Select
+                                                    name={'level_education'}
+                                                    // labelId="demo-simple-select-label"
+                                                    // id="demo-simple-select"
+                                                    value={nuevoEmpleado.level_education}
+                                                    onChange={handleEditarEmpleado}
+                                                    displayEmpty
+                                                    MenuProps={{
+                                                        PaperProps: {
+                                                            sx: {
+                                                                '& .MuiMenuItem-root': {
+                                                                    fontFamily: 'Maven Pro',
+                                                                    fontSize: '14px',
+                                                                    fontWeight: 400,
+                                                                    color: '#0E1726'
+                                                                },
+                                                            },
+                                                        },
+                                                    }}
+
+                                                >
+                                                    <MenuItem value="" sx={{
+                                                        fontFamily: 'Maven Pro',
+                                                        fontSize: '14px',
+                                                        fontWeight: 400,
+                                                        color: '#0E1726',
+                                                        paddingLeft: '12px'
+                                                    }}>
+                                                        &nbsp;Niv. Educativo
+                                                    </MenuItem>
+                                                    <MenuItem value="Primaria">&nbsp;Primaria</MenuItem>
+                                                    <MenuItem value="Secundaria">&nbsp;Secundaria</MenuItem>
+                                                    <MenuItem value="Técnico">&nbsp;Técnico</MenuItem>
+                                                    <MenuItem value="Tecnológico">&nbsp;Tecnológico</MenuItem>
+                                                    <MenuItem value="Universitario">&nbsp;Universitario</MenuItem>
+                                                    <MenuItem value="Posgrado">&nbsp;Posgrado</MenuItem>
+                                                </Select>
+                                            </FormControl>
+
+                                            {/* <input
                                                 name={'level_education'}
                                                 value={nuevoEmpleado.level_education}
                                                 onChange={handleEditarEmpleado}
@@ -608,7 +688,7 @@ const EditarEmpleadoModal = (
                                                     border: '1px solid #E0E6ED',
                                                     background: '#FFFFF'
                                                 }}
-                                            />
+                                            /> */}
                                         </div>
 
                                     </div>
@@ -777,8 +857,83 @@ const EditarEmpleadoModal = (
                                                 fontFamily: 'Maven Pro',
                                             }}
                                         >
+                                            <FormControl
+                                                sx={{
+                                                    width: '364px',
+                                                    height: '38px',
+                                                    flexShrink: 0,
+                                                    '& .MuiOutlinedInput-root': {
+                                                        fontSize: 14,
+                                                        color: '#0E1726',
+                                                        fontStyle: 'normal',
+                                                        fontWeight: 400,
+                                                        lineHeight: 'normal',
+                                                        fontFamily: 'Maven Pro',
+                                                        borderRadius: '6px',
+                                                        backgroundColor: '#FFFFFF',
+                                                        height: '38px',
+                                                        '& fieldset': {
+                                                            borderColor: '#E0E6ED',
+                                                        },
+                                                        '&:hover fieldset': {
+                                                            borderColor: '#E0E6ED',
+                                                        },
+                                                        '&.Mui-focused fieldset': {
+                                                            borderColor: '#E0E6ED',
+                                                            borderWidth: '1px',
+                                                        },
+                                                    },
+                                                    '& .MuiSelect-select': {
+                                                        padding: '8px',
+                                                    }
+                                                }
+                                                }
+                                            >
+                                                <Select
 
-                                            <input
+                                                    // labelId="demo-simple-select-label"
+                                                    // id="demo-simple-select"
+                                                    name={'provincia'}
+                                                    value={nuevoEmpleado.provincia}
+                                                    onChange={handleEditarEmpleado}
+                                                    displayEmpty
+                                                    MenuProps={{
+                                                        PaperProps: {
+                                                            sx: {
+                                                                '& .MuiMenuItem-root': {
+                                                                    fontFamily: 'Maven Pro',
+                                                                    fontSize: '14px',
+                                                                    fontWeight: 400,
+                                                                    color: '#0E1726'
+                                                                },
+                                                            },
+                                                        },
+                                                    }}
+
+                                                >
+                                                    <MenuItem value="" sx={{
+                                                        fontFamily: 'Maven Pro',
+                                                        fontSize: '14px',
+                                                        fontWeight: 400,
+                                                        color: '#0E1726'
+                                                    }}>
+                                                        &nbsp;Provincia
+                                                    </MenuItem>
+                                                    {
+                                                        provincias.map((provincia, index) => (
+                                                            <MenuItem
+                                                                key={index}
+                                                                value={provincia}
+                                                            >
+                                                                &nbsp;{provincia}
+                                                            </MenuItem>
+                                                        ))
+                                                    }
+                                                </Select>
+                                            </FormControl>
+
+
+                                            {/* <input
                                                 //onChange={(e) => setProvincia(e.target.value)}
                                                 //disabled={true}
                                                 value={nuevoEmpleado.provincia}
@@ -800,7 +955,7 @@ const EditarEmpleadoModal = (
                                                     border: '1px solid #E0E6ED',
                                                     background: '#FFFFF'
                                                 }}
-                                            />
+                                            /> */}
 
                                             <input
                                                 //onChange={(e) => setCiudad(e.target.value)}
@@ -1318,6 +1473,7 @@ const EditarEmpleadoModal = (
 
                                         <button
                                             onClick={() => {
+                                                console.log("nuevo: ", nuevoEmpleado)
 
                                                 update_empleados(nuevoEmpleado)
                                                     .then((res) => {
