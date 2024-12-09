@@ -651,9 +651,6 @@ const Cobros = () => {
                                             key={i}
                                             className="flex flex-col"
                                             onClick={(e) => {
-                                                //console.log(e.stopPropagation) 
-                                                //e.stopPropagation();
-                                                //setIsOpen(!isOpen);
                                                 handleOptionSelect(col.title);
                                             }}
                                         >

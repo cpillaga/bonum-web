@@ -42,7 +42,6 @@ const Empleados = () => {
 
     }, [recargarDatos])
 
-
     const PAGE_SIZES = [8, 16, 23, 32, 40];
 
     const [hideButton, setHideButton] = useState(true);
@@ -278,6 +277,10 @@ const Empleados = () => {
                     PAGE_SIZES={PAGE_SIZES}
                     openModalEdit={openModalEdit}
                     setOpenModalEdit={setOpenModalEdit}
+                    hideButton={hideButton}
+                    setHideButton={setHideButton}
+                    openMessage={openMessage}
+                    setOpenMessage={setOpenMessage}
                 />
 
                 <NuevoEmpleadoModal
@@ -291,14 +294,14 @@ const Empleados = () => {
                     setOpenModalNew={setOpenModalNew}
                 />
 
-                <EditarEmpleadoModal
+                {/* <EditarEmpleadoModal
                     openModalEdit={openModalEdit}
                     setOpenModalEdit={setOpenModalEdit}
                     hideButton={hideButton}
                     setHideButton={setHideButton}
                     openMessage={openMessage}
                     setOpenMessage={setOpenMessage}
-                />
+                /> */}
 
                 <MensajeModal
                     openMessage={openMessage}

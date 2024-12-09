@@ -472,9 +472,10 @@ const CobrosTable = (
                         sx={{
                             position: 'sticky',
                             bottom: 0,
-                            backgroundColor: 'white',
+                            //backgroundColor: 'white',
                             zIndex: 2,
-                            width: '100%'
+                            width: '100%',
+                            backgroundColor: '#e9efff'
                         }}
                     >
                         <TableRow>

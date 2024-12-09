@@ -46,7 +46,10 @@ const MensajeModal = (
                                 backgroundColor: 'white',
                                 margin: window.screen.height * 0.025,
                                 borderRadius: 10,
-                                width: window.screen.width * 0.277,
+                                // width: window.screen.width * 0.277,
+                                width: '512px',
+                                height: '125px',
+                                flexShrink: 0,
                                 justifyContent: 'center',
                                 justifyItems: 'center',
                                 alignContent: 'center',
@@ -56,8 +59,6 @@ const MensajeModal = (
 
                             }}
                         >
-
-
                             <div
                                 style={{
                                     color: '#3B3F5C',
@@ -100,8 +101,9 @@ const MensajeModal = (
                                     }}
                                     type="button"
                                     style={{
-                                        width: window.screen.width * 0.067,
-                                        height: window.screen.height * 0.05,
+                                        width: '60px',
+                                        height: '36px',
+                                        flexShrink: 0,
                                         marginLeft: window.screen.width * 0.005,
                                         backgroundColor: '#bf5cf3',
                                         padding: 5,

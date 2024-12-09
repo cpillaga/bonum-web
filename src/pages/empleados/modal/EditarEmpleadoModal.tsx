@@ -1,5 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { useState, Fragment, useEffect } from 'react';
+import { useState, Fragment, useEffect, useContext } from 'react';
 import MensajeModal from './MensajeModal';
 import { DataTable, DataTableSortStatus } from 'mantine-datatable';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -16,7 +16,9 @@ import IconTrash from '../../../components/Icon/IconTrash';
 import IconEye from '../../../components/Icon/IconEye';
 import { NavLink } from 'react-router-dom';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
-import { Dayjs } from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
+import { an_empleados, update_empleados } from '../../../server/empleados/EmpleadosApi';
+import { AccionContext } from '../../../contexts/AccionesContext';
 
 const historialData = [
     {
@@ -58,27 +60,29 @@ const historialData = [
 ];
 
 
-const EditarEmpleadoModal = ({
-    openModalEdit,
-    setOpenModalEdit,
-    hideButton,
-    setHideButton,
-    openMessage,
-    setOpenMessage,
-}
-    :
+const EditarEmpleadoModal = (
     {
-        openModalEdit: boolean;
-        setOpenModalEdit: (isOpen: boolean) => void;
-        hideButton: boolean;
-        setHideButton: (isOpen: boolean) => void;
-        openMessage: boolean;
-        setOpenMessage: (isOpen: boolean) => void;
+        idEmpleado,
+        openModalEdit,
+        setOpenModalEdit,
+        hideButton,
+        setHideButton,
+        openMessage,
+        setOpenMessage,
     }
+        :
+        {
+            idEmpleado: any;
+            openModalEdit: boolean;
+            setOpenModalEdit: (isOpen: boolean) => void;
+            hideButton: boolean;
+            setHideButton: (isOpen: boolean) => void;
+            openMessage: boolean;
+            setOpenMessage: (isOpen: boolean) => void;
+        }
 ) => {
 
     const PAGE_SIZES = [8, 16, 23, 32, 40];
-
 
     const [isChecked, setIsChecked] = useState(false);
     const [openModal, setOpenModal] = useState(false);
@@ -147,6 +151,99 @@ const EditarEmpleadoModal = ({
         { accessor: 'isActive', title: 'Active' },
     ];
 
+    const { accionDatos, recargarDatos } = useContext(AccionContext);
+    const [empleado, setEmpleado] = useState<any>({})
+    const [nuevoEmpleado, setNuevoEmpleado] = useState<any>(
+        {
+            id_empleado: 0,
+            identification_number: '',
+            name: '',
+            lastname: '',
+            address: '',
+            date_of_birth: '',
+            level_education: '',
+            email: '',
+            phoneMovil: '',
+            phoneFijo: '',
+            provincia: '',
+            ciudad: '',
+            street_primary: '',
+            address_secondary: '',
+            company_code: '',
+            job_title: '',
+            gross_salary: 0,
+            net_salary: 0,
+            other_income: 0,
+            observations: empleado.observations || ''
+        }
+    )
+
+    useEffect(() => {
+
+        if (empleado) {
+
+            setNuevoEmpleado(
+                {
+                    id_empleado: idEmpleado,
+                    identification_number: empleado.identification_number || '',
+                    name: empleado.name || '',
+                    lastname: empleado.lastname || '',
+                    address: empleado.address || '',
+                    date_of_birth: empleado.date_of_birth || '1900/01/01',
+                    level_education: empleado.level_education || '',
+                    email: empleado.email || '',
+                    phoneMovil: empleado.phoneMovil || '',
+                    phoneFijo: empleado.phoneFijo || '',
+                    provincia: empleado.provincia || '',
+                    ciudad: empleado.ciudad || '',
+                    street_primary: empleado.street_primary || '',
+                    address_secondary: empleado.address_secondary || '',
+                    company_code: empleado.company_code || '',
+                    job_title: empleado.job_title || '',
+                    gross_salary: empleado.gross_salary || 0,
+                    net_salary: empleado.net_salary || 0,
+                    other_income: empleado.other_income || 0,
+                    observations: empleado.observations || ''
+                }
+            );
+        }
+
+    }, [empleado]);
+
+
+    useEffect(() => {
+
+        an_empleados({ id_empleado: idEmpleado })
+            .then((res) => {
+                console.log(res.data)
+                setEmpleado(res.data || {});
+            })
+            .catch((err) => {
+                console.log("Error desde API: ", err);
+            });
+
+    }, [recargarDatos, idEmpleado]);
+    
+    const handleEditarEmpleado = (e: any) => {
+
+        const { name, value } = e.target;
+
+        setNuevoEmpleado((prevEmpleado: any) => (
+            {
+                ...prevEmpleado,
+                [name]: value
+            }
+        ));
+
+    };
+
+    const editDate = (newValue: any) => {
+        if (newValue) {
+            const formattedDate = newValue.format("YYYY-MM-DD");
+            return formattedDate
+        }
+    };
+
     return (
 
         <Transition
@@ -173,7 +270,8 @@ const EditarEmpleadoModal = ({
                             style={{
                                 backgroundColor: 'white',
                                 margin: window.screen.height * 0.025,
-                                width: window.screen.width * 0.577
+                                borderRadius: 6
+                                //width: window.screen.width * 0.577
                             }}
                         >
 
@@ -217,8 +315,9 @@ const EditarEmpleadoModal = ({
                                         to="/empleados/historial"
                                         state={{ data: historialData }}
                                         style={{
-                                            width: window.screen.width * 0.1,
-                                            height: window.screen.height * 0.05,
+                                            width: '139px',
+                                            height: '38px',
+                                            flexShrink: 0,
                                             marginLeft: window.screen.width * 0.005,
                                             backgroundColor: '#bf5cf3',
                                             padding: 5,
@@ -296,7 +395,10 @@ const EditarEmpleadoModal = ({
                                                 }}
                                             > Cedula de identidad</label>
                                             <input
-                                                //onChange={(e) => setCedula(e.target.value)}
+                                                //disabled={true}
+                                                name={'identification_number'}
+                                                onChange={handleEditarEmpleado}
+                                                value={nuevoEmpleado.identification_number}
                                                 placeholder="Ingresar número de cédula"
                                                 className="form-input"
                                                 style={{
@@ -325,7 +427,9 @@ const EditarEmpleadoModal = ({
                                                 }}
                                             > Nombres </label>
                                             <input
-                                                //onChange={(e) => setNombre(e.target.value)}
+                                                name='name'
+                                                onChange={handleEditarEmpleado}
+                                                value={nuevoEmpleado.name}
                                                 placeholder="Ingresar nombres completos"
                                                 className="form-input"
                                                 style={{
@@ -357,7 +461,9 @@ const EditarEmpleadoModal = ({
                                                 }}
                                             > Apellidos </label>
                                             <input
-                                                //onChange={(e) => setApellido(e.target.value)}
+                                                name='lastname'
+                                                onChange={handleEditarEmpleado}
+                                                value={nuevoEmpleado.lastname}
                                                 placeholder="Ingresar dos apellidos"
                                                 className="form-input"
                                                 style={{
@@ -405,7 +511,9 @@ const EditarEmpleadoModal = ({
                                                 dateAdapter={AdapterDayjs}
                                             >
                                                 <DatePicker
-                                                    //onChange={(newValue) => setFechaNac(newValue)}
+                                                    name='date_of_birth'
+                                                    value={dayjs(nuevoEmpleado.date_of_birth) || null}
+                                                    onChange={handleEditarEmpleado}
                                                     slotProps={{
                                                         textField: {
                                                             placeholder: 'Fecha',
@@ -481,7 +589,9 @@ const EditarEmpleadoModal = ({
                                                 }}
                                             > Nivel educativo </label>
                                             <input
-                                                onChange={(e) =>{}}
+                                                name={'level_education'}
+                                                value={nuevoEmpleado.level_education}
+                                                onChange={handleEditarEmpleado}
                                                 placeholder="Ingresar nivel educativo"
                                                 className="form-input"
                                                 style={{
@@ -542,6 +652,9 @@ const EditarEmpleadoModal = ({
                                             > Correo Electrónico </label>
                                             <input
                                                 //onChange={}
+                                                name={'email'}
+                                                value={nuevoEmpleado.email}
+                                                onChange={handleEditarEmpleado}
                                                 placeholder="Ingresar correo electronico"
                                                 className="form-input"
                                                 style={{
@@ -574,6 +687,9 @@ const EditarEmpleadoModal = ({
                                             > Teléfono Móvil </label>
                                             <input
                                                 //onChange={}
+                                                name={'phoneMovil'}
+                                                value={nuevoEmpleado.phoneMovil}
+                                                onChange={handleEditarEmpleado}
                                                 placeholder="Ingresar numero de celular"
                                                 className="form-input"
                                                 style={{
@@ -606,6 +722,10 @@ const EditarEmpleadoModal = ({
                                             > Teléfono Fijo </label>
                                             <input
                                                 //onChange={()={}}
+                                                //disabled={true}
+                                                name={'phoneFijo'}
+                                                value={nuevoEmpleado.phoneFijo}
+                                                onChange={handleEditarEmpleado}
                                                 placeholder="Ingresar numero de teléfono"
                                                 className="form-input"
                                                 style={{
@@ -658,9 +778,12 @@ const EditarEmpleadoModal = ({
                                             }}
                                         >
 
-
                                             <input
                                                 //onChange={(e) => setProvincia(e.target.value)}
+                                                //disabled={true}
+                                                value={nuevoEmpleado.provincia}
+                                                name={'provincia'}
+                                                onChange={handleEditarEmpleado}
                                                 placeholder="Provincia"
                                                 className="form-input"
                                                 style={{
@@ -681,6 +804,10 @@ const EditarEmpleadoModal = ({
 
                                             <input
                                                 //onChange={(e) => setCiudad(e.target.value)}
+                                                //disabled={true}
+                                                name={'ciudad'}
+                                                value={nuevoEmpleado.ciudad}
+                                                onChange={handleEditarEmpleado}
                                                 placeholder="Ciudad"
                                                 className="form-input"
                                                 style={{
@@ -719,6 +846,9 @@ const EditarEmpleadoModal = ({
 
                                             <input
                                                 //onChange={(e) => setDireccionPrincipal(e.target.value)}
+                                                name={'address'}
+                                                value={nuevoEmpleado.address}
+                                                onChange={handleEditarEmpleado}
                                                 placeholder="Ingresar direccion principal"
                                                 className="form-input"
                                                 style={{
@@ -739,6 +869,8 @@ const EditarEmpleadoModal = ({
 
                                             <input
                                                 //onChange={(e) => setNumero(e.target.value)}
+                                                disabled={true}
+                                                //value={}
                                                 placeholder="Número"
                                                 className="form-input"
                                                 style={{
@@ -759,8 +891,11 @@ const EditarEmpleadoModal = ({
 
                                             <input
                                                 //onChange={(e) => setDireccionSecundaria(e.target.value)}
+                                                onChange={handleEditarEmpleado}
+                                                name={'address_secondary'}
                                                 placeholder="Ingresar dirección transversal"
                                                 className="form-input"
+                                                value={nuevoEmpleado.address_secondary}
                                                 style={{
                                                     width: '222px',
                                                     height: '38px',
@@ -819,6 +954,10 @@ const EditarEmpleadoModal = ({
                                                 > Código de Empresa </label>
                                                 <input
                                                     //onChange={(e) => setCodigoEmpresa(e.target.value)}
+                                                    //disabled={true}
+                                                    name={'company_code'}
+                                                    onChange={handleEditarEmpleado}
+                                                    value={nuevoEmpleado.company_code}
                                                     placeholder="Código de Empresa"
                                                     className="form-input"
                                                     style={{
@@ -855,6 +994,8 @@ const EditarEmpleadoModal = ({
                                                 >
                                                     <DatePicker
                                                         //onChange={(newValue) => setFechaIngreso(newValue)}
+                                                        value={dayjs(nuevoEmpleado.registration_date)}
+                                                        name={'registration_date'}
                                                         slotProps={{
                                                             textField: {
                                                                 placeholder: 'Fecha',
@@ -931,6 +1072,9 @@ const EditarEmpleadoModal = ({
                                                 > Cargo </label>
                                                 <input
                                                     //onChange={(e) => setCargo(e.target.value)}
+                                                    value={nuevoEmpleado.job_title}
+                                                    name={'job_title'}
+                                                    onChange={handleEditarEmpleado}
                                                     placeholder="Ingresar cargo"
                                                     className="form-input"
                                                     style={{
@@ -976,6 +1120,9 @@ const EditarEmpleadoModal = ({
                                                 > Sueldo Bruto </label>
                                                 <input
                                                     //onChange={(e) => setSueldoBruto(e.target.value)}
+                                                    value={nuevoEmpleado.gross_salary}
+                                                    onChange={handleEditarEmpleado}
+                                                    name={'gross_salary'}
                                                     placeholder="Ingresar valor"
                                                     className="form-input"
                                                     style={{
@@ -1010,7 +1157,10 @@ const EditarEmpleadoModal = ({
                                                 </label>
                                                 <input
                                                     //onChange={(e) => setSueldoNeto(e.target.value)}
+                                                    value={nuevoEmpleado.net_salary}
+                                                    onChange={handleEditarEmpleado}
                                                     placeholder="Ingresar valor"
+                                                    name={'net_salary'}
                                                     className="form-input"
                                                     style={{
                                                         width: '222px',
@@ -1043,6 +1193,9 @@ const EditarEmpleadoModal = ({
                                                 > Otros ingresos </label>
                                                 <input
                                                     //onChange={(e) => setOtrosIngresos(e.target.value)}
+                                                    value={nuevoEmpleado.other_income}
+                                                    name={'other_income'}
+                                                    onChange={handleEditarEmpleado}
                                                     placeholder="Ingresar valor"
                                                     className="form-input"
                                                     style={{
@@ -1088,6 +1241,9 @@ const EditarEmpleadoModal = ({
                                                 > Observaciones </label>
                                                 <textarea
                                                     //onChange={(e) => setObservaciones(e.target.value)}
+                                                    name={'observations'}
+                                                    value={nuevoEmpleado.observations}
+                                                    onChange={handleEditarEmpleado}
                                                     placeholder="Ingresar observaciones"
                                                     className="form-input"
                                                     style={{
@@ -1117,8 +1273,9 @@ const EditarEmpleadoModal = ({
                                             }}
                                             type="button"
                                             style={{
-                                                width: window.screen.width * 0.067,
-                                                height: window.screen.height * 0.05,
+                                                width: '103px',
+                                                height: '38px',
+                                                flexShrink: 0,
                                                 marginLeft: window.screen.width * 0.005,
                                                 backgroundColor: '#bf5cf3',
                                                 padding: 5,
@@ -1135,28 +1292,50 @@ const EditarEmpleadoModal = ({
                                     :
 
                                     <div className="flex justify-center items-center mt-2 mb-10">
-
                                         <button
                                             onClick={() => {
                                                 setOpenModalEdit(!openModalEdit)
                                                 setHideButton(!hideButton)
-                                            }}
-                                            type="button"
-                                            className="btn btn-outline-danger"
-                                        >
-                                            Cancelar
-                                        </button>
-                                        <button
-                                            onClick={() => {
-
-                                                setHideButton(!hideButton)
-                                                setOpenMessage(!openMessage)
-                                                setOpenModalEdit(!openModalEdit)
                                             }}
                                             type="button"
                                             style={{
-                                                width: window.screen.width * 0.067,
-                                                height: window.screen.height * 0.05,
+                                                width: '85px',
+                                                height: '38px',
+                                                flexShrink: 0,
+                                                borderRadius: '6px',
+                                                border: '1px solid #E7515A',
+                                                background: '#FFFFFF',
+                                                color: '#E7515A',
+                                                fontFamily: 'Maven Pro',
+                                                fontSize: 14,
+                                                fontStyle: 'normal',
+                                                fontWeight: 400,
+                                                lineHeight: 'normal'
+                                            }}
+                                        >
+                                            Cancelar
+                                        </button>
+
+                                        <button
+                                            onClick={() => {
+
+                                                update_empleados(nuevoEmpleado)
+                                                    .then((res) => {
+                                                        accionDatos()
+                                                        setHideButton(!hideButton)
+                                                        setOpenMessage(!openMessage)
+                                                        setOpenModalEdit(!openModalEdit)
+                                                    })
+                                                    .catch((err) => {
+                                                        console.log("Error de la API: ", err)
+                                                    })
+
+                                            }}
+                                            type="button"
+                                            style={{
+                                                width: '103px',
+                                                height: '38px',
+                                                flexShrink: 0,
                                                 marginLeft: window.screen.width * 0.005,
                                                 backgroundColor: '#bf5cf3',
                                                 padding: 5,
@@ -1178,7 +1357,6 @@ const EditarEmpleadoModal = ({
                     </div>
                 </div>
             </Dialog>
-
 
         </Transition>
 

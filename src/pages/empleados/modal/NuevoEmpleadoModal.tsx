@@ -97,7 +97,8 @@ const NuevoEmpleadoModal = (
                             style={{
                                 backgroundColor: 'white',
                                 margin: window.screen.height * 0.025,
-                                width: '778px'
+                                width: '778px',
+                                borderRadius: 6
 
                             }}
                         >
@@ -890,7 +891,7 @@ const NuevoEmpleadoModal = (
                                                         fontFamily: 'Maven Pro',
                                                         marginTop: 15
                                                     }}
-                                                > Sueldo Neto 
+                                                > Sueldo Neto
                                                 </label>
                                                 <input
                                                     onChange={(e) => setSueldoNeto(e.target.value)}
@@ -1015,52 +1016,52 @@ const NuevoEmpleadoModal = (
                                     <button
                                         onClick={() => {
 
-                                            // const data = {
-                                            //     "identification_number": cedula,
-                                            //     "name": nombre,
-                                            //     "lastname": apellido,
-                                            //     "address": direccionPrincipal,
-                                            //     "date_of_birth": editDate(fechaNac),
-                                            //     "level_education": nivelEducativo,
-                                            //     "email": email,
-                                            //     "phoneMovil": phone,
-                                            //     "phoneFijo": number,
-                                            //     "provincia": provincia,
-                                            //     "ciudad": ciudad,
-                                            //     "street_primary": direccionSecundaria,
-                                            //     "address_secondary": direccionSecundaria,
-                                            //     "company_code": codigoEmpresa,
-                                            //     "job_title": cargo,
-                                            //     "gross_salary": sueldoBruto,
-                                            //     "net_salary": sueldoNeto,
-                                            //     "other_income": otrosIngresos,
-                                            //     "observations": observaciones,
-                                            //     "status": 'active'
-                                            // }
-
-                                            
                                             const data = {
-                                                "identification_number": "1003836721",
-                                                "name": "Juan",
-                                                "lastname": "Pérez",
-                                                "address": "Calle 123, Edificio A, Quito",
-                                                "date_of_birth": "1985-06-15",
-                                                "level_education": "Universitario",
-                                                "email": "juan.perez99999@example.com",
-                                                "phoneMovil": "0987654321",
-                                                "phoneFijo": "022345678",
-                                                "provincia": "Pichincha",
-                                                "ciudad": "Quito",
-                                                "street_primary": "Calle Principal",
-                                                "address_secondary": "Calle Secundaria",
-                                                "company_code": "EMP1211111222",
-                                                "job_title": "Ingeniero de Software",
-                                                "gross_salary": 3000,
-                                                "net_salary": 2400,
-                                                "other_income": 200,
-                                                "observations": "Empleado destacado en proyectos de desarrollo.",
-                                                "status": "active"
+                                                "identification_number": cedula,
+                                                "name": nombre,
+                                                "lastname": apellido,
+                                                "address": direccionPrincipal,
+                                                "date_of_birth": editDate(fechaNac),
+                                                "level_education": nivelEducativo,
+                                                "email": email,
+                                                "phoneMovil": phone,
+                                                "phoneFijo": number,
+                                                "provincia": provincia,
+                                                "ciudad": ciudad,
+                                                "street_primary": direccionSecundaria,
+                                                "address_secondary": direccionSecundaria,
+                                                "company_code": codigoEmpresa,
+                                                "job_title": cargo,
+                                                "gross_salary": sueldoBruto,
+                                                "net_salary": sueldoNeto,
+                                                "other_income": otrosIngresos,
+                                                "observations": observaciones,
+                                                "status": 'active'
                                             }
+
+
+                                            // const data = {
+                                            //     "identification_number": "1003836721",
+                                            //     "name": "Juan",
+                                            //     "lastname": "Pérez",
+                                            //     "address": "Calle 123, Edificio A, Quito",
+                                            //     "date_of_birth": "1985-06-15",
+                                            //     "level_education": "Universitario",
+                                            //     "email": "juan.perez99999@example.com",
+                                            //     "phoneMovil": "0987654321",
+                                            //     "phoneFijo": "022345678",
+                                            //     "provincia": "Pichincha",
+                                            //     "ciudad": "Quito",
+                                            //     "street_primary": "Calle Principal",
+                                            //     "address_secondary": "Calle Secundaria",
+                                            //     "company_code": "EMP1211111222",
+                                            //     "job_title": "Ingeniero de Software",
+                                            //     "gross_salary": 3000,
+                                            //     "net_salary": 2400,
+                                            //     "other_income": 200,
+                                            //     "observations": "Empleado destacado en proyectos de desarrollo.",
+                                            //     "status": "active"
+                                            // }
 
                                             handleCreateEmpleado(data)
 
@@ -1073,7 +1074,7 @@ const NuevoEmpleadoModal = (
                                             marginLeft: window.screen.width * 0.005,
                                             backgroundColor: '#bf5cf3',
                                             padding: 5,
-                                            borderRadius: 5,
+                                            borderRadius: 10,
                                             color: 'white',
                                             fontSize: 14,
                                             fontFamily: 'Maven Pro',

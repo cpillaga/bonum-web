@@ -553,7 +553,7 @@ const DetallesAnticiposModal = (
                                             }}
                                         >
                                             {stateModal === true ?
-                                                <p>Detalles del Pago:</p> : <p>Observaciones:</p>
+                                                <p>Detalles del Desembolso:</p> : <p>Observaciones:</p>
                                             }
 
                                         </div>

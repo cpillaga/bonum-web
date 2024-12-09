@@ -13,6 +13,7 @@ import IconTrash from '../../../components/Icon/IconTrash';
 import IconEye from '../../../components/Icon/IconEye';
 import { delete_empleados } from '../../../server/empleados/EmpleadosApi';
 import { AccionContext } from '../../../contexts/AccionesContext';
+import EditarEmpleadoModal from '../modal/EditarEmpleadoModal';
 
 const EmpleadosTable = ({
     rowData,
@@ -38,7 +39,11 @@ const EmpleadosTable = ({
     setHideCols,
     PAGE_SIZES,
     openModalEdit,
-    setOpenModalEdit
+    setOpenModalEdit,
+    hideButton,
+    setHideButton,
+    openMessage,
+    setOpenMessage
 }: {
     rowData: any[];
     isChecked: boolean;
@@ -61,9 +66,13 @@ const EmpleadosTable = ({
     setSearchData: React.Dispatch<React.SetStateAction<boolean>>;
     setSortStatus: React.Dispatch<React.SetStateAction<DataTableSortStatus>>;
     setHideCols: React.Dispatch<React.SetStateAction<any>>;
-    PAGE_SIZES: any[],
+    PAGE_SIZES: any[];
     openModalEdit: boolean;
     setOpenModalEdit: React.Dispatch<React.SetStateAction<boolean>>;
+    hideButton: boolean;
+    setHideButton: React.Dispatch<React.SetStateAction<boolean>>;
+    openMessage: boolean;
+    setOpenMessage: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
 
     useEffect(() => {
@@ -71,6 +80,7 @@ const EmpleadosTable = ({
     }, [])
 
     const { accionDatos } = useContext(AccionContext);
+    const [idEmpleado, setIdEmpleado] = useState(0)
 
     const handleDelete = (id: any) => {
         delete_empleados(id)
@@ -122,7 +132,7 @@ const EmpleadosTable = ({
                         }}
                     >
                         <TableRow>
-                            
+
                             <TableCell
                                 align='left'
                                 sx={{
@@ -134,7 +144,7 @@ const EmpleadosTable = ({
                                     lineHeight: 'normal'
                                 }}
                             >
-                                <p> Código </p>
+                                <p> Identificación </p>
                             </TableCell>
                             <TableCell
                                 align='left'
@@ -222,7 +232,7 @@ const EmpleadosTable = ({
                             <>
                                 {rowData.map((row, index) => (
                                     <TableRow key={row.identification_number} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                                      
+
                                         <TableCell
                                             align='left'
                                             sx={{
@@ -326,8 +336,8 @@ const EmpleadosTable = ({
                                                     alignItems: 'center',
                                                 }}
                                             >
-                                                <p style={{ paddingBottom: 2 }}> 
-                                                    {row.status === 'active' ? 'Activo' : 'Inactivo'} 
+                                                <p style={{ paddingBottom: 2 }}>
+                                                    {row.status === 'active' ? 'Activo' : 'Inactivo'}
                                                 </p>
 
                                             </div>
@@ -349,6 +359,7 @@ const EmpleadosTable = ({
                                                     marginTop: window.screen.height * 0.009
                                                 }}
                                                 onClick={() => {
+                                                    setIdEmpleado(row._id)
                                                     setOpenModalEdit(!openModalEdit)
                                                 }}
                                             >
@@ -365,7 +376,6 @@ const EmpleadosTable = ({
                                                     marginLeft: window.screen.width * 0.02
                                                 }}
                                                 onClick={() => {
-                                                    console.log(`Delete: ${row._id}`)
                                                     handleDelete(row._id)
                                                 }}
                                             >
@@ -548,6 +558,17 @@ const EmpleadosTable = ({
                     </button>
                 </div>
             </div>
+
+            <EditarEmpleadoModal
+                idEmpleado={idEmpleado}
+                openModalEdit={openModalEdit}
+                setOpenModalEdit={setOpenModalEdit}
+                hideButton={hideButton}
+                setHideButton={setHideButton}
+                openMessage={openMessage}
+                setOpenMessage={setOpenMessage}
+            />
+
         </div >
 
     )

@@ -418,7 +418,7 @@ const TablePagosMain = ({
                                         lineHeight: 'normal'
                                     }}
                                 >
-                                    <p> ID Anticipo </p>
+                                    <p> ID Pago </p>
                                 </TableCell>
 
                                 <TableCell
@@ -448,7 +448,7 @@ const TablePagosMain = ({
                                         lineHeight: 'normal'
                                     }}
                                 >
-                                    <p> Fecha Anticipo </p>
+                                    <p> Fecha Pago </p>
                                 </TableCell>
                                 
                                 <TableCell
